@@ -317,4 +317,102 @@
             <cite>— Roberto M., Diretor Industrial em Araucária/PR</cite>
           </div>
 
-          <!-- Depoimento 2: Esco
+          <!-- Depoimento 2: Escola -->
+          <div class="testimonial-slide">
+            <blockquote>
+              "Precisávamos controlar o acesso à internet dos alunos e melhorar o Wi-Fi. A solução com pfSense foi implantada em um final de semana e funciona perfeitamente, sem custos mensais em dólar."
+            </blockquote>
+            <cite>— Ana Paula, Diretora Pedagógica (Escola Particular)</cite>
+          </div>
+
+          <!-- Depoimento 3: Advocacia -->
+          <div class="testimonial-slide">
+            <blockquote>
+              "O suporte remoto da equipe é sensacional. Configuraram a VPN para nossos advogados trabalharem de casa com segurança total. Recomendo para qualquer escritório."
+            </blockquote>
+            <cite>— Dr. Carlos S., Sócio de Escritório de Advocacia</cite>
+          </div>
+
+        </div>
+        
+        <!-- Dots de navegação -->
+        <div class="testimonial-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contato" class="section cta-section" style="text-align: center; background: #fff; border-top: 1px solid #ddd;">
+      <div class="container">
+        <h2>Pronto para economizar?</h2>
+        <p>Diagnóstico gratuito para empresas de Curitiba e Região Metropolitana.</p>
+        <br>
+        <a class="btn-outline" href="https://wa.me/5541999999999" style="font-size: 1.2rem; background: #25D366; border-color: #25D366; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+          <i class="fab fa-whatsapp"></i> Falar no WhatsApp (41) 99999-9999
+        </a>
+        <br><br>
+        <p class="small">Ou envie e-mail para contato@suportedelivery.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2026 SuporteDelivery — Soluções em TI • <a href="#">Política de Privacidade</a></div>
+    </div>
+  </footer>
+
+  <!-- Scripts para os Carrosseis -->
+  <script>
+    /* --- Script Hero Background Slideshow --- */
+    let heroIndex = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    
+    function rotateHero() {
+      // Remove active class from current
+      heroSlides[heroIndex].classList.remove('active');
+      // Increment index
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      // Add active class to new
+      heroSlides[heroIndex].classList.add('active');
+    }
+    // Muda a imagem de fundo a cada 5 segundos
+    setInterval(rotateHero, 5000);
+
+    /* --- Script Testimonials Carousel --- */
+    let testIndex = 1;
+    showSlides(testIndex);
+
+    // Auto rotate testimonials
+    setInterval(function(){
+       showSlides(testIndex += 1); 
+    }, 7000);
+
+    function currentSlide(n) {
+      showSlides(testIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("testimonial-slide");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {testIndex = 1}    
+      if (n < 1) {testIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+        slides[i].classList.remove("active");
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[testIndex-1].style.display = "block";  
+      setTimeout(() => slides[testIndex-1].classList.add("active"), 10); // pequeno delay para animação CSS
+      dots[testIndex-1].className += " active";
+    }
+  </script>
+
+</body>
+</html>

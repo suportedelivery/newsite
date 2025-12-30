@@ -3,288 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suporte Delivery | Gestão de TI Especializada em Curitiba</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Suporte Delivery | Gestão de TI Curitiba</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --brand-blue: #003399;
-            --brand-yellow: #FBBC05;
-            --brand-green: #34A853;
-            --brand-red: #EA4335;
-        }
-        .text-brand-blue { color: var(--brand-blue); }
+        :root { --brand-blue: #003399; --brand-yellow: #FBBC05; --brand-green: #34A853; --brand-red: #EA4335; }
         .bg-brand-blue { background-color: var(--brand-blue); }
-        .border-brand-blue { border-color: var(--brand-blue); }
+        .text-brand-blue { color: var(--brand-blue); }
         
-        /* Carrossel Corrigido e Suave */
-        .carousel-container { position: relative; height: 500px; overflow: hidden; background: #000; }
-        .slide { 
-            position: absolute; inset: 0; opacity: 0; 
-            transition: opacity 1s ease-in-out; 
-            display: flex; align-items: center; 
-        }
-        .slide.active { opacity: 1; z-index: 10; }
-        .slide-img { 
-            position: absolute; inset: 0; width: 100%; height: 100%; 
-            object-fit: cover; filter: brightness(0.5); 
-        }
+        /* Carrossel Failsafe */
+        .slide { display: none; animation: fade 1.5s; }
+        .slide.active { display: block; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
 
-        /* Modal Interativo */
-        .modal { 
-            display: none; position: fixed; z-index: 9999; inset: 0; 
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); 
-        }
-        .modal-content { 
-            background: white; margin: 5% auto; padding: 2rem; 
-            border-radius: 1rem; width: 90%; max-width: 650px; 
-            position: relative; animation: slideUp 0.3s ease-out;
-        }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal { display: none; position: fixed; z-index: 9999; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-content { background: white; margin: 10% auto; padding: 2rem; border-radius: 1rem; width: 90%; max-width: 600px; position: relative; }
     </style>
 </head>
-<body class="font-sans text-slate-800 bg-white scroll-smooth">
+<body class="bg-white font-sans text-slate-800">
 
-    <!-- Header / Navbar -->
-    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-[100] border-b border-slate-100">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#"><img src="logo.png" alt="Suporte Delivery" class="h-12 md:h-14"></a>
-            <div class="hidden md:flex space-x-10 font-bold items-center text-slate-600">
-                <a href="#servicos" class="hover:text-brand-blue transition">Serviços</a>
-                <a href="#expert" class="hover:text-brand-blue transition">Nossa Tecnologia</a>
-                <a href="#planos" class="hover:text-brand-blue transition">Planos</a>
-                <a href="https://wa.me/554137983434" target="_blank" class="bg-brand-blue text-white px-6 py-2.5 rounded-full flex items-center shadow-lg hover:bg-blue-800 transition transform hover:scale-105">
-                    <i class="fab fa-whatsapp mr-2 text-xl"></i> (41) 3798-3434
+    <!-- Nav -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 py-3">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <img src="logo.png" alt="Suporte Delivery" class="h-12">
+            <div class="hidden md:flex space-x-8 font-bold text-slate-600">
+                <a href="#servicos" class="hover:text-brand-blue">Serviços</a>
+                <a href="#tecnologias" class="hover:text-brand-blue">Tecnologias</a>
+                <a href="https://wa.me/554137983434" target="_blank" class="bg-brand-blue text-white px-5 py-2 rounded-full shadow-lg hover:scale-105 transition flex items-center">
+                    <i class="fab fa-whatsapp mr-2"></i> (41) 3798-3434
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Carrossel com Imagens Profissionais) -->
-    <section class="carousel-container">
-        <!-- Slide 1: Foco em Negócios -->
-        <div class="slide active">
-            <img class="slide-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600" alt="Escritório Moderno">
-            <div class="container mx-auto px-6 relative text-white z-20">
-                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Gestão de TI que <br><span class="text-brand-yellow">impulsiona seu negócio.</span></h1>
-                <p class="text-xl max-w-2xl mb-10 text-slate-100 italic">Contratos de suporte sob medida para empresas de Curitiba que buscam estabilidade e economia real.</p>
-                <div class="flex gap-4">
-                    <a href="https://wa.me/554137983434" class="bg-brand-blue px-8 py-4 rounded-xl font-bold text-lg shadow-xl">Falar com Consultor</a>
-                </div>
+    <!-- Hero Carrossel -->
+    <div class="relative h-[450px] md:h-[550px] bg-slate-900 overflow-hidden">
+        <div class="slide active relative h-full">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center relative z-10 text-white">
+                <h1 class="text-4xl md:text-6xl font-black mb-4">Gestão de TI para <br><span class="text-brand-yellow">Empresas em Curitiba.</span></h1>
+                <p class="text-xl max-w-2xl mb-8 italic">Contratos de suporte que garantem paz de espírito e redução de custos reais.</p>
+                <a href="https://wa.me/554137983434" class="bg-brand-blue w-fit px-8 py-4 rounded-xl font-bold shadow-xl">Solicitar Orçamento Gratuito</a>
             </div>
         </div>
-        <!-- Slide 2: Foco em Infraestrutura -->
-        <div class="slide">
-            <img class="slide-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=1600" alt="Servidores de Dados">
-            <div class="container mx-auto px-6 relative text-white z-20">
-                <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Infraestrutura <span class="text-brand-green">Open Source</span><br>de Classe Mundial.</h2>
-                <p class="text-xl max-w-2xl mb-10 text-slate-100">Virtualização Proxmox e Segurança pfSense. O máximo de performance com custo zero de licença.</p>
+        <div class="slide relative h-full">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center relative z-10 text-white">
+                <h2 class="text-4xl md:text-6xl font-black mb-4 italic">Infraestrutura <br><span class="text-brand-green">Open Source Profissional.</span></h2>
+                <p class="text-xl max-w-2xl mb-8">Especialistas em Proxmox e pfSense. Tecnologia de ponta sem custos de licenciamento.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Seção de Benefícios (Inspirada no modelo agradável) -->
+    <!-- Serviços (Foco em Contratos) -->
     <section id="servicos" class="py-20 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4">Por que a Suporte Delivery?</h2>
-                <div class="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900">Soluções em TI</h2>
+                <p class="text-slate-500 mt-4 italic">Foco total em continuidade e previsibilidade para seu negócio.</p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
-                        <i class="fas fa-hand-holding-dollar"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 italic">Redução de Custos</h3>
-                    <p class="text-slate-600 leading-relaxed italic text-sm">Eliminamos as taxas anuais de VMware e Microsoft através de soluções Open Source robustas, revertendo esse valor em melhorias para sua empresa.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <i class="fas fa-file-contract text-brand-blue text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 italic">Contratos de Suporte</h3>
+                    <p class="text-slate-600 text-sm italic">Gestão completa da sua TI com mensalidade fixa. Suporte remoto ilimitado e presencial em Curitiba.</p>
                 </div>
-
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-green-50 text-brand-green rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-green group-hover:text-white transition">
-                        <i class="fas fa-shield-heart"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 italic">Paz de Espírito</h3>
-                    <p class="text-slate-600 leading-relaxed italic text-sm">Monitoramento proativo 24/7. Nós identificamos e corrigimos falhas antes mesmo que você perceba, garantindo 99.9% de uptime.</p>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <i class="fas fa-shield-virus text-brand-green text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 italic">Segurança & Backup</h3>
+                    <p class="text-slate-600 text-sm italic">Proteção contra invasões e Ransomware com pfSense e Proxmox Backup Server.</p>
                 </div>
-
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-yellow-50 text-brand-yellow rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-yellow group-hover:text-white transition">
-                        <i class="fas fa-map-location-dot"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 italic">Atendimento Local</h3>
-                    <p class="text-slate-600 leading-relaxed italic text-sm">Presença física em Curitiba e Região Metropolitana. Quando o suporte remoto não basta, nossos técnicos estão na sua porta rapidamente.</p>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <i class="fas fa-server text-brand-red text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 italic">Virtualização</h3>
+                    <p class="text-slate-600 text-sm italic">Migração de ambientes físicos ou VMware para Proxmox VE com alta disponibilidade.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Técnica: O Motor (Expertise) -->
-    <section id="expert" class="py-24 bg-white">
+    <!-- Tecnologias (O Diferencial Técnico) -->
+    <section id="tecnologias" class="py-20">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 italic">Expertise Técnica: <br><span class="text-brand-blue">O Diferencial do nosso Suporte.</span></h2>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed italic">
-                        Não somos apenas um suporte que "formata máquinas". Somos especialistas em infraestrutura de alta complexidade. Utilizamos o <strong>Ecossistema Open Source</strong> para entregar segurança de nível bancário e virtualização de alto desempenho para pequenas e médias empresas.
-                    </p>
+                    <h2 class="text-4xl font-black mb-6 italic">Por que usar <span class="text-brand-blue">Open Source?</span></h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed italic">Ao eliminar licenças de VMware e Microsoft, você reverte esse capital para o que importa: **melhorar seu hardware e investir no suporte**. Nosso motor técnico é baseado no trio de ouro da TI moderna:</p>
                     <div class="space-y-4">
-                        <button onclick="openModal('modal-pfsense')" class="w-full text-left p-5 border-l-4 border-brand-blue bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition rounded-r-xl">
-                            <span class="font-bold"><i class="fas fa-shield-alt mr-3 text-brand-blue"></i>Segurança com pfSense</span>
-                            <span class="text-brand-blue text-xs font-bold uppercase">Ver Comparativo <i class="fas fa-chevron-right ml-1"></i></span>
-                        </button>
-                        <button onclick="openModal('modal-proxmox')" class="w-full text-left p-5 border-l-4 border-brand-red bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition rounded-r-xl">
-                            <span class="font-bold"><i class="fas fa-server mr-3 text-brand-red"></i>Virtualização com Proxmox VE</span>
-                            <span class="text-brand-red text-xs font-bold uppercase">Ver Comparativo <i class="fas fa-chevron-right ml-1"></i></span>
-                        </button>
-                        <button onclick="openModal('modal-pbs')" class="w-full text-left p-5 border-l-4 border-brand-green bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition rounded-r-xl">
-                            <span class="font-bold"><i class="fas fa-database mr-3 text-brand-green"></i>Backup Server (PBS)</span>
-                            <span class="text-brand-green text-xs font-bold uppercase">Ver Comparativo <i class="fas fa-chevron-right ml-1"></i></span>
-                        </button>
+                        <div onclick="openM('m-prox')" class="p-4 border-l-4 border-brand-red bg-slate-50 cursor-pointer flex justify-between font-bold">Proxmox VE <span>Saiba Mais +</span></div>
+                        <div onclick="openM('m-pfs')" class="p-4 border-l-4 border-brand-blue bg-slate-50 cursor-pointer flex justify-between font-bold">pfSense <span>Saiba Mais +</span></div>
+                        <div onclick="openM('m-pbs')" class="p-4 border-l-4 border-brand-green bg-slate-50 cursor-pointer flex justify-between font-bold">Proxmox Backup Server <span>Saiba Mais +</span></div>
                     </div>
                 </div>
-                <div class="md:w-1/2 relative">
-                    <div class="absolute -inset-4 bg-brand-blue/10 blur-3xl rounded-full"></div>
-                    <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=800" class="relative rounded-[2rem] shadow-2xl border-4 border-white" alt="Suporte Técnico">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=800" class="rounded-[2.5rem] shadow-2xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modais de Comparativo (Interativos) -->
-    <div id="modal-pfsense" class="modal">
-        <div class="modal-content">
-            <button onclick="closeModal('modal-pfsense')" class="absolute top-4 right-6 text-3xl">&times;</button>
-            <h3 class="text-2xl font-black text-brand-blue mb-6 italic uppercase tracking-tight">pfSense vs Firewalls Tradicionais</h3>
-            <table class="w-full border-collapse">
-                <tr class="bg-slate-100 italic text-sm">
-                    <th class="p-4 border text-left">Recurso</th>
-                    <th class="p-4 border">Fortinet/Cisco</th>
-                    <th class="p-4 border text-brand-blue font-bold">pfSense</th>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Custo Licenciamento</td>
-                    <td class="p-4 border text-red-500">Alto (Anual)</td>
-                    <td class="p-4 border text-brand-green font-bold">ZERO</td>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Taxa por Usuário/VPN</td>
-                    <td class="p-4 border text-red-500">Sim</td>
-                    <td class="p-4 border text-brand-green font-bold">Ilimitado</td>
-                </tr>
-            </table>
-            <p class="mt-6 text-slate-500 text-sm italic">* O valor economizado em licenças pode ser investido diretamente no seu suporte mensal.</p>
-        </div>
-    </div>
+    <!-- Modais -->
+    <div id="m-prox" class="modal"><div class="modal-content"><button onclick="closeM('m-prox')" class="absolute top-4 right-4 text-2xl font-bold">&times;</button><h3 class="text-xl font-bold mb-4 text-brand-red uppercase italic">Proxmox VE vs VMware</h3><p class="text-sm leading-relaxed italic">Enquanto o VMware cobra licenças por CPU e memória, o Proxmox entrega alta disponibilidade e clustering de forma livre. Economia de até 70% no custo total da infraestrutura.</p></div></div>
+    <div id="m-pfs" class="modal"><div class="modal-content"><button onclick="closeM('m-pfs')" class="absolute top-4 right-4 text-2xl font-bold">&times;</button><h3 class="text-xl font-bold mb-4 text-brand-blue uppercase italic">pfSense vs Firewalls Pagos</h3><p class="text-sm leading-relaxed italic">Sem taxas por usuário ou por VPN. O pfSense é o firewall mais respeitado do mundo, garantindo segurança total sem contratos de renovação abusivos.</p></div></div>
+    <div id="m-pbs" class="modal"><div class="modal-content"><button onclick="closeM('m-pbs')" class="absolute top-4 right-4 text-2xl font-bold">&times;</button><h3 class="text-xl font-bold mb-4 text-brand-green uppercase italic">Proxmox Backup Server</h3><p class="text-sm leading-relaxed italic">Deduplicação e backups incrementais ultra-rápidos. Se o servidor parar, voltamos em minutos. Proteção nativa contra Ransomware.</p></div></div>
 
-    <div id="modal-proxmox" class="modal">
-        <div class="modal-content">
-            <button onclick="closeModal('modal-proxmox')" class="absolute top-4 right-6 text-3xl">&times;</button>
-            <h3 class="text-2xl font-black text-brand-red mb-6 italic uppercase tracking-tight">Proxmox VE vs VMware</h3>
-            <table class="w-full border-collapse">
-                <tr class="bg-slate-100 italic text-sm">
-                    <th class="p-4 border text-left">Recurso</th>
-                    <th class="p-4 border">VMware vSphere</th>
-                    <th class="p-4 border text-brand-red font-bold">Proxmox VE</th>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Custo por CPU/Socket</td>
-                    <td class="p-4 border text-red-500">Elevado</td>
-                    <td class="p-4 border text-brand-green font-bold">ZERO</td>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Interface de Gestão</td>
-                    <td class="p-4 border">vCenter (Pago)</td>
-                    <td class="p-4 border text-brand-green font-bold">Nativa e Livre</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div id="modal-pbs" class="modal">
-        <div class="modal-content">
-            <button onclick="closeModal('modal-pbs')" class="absolute top-4 right-6 text-3xl">&times;</button>
-            <h3 class="text-2xl font-black text-brand-green mb-6 italic uppercase tracking-tight">PBS vs Backup Tradicional</h3>
-            <table class="w-full border-collapse">
-                <tr class="bg-slate-100 italic text-sm">
-                    <th class="p-4 border text-left">Recurso</th>
-                    <th class="p-4 border">Softwares Pagos</th>
-                    <th class="p-4 border text-brand-green font-bold">Proxmox Backup Server</th>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Deduplicação Nativa</td>
-                    <td class="p-4 border">Às vezes paga</td>
-                    <td class="p-4 border text-brand-green font-bold">Inclusa</td>
-                </tr>
-                <tr class="text-sm">
-                    <td class="p-4 border font-semibold">Custo por TB/VM</td>
-                    <td class="p-4 border text-red-500">Recorrente</td>
-                    <td class="p-4 border text-brand-green font-bold">ZERO</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- Seção de Planos / Chamada Final -->
-    <section id="planos" class="py-20 bg-slate-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-8 italic">Pronto para modernizar sua TI?</h2>
-            <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto italic">Solicite um diagnóstico gratuito da sua infraestrutura. Atendemos em toda Curitiba, CIC, Batel e Região Metropolitana.</p>
-            <a href="https://wa.me/554137983434" class="inline-block bg-brand-blue text-white font-bold py-5 px-12 rounded-2xl text-xl shadow-2xl hover:bg-blue-800 transition transform hover:scale-105">
-                Quero meu Orçamento Gratuito
-            </a>
-        </div>
-    </section>
-
-    <!-- Rodapé Corrigido (Cores Originais) -->
-    <footer class="bg-slate-50 py-16 border-t border-slate-200">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="col-span-1">
-                    <img src="logo.png" alt="Suporte Delivery" class="h-12 mb-6">
-                    <p class="text-slate-500 text-sm leading-relaxed italic">Sua parceira tecnológica em Curitiba. Especialistas em Open Source para uma TI livre de licenças.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Suporte</h4>
-                    <ul class="space-y-4 text-sm font-medium text-slate-600 italic">
-                        <li><a href="https://wa.me/554137983434" class="hover:text-brand-blue"><i class="fab fa-whatsapp mr-2 text-brand-green"></i> (41) 3798-3434</a></li>
-                        <li><a href="tel:+5511970839455" class="hover:text-brand-blue"><i class="fas fa-phone mr-2 text-brand-blue"></i> (11) 97083-9455</a></li>
-                        <li><a href="mailto:contato@suportedelivery.com" class="hover:text-brand-blue"><i class="fas fa-envelope mr-2 text-brand-yellow"></i> contato@suportedelivery.com</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Onde Estamos</h4>
-                    <p class="text-slate-500 text-sm italic">Curitiba - PR<br>Atendimento presencial no CIC, Batel, Centro Cívico e Região Metropolitana.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Segurança</h4>
-                    <p class="text-xs text-slate-400 font-mono italic">Powered by Proxmox VE & pfSense</p>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-12 border-t border-slate-200">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div><img src="logo.png" alt="Suporte Delivery" class="h-10 mb-6"></div>
+            <div>
+                <h4 class="font-bold mb-6 text-slate-400 uppercase text-xs tracking-widest">Contatos</h4>
+                <ul class="space-y-4 text-sm font-bold">
+                    <li><a href="https://wa.me/554137983434" class="text-brand-blue"><i class="fab fa-whatsapp mr-2 text-brand-green"></i> (41) 3798-3434</a></li>
+                    <li><a href="tel:+5511970839455" class="text-brand-blue"><i class="fas fa-phone mr-2"></i> (11) 97083-9455</a></li>
+                    <li><a href="mailto:contato@suportedelivery.com" class="text-brand-blue"><i class="fas fa-envelope mr-2 text-brand-yellow"></i> contato@suportedelivery.com</a></li>
+                </ul>
             </div>
-            <div class="mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs italic">
-                &copy; 2025 Suporte Delivery. Todos os direitos reservados.
+            <div>
+                <h4 class="font-bold mb-6 text-slate-400 uppercase text-xs tracking-widest">Curitiba</h4>
+                <p class="text-sm italic text-slate-500">Atendimento presencial no CIC, Batel, Centro e Região Metropolitana.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts de Interatividade -->
+    <!-- Scripts -->
     <script>
-        // Lógica de Carrossel Simplificada (Imune a erros de carregamento)
-        let slideIndex = 0;
+        // Carrossel Simples
+        let sIdx = 0;
         const slides = document.querySelectorAll('.slide');
-
-        function showSlides() {
-            slides.forEach(s => s.classList.remove('active'));
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
+        function rotate() {
+            slides[sIdx].classList.remove('active');
+            sIdx = (sIdx + 1) % slides.length;
+            slides[sIdx].classList.add('active');
         }
-        setInterval(showSlides, 6000); // Muda a cada 6 segundos
+        setInterval(rotate, 5000);
 
         // Modais
-        function openModal(id) { document.getElementById(id).style.display = "block"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
-        window.onclick = function(e) { if(e.target.className === 'modal') closeModal(e.target.id); }
+        function openM(id) { document.getElementById(id).style.display = "block"; }
+        function closeM(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(e) { if(e.target.className==='modal') e.target.style.display="none"; }
     </script>
 </body>
 </html>

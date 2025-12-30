@@ -25,7 +25,11 @@
     }
 
     * { box-sizing: border-box; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--light); scroll-behavior: smooth; }
+    
+    /* Correção do Scroll para não cortar o título */
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--light); }
     
     /* Typography */
     h1, h2, h3 { color: var(--dark); margin-bottom: 1rem; font-weight: 700; }
@@ -35,9 +39,19 @@
     a { text-decoration: none; transition: 0.3s; color: inherit; }
 
     /* Layout Utilities */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    /* Aumentei para 1200px para caber os 4 cards lado a lado */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 4rem 0; }
+    
+    /* Grid Padrão */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    
+    /* Grid Específico para Serviços (4 colunas no Desktop) */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    @media(min-width: 1024px) {
+        .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     @media(max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
 
@@ -52,7 +66,7 @@
     .nav a { margin-left: 20px; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
     .nav a:hover { color: var(--primary); }
     .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1.2rem; border-radius: 5px; }
-    @media(max-width: 768px) { .nav { display: none; } } /* Menu simples some no mobile para simplificar */
+    @media(max-width: 768px) { .nav { display: none; } }
 
     /* HERO CAROUSEL */
     .hero { position: relative; height: 600px; color: #fff; overflow: hidden; display: flex; align-items: center; }
@@ -81,9 +95,14 @@
     .hero-features span { font-size: 0.9rem; opacity: 0.8; }
 
     /* Cards Servicos */
-    .card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: transform 0.2s; height: 100%; }
+    .card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: transform 0.2s; height: 100%; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-5px); }
-    .card h3 { color: var(--primary); font-size: 1.25rem; }
+    .card h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .card-content { flex-grow: 1; }
+    
+    /* Tag de Comparativo dentro do Card */
+    .comp-tag { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.85rem; color: #64748b; }
+    .comp-tag strong { color: var(--danger); }
 
     /* Feature Dark Section */
     .feature-dark { background: var(--dark); color: #fff; }
@@ -94,8 +113,8 @@
     /* Tabelas Comparativas */
     .compare-container { background: #fff; border-radius: 8px; overflow: hidden; color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; margin-bottom: 2rem; }
     .compare { width: 100%; border-collapse: collapse; }
-    .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
-    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
+    .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.90rem; }
+    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
     .col-bad { color: var(--danger); }
     .col-good { color: var(--success); font-weight: bold; background: rgba(52, 168, 83, 0.05); }
     .cost-highlight { font-weight: bold; font-size: 1.1em; }
@@ -133,6 +152,7 @@
     .footer-links a { display: block; margin-bottom: 10px; color: #cbd5e1; }
     .footer-links a:hover { color: var(--secondary); }
     .footer-contact i { width: 20px; color: var(--secondary); }
+    .footer-logo-img { height: 60px; width: auto; margin-bottom: 1rem; background: rgba(255,255,255,0.9); padding: 5px; border-radius: 4px; }
 
     /* Floating Whatsapp */
     .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s; }
@@ -172,10 +192,14 @@
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-slides">
+        <!-- Slide 1: Técnico (Servidor) -->
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 2: Escritório Corporativo -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 3: Indústria -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 4: Advocacia (NOVO - Escritório com Monitores) -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop');"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -197,41 +221,66 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    <!-- SERVIÇOS (COM COMPARATIVO INTERNO) -->
     <section id="servicos" class="container section">
       <div class="text-center" style="margin-bottom: 3rem;">
         <h2>Tecnologia Enterprise, Custo Acessível</h2>
         <p>Unimos a gestão de TI tradicional com a engenharia de soluções Open Source.</p>
       </div>
       
-      <div class="grid">
+      <!-- Grid ajustado para 4 colunas no desktop -->
+      <div class="services-grid">
+        
         <div class="card">
-          <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
-          <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções.</p>
+          <div class="card-content">
+            <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
+            <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções e sem surpresas.</p>
+          </div>
+          <div class="comp-tag">
+             <strong>Substitui:</strong> CLT / Equipe Interna
+          </div>
         </div>
+
         <div class="card border-proxmox">
-          <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
-          <p>Adeus taxas da VMware. Virtualização robusta com KVM e Clusters HA sem custos de licenciamento.</p>
+          <div class="card-content">
+            <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
+            <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem o custo por socket.</p>
+          </div>
+          <div class="comp-tag">
+             <strong>Substitui:</strong> VMware / Hyper-V
+          </div>
         </div>
+
         <div class="card border-pfsense">
-          <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
-          <p>VPN ilimitada, controle de internet e segurança de borda. Substitua firewalls caros por hardware padrão.</p>
+          <div class="card-content">
+            <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
+            <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão (x86).</p>
+          </div>
+          <div class="comp-tag">
+             <strong>Substitui:</strong> Fortinet / SonicWall / Cisco
+          </div>
         </div>
-        <!-- Card PBS Restaurado -->
+        
         <div class="card border-pbs">
-          <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup Server</h3>
-          <p>Backup incremental rápido, deduplicação eficiente e imutabilidade contra Ransomware. Tudo integrado.</p>
+          <div class="card-content">
+            <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup</h3>
+            <p>Backup incremental rápido, deduplicação eficiente e imutabilidade contra Ransomware. Tudo integrado.</p>
+          </div>
+          <div class="comp-tag">
+             <strong>Substitui:</strong> Veeam / Dataprotect
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- SECTION: POR QUE OPEN SOURCE (RESTAURADO) -->
+    <!-- SECTION: POR QUE OPEN SOURCE -->
     <section id="porque-open-source" class="section feature-dark">
       <div class="container">
         <h2>Por que migrar para Open Source?</h2>
         <div class="two-col">
           <div>
-            <p>A virtualização baseada em Kernel (KVM) do Proxmox oferece performance equivalente às soluções proprietárias (VMware/Hyper-V), mas com vantagens estratégicas:</p>
+            <p>A virtualização baseada em Kernel (KVM) do Proxmox oferece performance equivalente às soluções proprietárias, mas com vantagens estratégicas:</p>
             <ul class="benefits">
               <li><strong>Custo Zero de Licença:</strong> Você paga pela nossa consultoria, não pelo software.</li>
               <li><strong>Sem Vendor Lock-in:</strong> Liberdade total. Sem surpresas na renovação anual.</li>
@@ -249,9 +298,9 @@
       </div>
     </section>
 
-    <!-- COMPARATIVOS -->
+    <!-- COMPARATIVOS DETALHADOS (REINSERIDOS CUSTOS DE IMPLANTAÇÃO E MANUTENÇÃO) -->
     <section id="comparativo" class="container section">
-      <h2>Comparativo de Custos (TCO)</h2>
+      <h2>Comparativo de Custos Detalhado</h2>
       <p>Veja a economia real migrando para nossas soluções gerenciadas.</p>
 
       <!-- Tabela 1: VIRTUALIZAÇÃO -->
@@ -262,21 +311,31 @@
         <table class="compare">
           <thead>
             <tr>
-              <th style="width: 25%;">Item</th>
+              <th style="width: 25%;">Item de Custo</th>
               <th style="width: 37%;">VMware vSphere Standard</th>
-              <th style="width: 38%; background: #e6fffa; color: var(--success);">Proxmox VE</th>
+              <th style="width: 38%; background: #e6fffa; color: var(--success);">Proxmox VE (SuporteDelivery)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Licenciamento</td>
+              <td><strong>Licenciamento de Software</strong></td>
               <td class="col-bad cost-highlight">~ R$ 25.000 / ano</td>
               <td class="col-good cost-highlight">R$ 0,00 (Open Source)</td>
             </tr>
             <tr>
-              <td>Manutenção</td>
-              <td class="col-bad">Obrigatória (SnS)</td>
-              <td class="col-good">Incluso no Suporte</td>
+              <td><strong>Custo de Implantação</strong></td>
+              <td>R$ 8.000 (Projeto pontual)</td>
+              <td class="col-good">R$ 5.000 (Consultoria Especializada)</td>
+            </tr>
+            <tr>
+              <td><strong>Manutenção Anual</strong></td>
+              <td class="col-bad">Renovação Licença + Suporte<br>~ R$ 35.000/ano</td>
+              <td class="col-good">Apenas Contrato de Suporte<br>~ R$ 12.000/ano</td>
+            </tr>
+            <tr>
+              <td><strong>Recursos Extras (HA/Backup)</strong></td>
+              <td>Cobrados à parte (Veeam/vCenter)</td>
+              <td class="col-good">Inclusos (Cluster HA + PBS)</td>
             </tr>
           </tbody>
         </table>
@@ -290,27 +349,32 @@
         <table class="compare">
           <thead>
             <tr>
-              <th style="width: 25%;">Item</th>
+              <th style="width: 25%;">Item de Custo</th>
               <th style="width: 37%;">Fortinet / SonicWall</th>
-              <th style="width: 38%; background: #e6fffa; color: var(--success);">pfSense</th>
+              <th style="width: 38%; background: #e6fffa; color: var(--success);">pfSense (SuporteDelivery)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Licença VPN</td>
-              <td class="col-bad">Custo por usuário</td>
+              <td><strong>Licença VPN</strong></td>
+              <td class="col-bad">Custo por usuário ou pacote</td>
               <td class="col-good">Ilimitado / Gratuito</td>
             </tr>
+             <tr>
+              <td><strong>Implantação</strong></td>
+              <td>Complexa / Custo de Hardware Alto</td>
+              <td class="col-good">Ágil / Hardware Padrão (x86)</td>
+            </tr>
             <tr>
-              <td>Renovação UTM</td>
-              <td class="col-bad cost-highlight">~ R$ 4.000 / ano</td>
-              <td class="col-good cost-highlight">R$ 0,00</td>
+              <td><strong>Renovação Anual (UTM)</strong></td>
+              <td class="col-bad cost-highlight">~ R$ 4.000 / ano (Obrigatório)</td>
+              <td class="col-good cost-highlight">R$ 0,00 (Incluso no Contrato)</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Tabela 3: BACKUP (NOVO/REQUISITADO) -->
+      <!-- Tabela 3: BACKUP -->
       <div class="compare-container">
         <div class="compare-header" style="background: var(--success);">
           <i class="fas fa-database"></i> Cenário 3: Backup Corporativo
@@ -318,24 +382,24 @@
         <table class="compare">
           <thead>
             <tr>
-              <th style="width: 25%;">Item</th>
+              <th style="width: 25%;">Item de Custo</th>
               <th style="width: 37%;">Veeam Backup (Essentials)</th>
               <th style="width: 38%; background: #e6fffa; color: var(--success);">Proxmox Backup Server (PBS)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Custo Licença</td>
+              <td><strong>Custo Licença</strong></td>
               <td class="col-bad cost-highlight">Custo por Socket ou Instância</td>
               <td class="col-good cost-highlight">Zero (Integrado)</td>
             </tr>
             <tr>
-              <td>Deduplicação</td>
+              <td><strong>Deduplicação</strong></td>
               <td>Sim</td>
               <td class="col-good">Sim (Nativa e Eficiente)</td>
             </tr>
             <tr>
-              <td>Restore de VM</td>
+              <td><strong>Restore de VM</strong></td>
               <td>Depende do Hardware</td>
               <td class="col-good">Live Restore (Inicia VM do Backup)</td>
             </tr>
@@ -344,7 +408,7 @@
       </div>
     </section>
 
-    <!-- MODELOS DE CONTRATOS (RESTAURADO) -->
+    <!-- MODELOS DE CONTRATOS -->
     <section id="modelos-contratos" class="container section" style="background: #fff; border-top: 1px solid #eee;">
       <h2 class="text-center">Modelos de Contrato</h2>
       <p class="lead">Planos com responsabilidade técnica e previsibilidade orçamentária.</p>
@@ -394,7 +458,7 @@
       </div>
     </section>
 
-    <!-- CTA FORMULÁRIO WHATSAPP (NOVO) -->
+    <!-- CTA FORMULÁRIO WHATSAPP -->
     <section id="contato" class="section" style="background: #f0fdf4;">
       <div class="container text-center">
         <h2>Solicite sua Proposta</h2>
@@ -439,8 +503,9 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
+        <!-- Logo no Rodapé (Lado Esquerdo) -->
         <div>
-          <h4 style="color:#fff; margin-bottom:1rem;">SuporteDelivery</h4>
+          <img src="logo.png" alt="Suporte Delivery" class="footer-logo-img">
           <p>Excelência em Gestão de TI e Open Source em Curitiba e Região Metropolitana.</p>
         </div>
         <div class="footer-contact">
@@ -505,24 +570,16 @@
     /* --- LÓGICA DO FORMULÁRIO P/ WHATSAPP --- */
     function enviarWhatsapp(e) {
       e.preventDefault();
-      
-      // CONFIGURAÇÃO: Coloque o número do destino aqui (com 55 e DDD)
       const numeroWhatsapp = "5541999999999"; 
-
-      // Captura dados
       const nome = document.getElementById('nome').value;
       const mensagemExtra = document.getElementById('mensagem').value;
       
-      // Captura Checkboxes marcados
       let interesses = [];
       document.querySelectorAll('.checkbox-group input:checked').forEach((checkbox) => {
         interesses.push("✅ " + checkbox.value);
       });
-      
-      // Se nenhum interesse marcado
       if (interesses.length === 0) interesses.push("Geral");
 
-      // Monta a mensagem
       let texto = `*NOVA SOLICITAÇÃO VIA SITE*\n\n`;
       texto += `*Nome/Empresa:* ${nome}\n`;
       texto += `*Interesses:* \n${interesses.join('\n')}\n`;
@@ -530,7 +587,6 @@
         texto += `\n*Mensagem:* ${mensagemExtra}`;
       }
 
-      // Cria o link e abre
       const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
       window.open(url, '_blank');
     }

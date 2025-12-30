@@ -6,11 +6,14 @@
   <title>SuporteDelivery — Contratos de TI, Proxmox e Segurança em Curitiba</title>
   <meta name="description" content="Gestão de TI em Curitiba. Reduza custos migrando VMware para Proxmox e Firewalls proprietários para pfSense. Suporte presencial e remoto." />
   
-  <!-- Font Awesome para ícones (Trazido do arquivo 2) -->
+  <!-- Ícone da Aba (Favicon) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-    /* --- CSS Baseado no Estilo "Clean" do Arquivo 1 com melhorias visuais --- */
+    /* --- CSS Base --- */
     :root {
       --primary: #003399; /* Azul Institucional */
       --secondary: #FBBC05; /* Amarelo destaque */
@@ -34,29 +37,51 @@
     /* Layout Utilities */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 4rem 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     @media(max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
 
-    /* Header */
+    /* Header & Logo */
     .site-header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
     .site-header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-    .logo { height: 40px; } /* Placeholder se a img falhar */
-    .brand { font-weight: 900; font-size: 1.5rem; color: var(--primary); }
-    .nav a { margin-left: 20px; color: var(--dark); font-weight: 600; }
+    
+    .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.4rem; color: var(--primary); }
+    
+    /* Configuração da Imagem do Logo */
+    .logo-img { height: 50px; width: auto; object-fit: contain; } 
+
+    .nav a { margin-left: 20px; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
     .nav a:hover { color: var(--primary); }
     .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1.2rem; border-radius: 5px; }
 
-    /* Hero */
-    .hero { background: var(--dark); color: #fff; padding: 5rem 0; position: relative; overflow: hidden; }
-    .hero-inner { position: relative; z-index: 2; }
-    .hero h1 { color: #fff; }
-    .hero p.lead { font-size: 1.25rem; opacity: 0.9; max-width: 600px; }
-    .btn-primary { display: inline-block; background: var(--primary); color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: bold; }
-    .btn-primary:hover { background: #002266; }
-    .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; margin-left: 10px; font-weight: bold; }
-    .btn-outline:hover { background: #fff; color: var(--dark); }
+    /* HERO CAROUSEL */
+    .hero { position: relative; height: 600px; color: #fff; overflow: hidden; display: flex; align-items: center; }
     
+    /* Slides Background */
+    .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .hero-slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    
+    /* Overlay Escuro para Legibilidade */
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%);
+      z-index: 2;
+    }
+
+    .hero-content { position: relative; z-index: 3; max-width: 700px; padding-top: 40px; }
+    
+    /* Botões Hero */
+    .btn-primary { display: inline-block; background: var(--secondary); color: #000; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
+    .btn-primary:hover { background: #e0a800; transform: translateY(-2px); }
+    
+    .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; margin-left: 10px; font-weight: bold; }
+    .btn-outline:hover { background: #fff; color: var(--primary); }
+
     .hero-features ul { list-style: none; padding: 0; margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
     .hero-features li { border-left: 3px solid var(--secondary); padding-left: 10px; }
     .hero-features strong { display: block; color: var(--secondary); }
@@ -67,41 +92,41 @@
     .card:hover { transform: translateY(-5px); }
     .card h3 { color: var(--primary); font-size: 1.25rem; }
 
-    /* Section Dark (Proxmox) */
-    .feature-dark { background: var(--dark); color: #fff; }
-    .feature-dark h2, .feature-dark h3 { color: #fff; }
-    .benefits li { margin-bottom: 1rem; position: relative; padding-left: 25px; }
-    .benefits li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--success); }
-
-    /* Tabelas Comparativas (Estilo mesclado) */
-    .compare-container { background: #fff; border-radius: 8px; overflow: hidden; color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    /* Tabelas Comparativas */
+    .compare-container { background: #fff; border-radius: 8px; overflow: hidden; color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
     .compare { width: 100%; border-collapse: collapse; }
-    .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; }
-    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); }
-    .compare tr:last-child td { border-bottom: none; }
+    .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
     .col-bad { color: var(--danger); }
     .col-good { color: var(--success); font-weight: bold; background: rgba(52, 168, 83, 0.05); }
-    
-    /* Contratos */
-    .contract-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .contract-list li { background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; }
-    .contract-list strong { display: block; font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .cost-highlight { font-weight: bold; font-size: 1.1em; }
+
+    /* Testimonials Carousel */
+    .testimonials-section { background: var(--dark); color: #fff; text-align: center; }
+    .testimonial-container { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; min-height: 250px; }
+    .testimonial-slide { display: none; padding: 2rem; animation: fadeEffect 1s; }
+    .testimonial-slide.active { display: block; }
+    .testimonial-slide blockquote { font-size: 1.4rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.4; }
+    .testimonial-slide cite { font-style: normal; font-weight: bold; color: var(--secondary); }
+    .testimonial-dots { margin-top: 1rem; }
+    .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #555; border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
+    .dot.active { background-color: var(--secondary); transform: scale(1.2); }
+
+    @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
 
     /* Footer */
-    .site-footer { background: #0f172a; color: #94a3b8; padding: 2rem 0; text-align: center; font-size: 0.9rem; }
-    .site-footer a { color: #cbd5e1; }
+    .site-footer { background: #0f172a; color: #94a3b8; padding: 3rem 0; text-align: center; border-top: 5px solid var(--secondary); }
 
-    /* Utilitarios de Cores para Tecnologias */
-    .border-proxmox { border-top-color: var(--danger) !important; }
-    .border-pfsense { border-top-color: var(--primary) !important; }
-    .border-pbs { border-top-color: var(--success) !important; }
-
-    /* Nota de rodapé pequena */
+    /* Helpers */
+    .border-proxmox { border-top-color: #E05D44 !important; }
+    .border-pfsense { border-top-color: #003399 !important; }
+    .border-pbs { border-top-color: #34A853 !important; }
     .small { font-size: 0.85rem; color: #666; }
-    
+
     @media(max-width: 600px) {
+        .hero { height: auto; padding: 80px 0; }
         .hero h1 { font-size: 2rem; }
-        .hero-features ul { flex-direction: column; gap: 1rem; }
+        .compare th, .compare td { padding: 0.5rem; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -110,13 +135,13 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="#">
-        <!-- Ícone simulando logo -->
-        <i class="fas fa-server"></i> SuporteDelivery
+      <a class="logo-container" href="#">
+        <!-- LOGOTIPO AQUI -->
+        <!-- O arquivo logo.png deve estar na mesma pasta deste arquivo index.html -->
+        <img src="logo.png" alt="Suporte Delivery" class="logo-img">
       </a>
       <nav class="nav">
         <a href="#servicos">Serviços</a>
-        <a href="#tecnologias">Tecnologias</a>
         <a href="#comparativo">Comparativo</a>
         <a class="cta" href="#contato">Solicitar Proposta</a>
       </nav>
@@ -124,227 +149,172 @@
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION COM CARROSSEL -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="two-col">
-          <div class="hero-copy">
-            <h1>Sua TI em Curitiba: Segurança máxima, Custo de Licença Zero.</h1>
-            <p class="lead">Especialistas em <strong>Proxmox VE, pfSense e Suporte Corporativo</strong>. Garantimos a disponibilidade da sua operação e reduzimos custos migrando sua infraestrutura de soluções proprietárias (VMware/Hyper-V) para Open Source Profissional.</p>
-            <div style="margin-top: 1.5rem;">
-              <a class="btn-primary" href="#contato"><i class="fas fa-file-invoice"></i> Peça uma proposta</a>
-              <a class="btn-outline" href="#comparativo">Ver economia real</a>
-            </div>
-          </div>
-          <!-- Features rápidas -->
-          <div class="hero-features">
-            <ul>
-              <li>
-                <strong>Atendimento Híbrido</strong>
-                <span>Suporte remoto imediato + Visitas presenciais em Curitiba</span>
-              </li>
-              <li>
-                <strong>Redução de Custos (TCO)</strong>
-                <span>Substitua taxas anuais de licenciamento por consultoria especializada</span>
-              </li>
-              <li>
-                <strong>Backup Imutável</strong>
-                <span>Proteção contra Ransomware com Proxmox Backup Server</span>
-              </li>
-            </ul>
-          </div>
+      <!-- Slides de Fundo -->
+      <div class="hero-slides">
+        <!-- Slide 1: Técnico em Servidor -->
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 2: Escritório Corporativo -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 3: Indústria -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');"></div>
+        <!-- Slide 4: Educação/Escola -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop');"></div>
+      </div>
+      
+      <!-- Overlay Escuro -->
+      <div class="hero-overlay"></div>
+
+      <!-- Conteúdo -->
+      <div class="container hero-content">
+        <h1>Sua TI em Curitiba: Segurança Máxima, Custo de Licença Zero.</h1>
+        <p class="lead">Migramos ambientes proprietários para <strong>Proxmox e pfSense</strong>. Reduza drasticamente o TCO da sua Indústria, Escola ou Escritório mantendo suporte técnico local especializado.</p>
+        
+        <div style="margin-top: 1.5rem;">
+          <a class="btn-primary" href="#contato"><i class="fas fa-file-invoice"></i> Peça uma proposta</a>
+          <a class="btn-outline" href="#comparativo">Ver Comparativo de Custos</a>
+        </div>
+
+        <div class="hero-features">
+          <ul>
+            <li>
+              <strong>Atendimento Híbrido</strong>
+              <span>Visitas em Curitiba + Suporte Remoto</span>
+            </li>
+            <li>
+              <strong>Economia Real</strong>
+              <span>Zero custo de licença anual</span>
+            </li>
+            <li>
+              <strong>Backup Imutável</strong>
+              <span>Proteção Anti-Ransomware</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- SERVIÇOS E TECNOLOGIAS (Mesclado) -->
+    <!-- SERVIÇOS -->
     <section id="servicos" class="container section">
-      <h2>Serviços e Tecnologias</h2>
-      <p>Unimos a gestão de TI tradicional com a engenharia de soluções Open Source.</p>
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <h2>Tecnologia Enterprise, Custo Acessível</h2>
+        <p>Unimos a gestão de TI tradicional com a engenharia de soluções Open Source.</p>
+      </div>
       
       <div class="grid">
-        <!-- Card 1: Contratos -->
         <div class="card">
           <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
-          <p>Assumimos sua TI. Planos mensais com SLA definido, manutenção preventiva de servidores e suporte ao usuário final. Gestão completa para que você foque no negócio.</p>
+          <p>Seu departamento de TI terceirizado. Service Desk, monitoramento 24x7 e visitas técnicas preventivas para garantir a continuidade do negócio.</p>
         </div>
 
-        <!-- Card 2: Proxmox VE (Detalhes do Arquivo 2 + PDF) -->
         <div class="card border-proxmox">
-          <h3><i class="fas fa-server" style="color: var(--danger)"></i> Proxmox VE</h3>
-          <p>Projetamos e migramos ambientes <strong>VMware/Hyper-V</strong>. Obtenha alta disponibilidade (HA), clusters de até 32 nós e suporte a KVM/LXC sem pagar licenças por socket.</p>
+          <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
+          <p>Adeus taxas da VMware. Virtualização robusta com KVM, Clusters de Alta Disponibilidade e Snapshots sem custos de licenciamento por processador.</p>
         </div>
 
-        <!-- Card 3: pfSense (Detalhes do Arquivo 2) -->
         <div class="card border-pfsense">
-          <h3><i class="fas fa-shield-alt" style="color: var(--primary)"></i> pfSense Firewall</h3>
-          <p>Segurança de perímetro robusta. Substitua Cisco/Fortinet e elimine custos por usuário de VPN. Controle de conteúdo, VPN Site-to-Site e Load Balance nativos.</p>
-        </div>
-
-        <!-- Card 4: PBS (Detalhes do Arquivo 2) -->
-        <div class="card border-pbs">
-          <h3><i class="fas fa-database" style="color: var(--success)"></i> Proxmox Backup Server</h3>
-          <p>Deduplicação eficiente e restauração granular. Integração perfeita com Proxmox VE para backups rápidos e proteção contra perda de dados.</p>
+          <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
+          <p>Segurança de borda completa. VPN para Home Office ilimitada, filtro de conteúdo para escolas/empresas e redundância de links de internet.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: POR QUE PROXMOX (Baseado no PDF e Arquivo 1) -->
-    <section id="tecnologias" class="section feature-dark">
-      <div class="container">
-        <h2>Por que migrar para Open Source?</h2>
-        <div class="two-col">
-          <div>
-            <p>Conforme análise de mercado e documentação técnica, a virtualização baseada em Kernel (KVM) utilizada pelo Proxmox oferece performance equivalente às soluções proprietárias, com vantagens estratégicas para pequenas e médias empresas:</p>
-            <ul class="benefits">
-              <li><strong>Custo Zero de Licença:</strong> Modelo Open Source (AGPLv3). Você paga apenas pela nossa inteligência de implantação e suporte.</li>
-              <li><strong>Sem Vendor Lock-in:</strong> Liberdade total. Auditoria e conformidade sem dependência de fornecedores de software estrangeiros.</li>
-              <li><strong>Escalabilidade Real:</strong> Expanda de um único servidor para um Cluster com 32 nós sem custos adicionais de software.</li>
-              <li><strong>Flexibilidade:</strong> Suporte nativo a Containers LXC (leves) e VMs KVM (robustas) na mesma plataforma.</li>
-            </ul>
-          </div>
-          <div>
-             <!-- Mini call to action visual -->
-             <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
-                <h3 style="margin-top:0"><i class="fas fa-chart-line"></i> Potencial de Expansão</h3>
-                <p>Muitas empresas começam pequenas. O Proxmox permite crescer sem o "susto" da renovação de licenças. Diferente do VMware (vSphere) ou Windows Server, onde o custo sobe linearmente com o hardware, no Proxmox o custo de software permanece zero.</p>
-             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: COMPARAÇÃO DETALHADA DE CUSTOS (Novo: Mescla HTML 2 + PDF) -->
+    <!-- COMPARATIVO DETALHADO -->
     <section id="comparativo" class="container section">
-      <h2>Comparativo de Tecnologias e Custos (TCO)</h2>
-      <p>Veja como sua empresa economiza no primeiro ano de contrato.</p>
+      <h2>Comparativo de Custos (TCO)</h2>
+      <p>Abaixo, uma estimativa de custos para um ambiente típico de pequena/média empresa (2 Servidores Físicos + 40 Usuários).</p>
 
       <div class="grid" style="grid-template-columns: 1fr;">
         
-        <!-- Tabela 1: Virtualização -->
+        <!-- Tabela 1: VIRTUALIZAÇÃO -->
         <div class="compare-container">
+          <div style="background: var(--dark); color: white; padding: 1rem; font-weight: bold;">
+            <i class="fas fa-server"></i> Cenário 1: Virtualização (2 Servidores Host)
+          </div>
           <table class="compare">
             <thead>
               <tr>
-                <th style="width: 25%;">Recurso (Virtualização)</th>
-                <th style="width: 37%;">VMware vSphere / Hyper-V</th>
-                <th style="width: 38%; background: #e6fffa; color: var(--success);">Proxmox VE (Nossa Solução)</th>
+                <th style="width: 25%;">Item de Custo</th>
+                <th style="width: 37%;">VMware vSphere Standard</th>
+                <th style="width: 38%; background: #e6fffa; color: var(--success);">Proxmox VE (SuporteDelivery)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Licenciamento</strong></td>
-                <td class="col-bad">Alto custo anual (Cobrado por Core/Socket)</td>
-                <td class="col-good">ZERO (Open Source)</td>
+                <td><strong>Licenciamento de Software</strong></td>
+                <td class="col-bad cost-highlight">~ R$ 25.000 / ano</td>
+                <td class="col-good cost-highlight">R$ 0,00 (Open Source)</td>
               </tr>
               <tr>
-                <td><strong>Alta Disponibilidade (HA)</strong></td>
-                <td>Requer licenças "Standard/Enterprise" caras</td>
-                <td class="col-good">Incluso nativamente</td>
+                <td><strong>Implantação (Projeto)</strong></td>
+                <td>R$ 8.000 (Mão de obra)</td>
+                <td class="col-good">R$ 5.000 (Consultoria Especializada)</td>
               </tr>
               <tr>
-                <td><strong>Backup</strong></td>
-                <td>Requer software terceiro (ex: Veeam - pago)</td>
-                <td class="col-good">Integração nativa com PBS</td>
+                <td><strong>Manutenção Anual</strong></td>
+                <td class="col-bad">Renovação Licença + Suporte<br>~ R$ 35.000/ano</td>
+                <td class="col-good">Apenas Contrato de Suporte<br>~ R$ 12.000/ano</td>
               </tr>
               <tr>
-                <td><strong>Custo Estimado (Servidor Típico)</strong></td>
-                <td class="col-bad">R$ 20.000,00+ / ano (só software)</td>
-                <td class="col-good">R$ 0,00 (apenas consultoria)</td>
+                <td><strong>Recursos Extras (HA/Backup)</strong></td>
+                <td>Cobrados à parte (Veeam/vCenter)</td>
+                <td class="col-good">Inclusos (Cluster HA + PBS)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Tabela 2: Firewall e Segurança -->
-        <div class="compare-container" style="margin-top: 2rem;">
+        <!-- Tabela 2: FIREWALL -->
+        <div class="compare-container">
+          <div style="background: var(--primary); color: white; padding: 1rem; font-weight: bold;">
+            <i class="fas fa-shield-alt"></i> Cenário 2: Segurança e VPN (40 Usuários)
+          </div>
           <table class="compare">
             <thead>
               <tr>
-                <th style="width: 25%;">Recurso (Segurança)</th>
-                <th style="width: 37%;">Fortinet / Cisco / SonicWall</th>
-                <th style="width: 38%; background: #e6fffa; color: var(--success);">pfSense (Nossa Solução)</th>
+                <th style="width: 25%;">Item de Custo</th>
+                <th style="width: 37%;">Fortinet / SonicWall</th>
+                <th style="width: 38%; background: #e6fffa; color: var(--success);">pfSense (SuporteDelivery)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Licença de Usuário VPN</strong></td>
-                <td class="col-bad">Cobrado por usuário ou pacote</td>
+                <td><strong>Aquisição Hardware</strong></td>
+                <td class="col-bad">R$ 8.000 a R$ 15.000 (Proprietário)</td>
+                <td class="col-good">R$ 3.000 (Appliance x86 ou VM)</td>
+              </tr>
+              <tr>
+                <td><strong>Licença VPN (40 users)</strong></td>
+                <td class="col-bad">Custo Adicional por Usuário</td>
                 <td class="col-good">Ilimitado / Gratuito</td>
               </tr>
               <tr>
-                <td><strong>Renovação Anual</strong></td>
-                <td class="col-bad">Obrigatória para updates</td>
-                <td class="col-good">Incluso no nosso Contrato de Suporte</td>
-              </tr>
-              <tr>
-                <td><strong>Performance</strong></td>
-                <td>Dependente de Hardware Proprietário caro</td>
-                <td class="col-good">Roda em Hardware Comum (x86)</td>
+                <td><strong>Renovação Anual (UTM)</strong></td>
+                <td class="col-bad cost-highlight">~ R$ 4.000 / ano (Obrigatório)</td>
+                <td class="col-good cost-highlight">R$ 0,00 (Incluso no Contrato)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
       </div>
-      <p class="small" style="margin-top: 1rem;">* Valores estimados baseados em preços de mercado para PMEs. Realizamos um diagnóstico gratuito para o cálculo exato do seu cenário.</p>
+      <p class="small" style="margin-top: 1rem;">* Valores estimados de mercado para fins comparativos. Solicite um orçamento oficial para seu cenário.</p>
     </section>
 
-    <!-- CONTRATOS -->
-    <section id="contratos" class="container section" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
-      <h2>Modelos de Contrato</h2>
-      <p class="lead">Planos com responsabilidade técnica, métricas de SLA e previsibilidade orçamentária.</p>
-      
-      <ul class="contract-list">
-        <li>
-          <strong>Pacote Essentials</strong>
-          <p>Ideal para pequenas empresas. Suporte remoto ilimitado, monitoramento básico e atendimento 8x5.</p>
-        </li>
-        <li>
-          <strong>Pacote Business <span style="font-size:0.8em; background:var(--secondary); padding:2px 6px; border-radius:4px; color:#000;">Mais Popular</span></strong>
-          <p>Suporte remoto + Visitas presenciais preventivas. Gestão de Backup, Firewall e SLA garantido de 4h.</p>
-        </li>
-        <li>
-          <strong>Pacote Enterprise</strong>
-          <p>Missão crítica 24x7. Alta disponibilidade, redundância de link, consultoria trimestral e projeto de Disaster Recovery.</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- TESTEMUNHOS -->
-    <section id="testemunhos" class="container section">
-      <h2>O que dizem nossos clientes</h2>
-      <div style="background: #fff; padding: 2rem; border-left: 5px solid var(--primary); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-        <blockquote style="margin: 0; font-style: italic; font-size: 1.1rem;">
-          "Substituímos toda nossa estrutura de virtualização paga pelo Proxmox com a SuporteDelivery. A economia anual pagou o contrato de suporte e ainda sobrou caixa para investir em novos computadores."
-        </blockquote>
-        <p style="margin-top: 1rem; font-weight: bold; margin-bottom: 0;">— Diretor Financeiro, Indústria em Curitiba/PR</p>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section id="contato" class="section cta-section" style="text-align: center; background: var(--primary); color: white;">
+    <!-- DEPOIMENTOS CARROSSEL -->
+    <section id="testemunhos" class="section testimonials-section">
       <div class="container">
-        <h2>Pronto para economizar e ter TI previsível?</h2>
-        <p>Solicite um diagnóstico gratuito e uma proposta personalizada para sua empresa em Curitiba e região metropolitana.</p>
-        <br>
-        <a class="btn-outline" href="https://wa.me/5541XXXXXXXX" style="font-size: 1.2rem; background: #25D366; border-color: #25D366; color: #fff;">
-          <i class="fab fa-whatsapp"></i> Falar no WhatsApp (41) 3798-3434
-        </a>
-        <br><br>
-        <p class="small" style="color: #cbd5e1;">Ou envie e-mail para contato@suportedelivery.com</p>
-      </div>
-    </section>
-  </main>
+        <h2 style="color: #fff;">O que dizem nossos clientes</h2>
+        
+        <div class="testimonial-container">
+          
+          <!-- Depoimento 1: Indústria -->
+          <div class="testimonial-slide active">
+            <blockquote>
+              "Nossa indústria operava com medo de paradas. A migração para o Proxmox eliminou custos de licença e o contrato mensal nos dá a segurança de ter um técnico aqui em Curitiba em menos de 2 horas quando precisamos."
+            </blockquote>
+            <cite>— Roberto M., Diretor Industrial em Araucária/PR</cite>
+          </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div>© 2026 SuporteDelivery — Curitiba • <a href="#">Política de Privacidade</a></div>
-      <div style="margin-top: 10px; font-size: 0.8rem;">
-        Especialistas em Proxmox, pfSense e Linux Corporativo.
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+          <!-- Depoimento 2: Esco

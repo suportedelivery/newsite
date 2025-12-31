@@ -171,12 +171,19 @@
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-slides">
+        <!-- Slide 1: Técnico em Servidor -->
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1600&auto=format&fit=crop');"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop');"></div>
+        
+        <!-- Slide 2: Advocacia / Escritório (Nova Imagem) -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600&auto=format&fit=crop');"></div>
+        
+        <!-- Slide 3: Indústria -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');"></div>
-        <!-- Slide 4: Advocacia Corrigido -->
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop');"></div>
+        
+        <!-- Slide 4: Educação/Escola -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop');"></div>
       </div>
+      
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1>Sua TI em Curitiba: Segurança Máxima, Custo de Licença Zero.</h1>
@@ -313,7 +320,7 @@
         </table>
       </div>
 
-      <!-- Tabela 2: FIREWALL -->
+      <!-- Tabela 2: FIREWALL (Com Custo de Implantação) -->
       <div class="compare-container">
         <div class="compare-header" style="background: var(--primary);">
           <i class="fas fa-shield-alt"></i> Cenário 2: Segurança e VPN (40 Usuários)
@@ -333,9 +340,9 @@
               <td class="col-good">Ilimitado / Gratuito</td>
             </tr>
              <tr>
-              <td><strong>Implantação</strong></td>
-              <td>Complexa / Custo de Hardware Alto</td>
-              <td class="col-good">Ágil / Hardware Padrão (x86)</td>
+              <td><strong>Custo de Implantação</strong></td>
+              <td>R$ 2.000 a R$ 5.000 (Complexa)</td>
+              <td class="col-good">R$ 1.500 (Configuração Ágil)</td>
             </tr>
             <tr>
               <td><strong>Renovação Anual (UTM)</strong></td>
@@ -346,7 +353,7 @@
         </table>
       </div>
 
-      <!-- Tabela 3: BACKUP -->
+      <!-- Tabela 3: BACKUP (Com Custo de Implantação) -->
       <div class="compare-container">
         <div class="compare-header" style="background: var(--success);">
           <i class="fas fa-database"></i> Cenário 3: Backup Corporativo
@@ -365,10 +372,10 @@
               <td class="col-bad cost-highlight">Custo por Socket ou Instância</td>
               <td class="col-good cost-highlight">Zero (Integrado)</td>
             </tr>
-            <tr>
-              <td><strong>Deduplicação</strong></td>
-              <td>Sim</td>
-              <td class="col-good">Sim (Nativa e Eficiente)</td>
+             <tr>
+              <td><strong>Custo de Implantação</strong></td>
+              <td>Complexa (Custo Hora Técnica)</td>
+              <td class="col-good">Rápida (Incluso no Projeto)</td>
             </tr>
             <tr>
               <td><strong>Restore de VM</strong></td>
@@ -528,7 +535,7 @@
     </div>
   </div>
 
-  <!-- Modal PBS (Com Comparativo Veeam) -->
+  <!-- Modal PBS -->
   <div id="modal-pbs" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -563,10 +570,9 @@
         <div class="footer-contact">
           <h4 style="color:#fff; margin-bottom:1rem;">Contato</h4>
           <div class="footer-links">
-            <!-- Telefone Fixo (Principal) -->
-            <a href="tel:+554137983434" style="font-size: 1.1rem; color: #fff; font-weight: bold;"><i class="fas fa-phone"></i> (41) 3798-3434</a>
+            <!-- Whatsapp / Fixo (Principal) -->
+            <a href="https://wa.me/554137983434" style="font-size: 1.1rem; color: #fff; font-weight: bold;"><i class="fab fa-whatsapp"></i> (41) 3798-3434</a>
             <!-- Celular (Secundário) -->
-            <a href="https://wa.me/5541999999999"><i class="fab fa-whatsapp"></i> (41) 99999-9999</a>
             <a href="tel:+5511970839455"><i class="fas fa-mobile-alt"></i> (11) 97083-9455</a>
             <a href="mailto:contato@suportedelivery.com"><i class="fas fa-envelope"></i> contato@suportedelivery.com</a>
           </div>
@@ -582,11 +588,11 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/5541999999999" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/554137983434" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
   <!-- SCRIPTS -->
   <script>
-    /* --- Carrossel Hero --- */
+    /* --- Carrossel Hero (Aumentado tempo para 6s) --- */
     let heroIndex = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
     function rotateHero() {
@@ -594,7 +600,7 @@
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add('active');
     }
-    setInterval(rotateHero, 5000);
+    setInterval(rotateHero, 6000);
 
     /* --- Carrossel Depoimentos --- */
     let testIndex = 1;
@@ -626,10 +632,10 @@
         if (event.target.classList.contains('modal')) { event.target.style.display = "none"; }
     }
 
-    /* --- Form Whatsapp --- */
+    /* --- Form Whatsapp (Corrigido para 4137983434) --- */
     function enviarWhatsapp(e) {
       e.preventDefault();
-      const numeroWhatsapp = "5541999999999"; 
+      const numeroWhatsapp = "554137983434"; 
       const nome = document.getElementById('nome').value;
       const mensagemExtra = document.getElementById('mensagem').value;
       let interesses = [];

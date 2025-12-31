@@ -6,17 +6,14 @@
   <title>SuporteDelivery — Contratos de TI, Proxmox e Segurança em Curitiba</title>
   <meta name="description" content="Gestão de TI em Curitiba. Reduza custos migrando VMware para Proxmox e Firewalls proprietários para pfSense. Suporte presencial e remoto." />
   
-  <!-- Ícone da Aba -->
   <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-    /* --- CSS Base --- */
+    /* --- CSS Geral --- */
     :root {
-      --primary: #003399; /* Azul Institucional */
-      --secondary: #FBBC05; /* Amarelo destaque */
+      --primary: #003399; 
+      --secondary: #FBBC05; 
       --dark: #1e293b;
       --light: #f8fafc;
       --success: #34A853;
@@ -25,40 +22,28 @@
     }
 
     * { box-sizing: border-box; }
-    
-    /* Correção do Scroll para não cortar o título */
     html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-
     body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--light); }
     
-    /* Typography */
     h1, h2, h3 { color: var(--dark); margin-bottom: 1rem; font-weight: 700; }
     h1 { font-size: 2.5rem; line-height: 1.2; }
     h2 { font-size: 2rem; margin-top: 0; }
     p { margin-bottom: 1.5rem; }
     a { text-decoration: none; transition: 0.3s; color: inherit; }
 
-    /* Layout Utilities */
-    /* Aumentei para 1200px para caber os 4 cards lado a lado */
+    /* Layout */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 4rem 0; }
     
-    /* Grid Padrão */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    
-    /* Grid Específico para Serviços (4 colunas no Desktop) */
     .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    @media(min-width: 1024px) {
-        .services-grid { grid-template-columns: repeat(4, 1fr); }
-    }
+    @media(min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     @media(max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
 
-    /* Header & Logo */
+    /* Header */
     .site-header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
     .site-header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-    
     .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.4rem; color: var(--primary); }
     .logo-img { height: 50px; width: auto; object-fit: contain; }
 
@@ -68,64 +53,70 @@
     .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1.2rem; border-radius: 5px; }
     @media(max-width: 768px) { .nav { display: none; } }
 
-    /* HERO CAROUSEL */
+    /* Hero */
     .hero { position: relative; height: 600px; color: #fff; overflow: hidden; display: flex; align-items: center; }
     .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-    .hero-slide {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-size: cover; background-position: center;
-      opacity: 0; transition: opacity 1s ease-in-out;
-    }
+    .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
     .hero-slide.active { opacity: 1; }
-    .hero-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%);
-      z-index: 2;
-    }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%); z-index: 2; }
     .hero-content { position: relative; z-index: 3; max-width: 700px; padding-top: 40px; }
     
     .btn-primary { display: inline-block; background: var(--secondary); color: #000; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
-    .btn-primary:hover { background: #e0a800; transform: translateY(-2px); }
     .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; margin-left: 10px; font-weight: bold; }
-    .btn-outline:hover { background: #fff; color: var(--primary); }
-
+    
     .hero-features ul { list-style: none; padding: 0; margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
     .hero-features li { border-left: 3px solid var(--secondary); padding-left: 10px; }
     .hero-features strong { display: block; color: var(--secondary); }
     .hero-features span { font-size: 0.9rem; opacity: 0.8; }
 
-    /* Cards Servicos */
+    /* Cards Serviços */
     .card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: transform 0.2s; height: 100%; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-5px); }
     .card h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.5rem; }
     .card-content { flex-grow: 1; }
-    
-    /* Tag de Comparativo dentro do Card */
-    .comp-tag { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.85rem; color: #64748b; }
+    .comp-tag { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; }
     .comp-tag strong { color: var(--danger); }
+    
+    /* Botão Saiba Mais */
+    .btn-more { color: var(--primary); font-weight: bold; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+    .btn-more:hover { text-decoration: underline; }
 
-    /* Feature Dark Section */
+    /* Modais (Popups) */
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+    .modal-content { background-color: #fefefe; margin: 5% auto; padding: 0; border: 1px solid #888; width: 90%; max-width: 800px; border-radius: 10px; animation: fadeEffect 0.4s; position: relative; }
+    .modal-header { padding: 1.5rem; background: var(--dark); color: white; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    .modal-body { padding: 2rem; }
+    .close-modal { color: #fff; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .close-modal:hover { color: var(--secondary); }
+
+    /* Tabelas nos Modais */
+    .modal-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+    .modal-table th, .modal-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    .modal-table th { background-color: #f1f5f9; color: var(--dark); }
+    .modal-table tr:nth-child(even) { background-color: #f9f9f9; }
+    .modal-highlight { background-color: #e6fffa !important; font-weight: bold; color: var(--success); }
+
+    /* Feature Dark */
     .feature-dark { background: var(--dark); color: #fff; }
     .feature-dark h2 { color: #fff; }
     .benefits li { margin-bottom: 1rem; position: relative; padding-left: 25px; }
     .benefits li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--success); }
 
-    /* Tabelas Comparativas */
+    /* Tabelas Principais */
     .compare-container { background: #fff; border-radius: 8px; overflow: hidden; color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; margin-bottom: 2rem; }
     .compare { width: 100%; border-collapse: collapse; }
     .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.90rem; }
-    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+    .compare th { background: #f1f5f9; font-weight: 700; color: var(--dark); text-transform: uppercase; font-size: 0.8rem; }
     .col-bad { color: var(--danger); }
     .col-good { color: var(--success); font-weight: bold; background: rgba(52, 168, 83, 0.05); }
     .cost-highlight { font-weight: bold; font-size: 1.1em; }
     .compare-header { padding: 1rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; }
 
-    /* Contracts List */
+    /* Contracts & Testimonials */
     .contract-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
     .contract-list li { background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; border-left: 5px solid var(--primary); }
     .contract-list strong { display: block; font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
     
-    /* Testimonials */
     .testimonials-section { background: var(--dark); color: #fff; text-align: center; }
     .testimonial-container { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; min-height: 250px; }
     .testimonial-slide { display: none; padding: 2rem; animation: fadeEffect 1s; }
@@ -136,35 +127,23 @@
     .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #555; border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
     .dot.active { background-color: var(--secondary); transform: scale(1.2); }
 
-    /* FORMULÁRIO WHATSAPP */
+    /* Form & Footer */
     .form-box { background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; border-top: 5px solid #25D366; }
     .form-group { margin-bottom: 1.5rem; text-align: left; }
-    .form-label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--dark); }
     .form-input, .form-textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; font-family: inherit; }
     .checkbox-group { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .checkbox-item { display: flex; align-items: center; gap: 0.5rem; background: #f1f5f9; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; }
-    .btn-whatsapp-submit { background: #25D366; color: white; width: 100%; padding: 1rem; font-size: 1.2rem; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .btn-whatsapp-submit:hover { background: #1ebc57; }
-
-    /* Footer */
+    .btn-whatsapp-submit { background: #25D366; color: white; width: 100%; padding: 1rem; font-size: 1.2rem; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    
     .site-footer { background: #0f172a; color: #94a3b8; padding: 3rem 0; font-size: 0.95rem; border-top: 5px solid var(--secondary); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
     .footer-links a { display: block; margin-bottom: 10px; color: #cbd5e1; }
-    .footer-links a:hover { color: var(--secondary); }
-    .footer-contact i { width: 20px; color: var(--secondary); }
     .footer-logo-img { height: 60px; width: auto; margin-bottom: 1rem; background: rgba(255,255,255,0.9); padding: 5px; border-radius: 4px; }
-
-    /* Floating Whatsapp */
+    
     .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.3s; }
     .float-wa:hover { transform: scale(1.1); }
 
     @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
-    @media(max-width: 600px) {
-        .hero { height: auto; padding: 80px 0; }
-        .hero h1 { font-size: 2rem; }
-        .checkbox-group { flex-direction: column; gap: 0.5rem; }
-        .compare th, .compare td { padding: 0.5rem; font-size: 0.8rem; }
-    }
+    @media(max-width: 600px) { .hero { height: auto; padding: 80px 0; } h1 { font-size: 2rem; } .checkbox-group { flex-direction: column; } }
     
     .border-proxmox { border-top-color: #E05D44 !important; }
     .border-pfsense { border-top-color: #003399 !important; }
@@ -192,25 +171,20 @@
     <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-slides">
-        <!-- Slide 1: Técnico (Servidor) -->
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=1600&auto=format&fit=crop');"></div>
-        <!-- Slide 2: Escritório Corporativo -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop');"></div>
-        <!-- Slide 3: Indústria -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');"></div>
-        <!-- Slide 4: Advocacia (NOVO - Escritório com Monitores) -->
+        <!-- Slide 4: Advocacia Corrigido -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop');"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1>Sua TI em Curitiba: Segurança Máxima, Custo de Licença Zero.</h1>
         <p class="lead">Especialistas em <strong>Proxmox VE, pfSense e Backup</strong>. Reduza drasticamente o TCO da sua operação mantendo suporte técnico local especializado.</p>
-        
         <div style="margin-top: 1.5rem;">
           <a class="btn-primary" href="#contato"><i class="fas fa-file-invoice"></i> Peça uma proposta</a>
           <a class="btn-outline" href="#comparativo">Ver Economia</a>
         </div>
-
         <div class="hero-features">
           <ul>
             <li><strong>Atendimento Híbrido</strong><span>Visitas em Curitiba + Remoto</span></li>
@@ -221,54 +195,53 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS (COM COMPARATIVO INTERNO) -->
+    <!-- SERVIÇOS -->
     <section id="servicos" class="container section">
       <div class="text-center" style="margin-bottom: 3rem;">
         <h2>Tecnologia Enterprise, Custo Acessível</h2>
         <p>Unimos a gestão de TI tradicional com a engenharia de soluções Open Source.</p>
       </div>
       
-      <!-- Grid ajustado para 4 colunas no desktop -->
       <div class="services-grid">
         
+        <!-- CARD 1 -->
         <div class="card">
           <div class="card-content">
             <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
-            <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções e sem surpresas.</p>
+            <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções.</p>
           </div>
-          <div class="comp-tag">
-             <strong>Substitui:</strong> CLT / Equipe Interna
-          </div>
+          <div class="comp-tag"><strong>Substitui:</strong> CLT / Equipe Interna</div>
+          <a class="btn-more" onclick="openModal('modal-contrato')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
+        <!-- CARD 2 -->
         <div class="card border-proxmox">
           <div class="card-content">
             <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
-            <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem o custo por socket.</p>
+            <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem custo por socket.</p>
           </div>
-          <div class="comp-tag">
-             <strong>Substitui:</strong> VMware / Hyper-V
-          </div>
+          <div class="comp-tag"><strong>Substitui:</strong> VMware / Hyper-V</div>
+          <a class="btn-more" onclick="openModal('modal-proxmox')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
+        <!-- CARD 3 -->
         <div class="card border-pfsense">
           <div class="card-content">
             <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
-            <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão (x86).</p>
+            <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão.</p>
           </div>
-          <div class="comp-tag">
-             <strong>Substitui:</strong> Fortinet / SonicWall / Cisco
-          </div>
+          <div class="comp-tag"><strong>Substitui:</strong> Fortinet / SonicWall</div>
+          <a class="btn-more" onclick="openModal('modal-pfsense')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
         
+        <!-- CARD 4 -->
         <div class="card border-pbs">
           <div class="card-content">
             <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup</h3>
-            <p>Backup incremental rápido, deduplicação eficiente e imutabilidade contra Ransomware. Tudo integrado.</p>
+            <p>Backup incremental rápido e imutabilidade contra Ransomware. Tudo integrado.</p>
           </div>
-          <div class="comp-tag">
-             <strong>Substitui:</strong> Veeam / Dataprotect
-          </div>
+          <div class="comp-tag"><strong>Substitui:</strong> Veeam / Dataprotect</div>
+          <a class="btn-more" onclick="openModal('modal-pbs')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
       </div>
@@ -285,7 +258,6 @@
               <li><strong>Custo Zero de Licença:</strong> Você paga pela nossa consultoria, não pelo software.</li>
               <li><strong>Sem Vendor Lock-in:</strong> Liberdade total. Sem surpresas na renovação anual.</li>
               <li><strong>Escalabilidade Real:</strong> Expanda de 1 para 32 servidores no Cluster sem pagar taxas adicionais.</li>
-              <li><strong>Flexibilidade:</strong> Use Containers LXC (leves) e VMs KVM na mesma plataforma.</li>
             </ul>
           </div>
           <div>
@@ -298,7 +270,7 @@
       </div>
     </section>
 
-    <!-- COMPARATIVOS DETALHADOS (REINSERIDOS CUSTOS DE IMPLANTAÇÃO E MANUTENÇÃO) -->
+    <!-- COMPARATIVOS DETALHADOS -->
     <section id="comparativo" class="container section">
       <h2>Comparativo de Custos Detalhado</h2>
       <p>Veja a economia real migrando para nossas soluções gerenciadas.</p>
@@ -434,17 +406,14 @@
       <div class="container">
         <h2 style="color: #fff;">Depoimentos</h2>
         <div class="testimonial-container">
-          <!-- Slide 1 -->
           <div class="testimonial-slide active">
             <blockquote>"A migração para o Proxmox eliminou custos de licença e o contrato mensal nos dá a segurança de ter um técnico aqui em Curitiba em menos de 2 horas."</blockquote>
             <cite>— Roberto M., Diretor Industrial</cite>
           </div>
-          <!-- Slide 2 -->
           <div class="testimonial-slide">
             <blockquote>"A solução com pfSense foi implantada em um final de semana e funciona perfeitamente, sem custos mensais em dólar."</blockquote>
             <cite>— Ana Paula, Diretora Pedagógica</cite>
           </div>
-          <!-- Slide 3 -->
           <div class="testimonial-slide">
             <blockquote>"O suporte remoto configurou a VPN para nossos advogados trabalharem de casa com segurança total. Recomendo."</blockquote>
             <cite>— Dr. Carlos S., Escritório de Advocacia</cite>
@@ -458,7 +427,7 @@
       </div>
     </section>
 
-    <!-- CTA FORMULÁRIO WHATSAPP -->
+    <!-- FORMULÁRIO WHATSAPP -->
     <section id="contato" class="section" style="background: #f0fdf4;">
       <div class="container text-center">
         <h2>Solicite sua Proposta</h2>
@@ -466,12 +435,10 @@
         
         <div class="form-box">
           <form id="whatsappForm" onsubmit="enviarWhatsapp(event)">
-            
             <div class="form-group">
               <label class="form-label">Seu Nome / Empresa</label>
               <input type="text" id="nome" class="form-input" placeholder="Ex: João - Empresa X" required>
             </div>
-
             <div class="form-group">
               <label class="form-label">Tenho interesse em:</label>
               <div class="checkbox-group">
@@ -481,29 +448,114 @@
                 <label class="checkbox-item"><input type="checkbox" value="Proxmox Backup (PBS)"> Proxmox Backup (PBS)</label>
               </div>
             </div>
-
             <div class="form-group">
               <label class="form-label">Mensagem (Opcional)</label>
               <textarea id="mensagem" class="form-textarea" rows="3" placeholder="Gostaria de agendar um diagnóstico..."></textarea>
             </div>
-
             <button type="submit" class="btn-whatsapp-submit">
               <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
             </button>
-
           </form>
-          <p class="small" style="margin-top: 1rem;">Ao clicar, você será redirecionado para o WhatsApp Web ou App.</p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- RODAPÉ COMPLETO -->
+  <!-- MODAIS (Popups de Saiba Mais) -->
+  
+  <!-- Modal Contrato -->
+  <div id="modal-contrato" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Comparativo: Contrato SuporteDelivery vs CLT</h3>
+        <span class="close-modal" onclick="closeModal('modal-contrato')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Entenda porque terceirizar é mais vantajoso que manter equipe interna.</p>
+        <table class="modal-table">
+            <thead><tr><th>Critério</th><th>Funcionário CLT (Técnico)</th><th class="modal-highlight">SuporteDelivery (Contrato)</th></tr></thead>
+            <tbody>
+                <tr><td>Custo Mensal</td><td>Salário + Encargos (~R$ 6k+)</td><td class="modal-highlight">Valor fixo menor</td></tr>
+                <tr><td>Disponibilidade</td><td>Férias/Atestados/Horário Comercial</td><td class="modal-highlight">Garantia de atendimento (Backup de técnico)</td></tr>
+                <tr><td>Expertise</td><td>Conhecimento limitado a 1 pessoa</td><td class="modal-highlight">Equipe multidisciplinar (Redes, Linux, Windows)</td></tr>
+                <tr><td>Ferramentas</td><td>Empresa deve comprar software</td><td class="modal-highlight">Já possuímos ferramentas de monitoramento</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Proxmox -->
+  <div id="modal-proxmox" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Proxmox VE vs VMware vSphere</h3>
+        <span class="close-modal" onclick="closeModal('modal-proxmox')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <table class="modal-table">
+            <thead><tr><th>Recurso</th><th>VMware vSphere</th><th class="modal-highlight">Proxmox VE</th></tr></thead>
+            <tbody>
+                <tr><td>Licenciamento</td><td>Anual (Caro) por Socket/Core</td><td class="modal-highlight">Gratuito (Open Source AGPLv3)</td></tr>
+                <tr><td>Gerenciamento</td><td>Requer vCenter (Pago a parte)</td><td class="modal-highlight">Interface Web Centralizada Nativa</td></tr>
+                <tr><td>Backup</td><td>Requer Veeam/Terceiros</td><td class="modal-highlight">Integração nativa com PBS</td></tr>
+                <tr><td>Flexibilidade</td><td>Apenas VMs</td><td class="modal-highlight">VMs (KVM) + Containers (LXC)</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PfSense -->
+  <div id="modal-pfsense" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>pfSense vs Firewalls Proprietários</h3>
+        <span class="close-modal" onclick="closeModal('modal-pfsense')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <table class="modal-table">
+            <thead><tr><th>Recurso</th><th>Fortinet / SonicWall</th><th class="modal-highlight">pfSense CE / Plus</th></tr></thead>
+            <tbody>
+                <tr><td>Hardware</td><td>Proprietário (Vendor Lock-in)</td><td class="modal-highlight">Hardware Comum (x86) ou VM</td></tr>
+                <tr><td>VPN Clientes</td><td>Licença por usuário</td><td class="modal-highlight">Ilimitado (OpenVPN/WireGuard)</td></tr>
+                <tr><td>Throughput</td><td>Limitado pelo modelo comprado</td><td class="modal-highlight">Escalável conforme o Hardware</td></tr>
+                <tr><td>Updates</td><td>Assinatura obrigatória</td><td class="modal-highlight">Incluso no Suporte</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal PBS (Com Comparativo Veeam) -->
+  <div id="modal-pbs" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Proxmox Backup Server vs Veeam</h3>
+        <span class="close-modal" onclick="closeModal('modal-pbs')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Uma análise focada em custos e integração com ambiente Proxmox.</p>
+        <table class="modal-table">
+            <thead><tr><th>Característica</th><th>Veeam Backup & Replication</th><th class="modal-highlight">Proxmox Backup Server (PBS)</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Licenciamento</strong></td><td>Por Instância/Socket (VUL) - Alto Custo</td><td class="modal-highlight">Gratuito (Open Source)</td></tr>
+                <tr><td><strong>Deduplicação</strong></td><td>Por Job (Geralmente)</td><td class="modal-highlight">Global (Chunking) - Economia Máxima</td></tr>
+                <tr><td><strong>Backup Incremental</strong></td><td>CBT (Change Block Tracking)</td><td class="modal-highlight">Nativo (Dirty Bitmap) - Ultra Rápido</td></tr>
+                <tr><td><strong>Restauração</strong></td><td>Instant Recovery (Complexo p/ Proxmox)</td><td class="modal-highlight">Live Restore (Boot imediato via Rede)</td></tr>
+                <tr><td><strong>Imutabilidade</strong></td><td>Requer Linux Hardened Repository</td><td class="modal-highlight">Nativo (Datastore Locking)</td></tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.85rem; margin-top: 1rem; color: #666;">* O PBS foi desenhado especificamente para o Proxmox, garantindo a restauração mais rápida do mercado para este hipervisor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ CORRIGIDO -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <!-- Logo no Rodapé (Lado Esquerdo) -->
         <div>
           <img src="logo.png" alt="Suporte Delivery" class="footer-logo-img">
           <p>Excelência em Gestão de TI e Open Source em Curitiba e Região Metropolitana.</p>
@@ -511,8 +563,11 @@
         <div class="footer-contact">
           <h4 style="color:#fff; margin-bottom:1rem;">Contato</h4>
           <div class="footer-links">
-            <a href="tel:+554137983434"><i class="fas fa-phone"></i> (41) 3798-3434</a>
+            <!-- Telefone Fixo (Principal) -->
+            <a href="tel:+554137983434" style="font-size: 1.1rem; color: #fff; font-weight: bold;"><i class="fas fa-phone"></i> (41) 3798-3434</a>
+            <!-- Celular (Secundário) -->
             <a href="https://wa.me/5541999999999"><i class="fab fa-whatsapp"></i> (41) 99999-9999</a>
+            <a href="tel:+5511970839455"><i class="fas fa-mobile-alt"></i> (11) 97083-9455</a>
             <a href="mailto:contato@suportedelivery.com"><i class="fas fa-envelope"></i> contato@suportedelivery.com</a>
           </div>
         </div>
@@ -527,14 +582,11 @@
     </div>
   </footer>
 
-  <!-- Botão Flutuante -->
-  <a href="https://wa.me/5541999999999" class="float-wa" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/5541999999999" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
   <!-- SCRIPTS -->
   <script>
-    /* --- Carrossel de Imagens (Hero) --- */
+    /* --- Carrossel Hero --- */
     let heroIndex = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
     function rotateHero() {
@@ -544,7 +596,7 @@
     }
     setInterval(rotateHero, 5000);
 
-    /* --- Carrossel de Depoimentos --- */
+    /* --- Carrossel Depoimentos --- */
     let testIndex = 1;
     showSlides(testIndex);
     setInterval(function(){ showSlides(testIndex += 1); }, 7000);
@@ -567,28 +619,25 @@
       dots[testIndex-1].className += " active";
     }
 
-    /* --- LÓGICA DO FORMULÁRIO P/ WHATSAPP --- */
+    /* --- Modais (Popups) Logic --- */
+    function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
+    function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) { event.target.style.display = "none"; }
+    }
+
+    /* --- Form Whatsapp --- */
     function enviarWhatsapp(e) {
       e.preventDefault();
       const numeroWhatsapp = "5541999999999"; 
       const nome = document.getElementById('nome').value;
       const mensagemExtra = document.getElementById('mensagem').value;
-      
       let interesses = [];
-      document.querySelectorAll('.checkbox-group input:checked').forEach((checkbox) => {
-        interesses.push("✅ " + checkbox.value);
-      });
+      document.querySelectorAll('.checkbox-group input:checked').forEach((checkbox) => { interesses.push("✅ " + checkbox.value); });
       if (interesses.length === 0) interesses.push("Geral");
-
-      let texto = `*NOVA SOLICITAÇÃO VIA SITE*\n\n`;
-      texto += `*Nome/Empresa:* ${nome}\n`;
-      texto += `*Interesses:* \n${interesses.join('\n')}\n`;
-      if(mensagemExtra) {
-        texto += `\n*Mensagem:* ${mensagemExtra}`;
-      }
-
-      const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
+      let texto = `*NOVA SOLICITAÇÃO VIA SITE*\n\n*Nome/Empresa:* ${nome}\n*Interesses:* \n${interesses.join('\n')}\n`;
+      if(mensagemExtra) texto += `\n*Mensagem:* ${mensagemExtra}`;
+      window.open(`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
     }
   </script>
 

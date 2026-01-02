@@ -44,13 +44,18 @@
     /* Header */
     .site-header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
     .site-header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    
+    /* Logo na direita */
     .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.4rem; color: var(--primary); }
     .logo-img { height: 50px; width: auto; object-fit: contain; }
 
+    /* Menu na esquerda */
     .nav { display: flex; align-items: center; }
-    .nav a { margin-left: 20px; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
+    /* Alterado de margin-left para margin-right para alinhar corretamente na esquerda */
+    .nav a { margin-right: 20px; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
     .nav a:hover { color: var(--primary); }
     .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1.2rem; border-radius: 5px; }
+    
     @media(max-width: 768px) { .nav { display: none; } }
 
     /* Hero */
@@ -64,7 +69,17 @@
         background-color: #001f3f; 
     }
     .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-    .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
+    .hero-slide { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-size: cover; 
+        background-position: center; 
+        opacity: 0; 
+        transition: opacity 1s ease-in-out; 
+    }
     .hero-slide.active { opacity: 1; }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%); z-index: 2; }
     .hero-content { position: relative; z-index: 3; max-width: 700px; padding-top: 40px; }
@@ -163,77 +178,76 @@
     .border-pbs { border-top-color: #34A853 !important; }
 
     /* LOGO FLUTUANTE FIXO */
-.logo-float {
-  position: fixed;
-  top: 140px;
-  left: 20px;
-  z-index: 9998;
-  background: rgba(255,255,255,0.95);
-  padding: 14px 18px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.logo-float img {
-  height: 110px; /* LOGO GRANDE */
-  width: auto;
-  display: block;
-}
-
-/* Ajuste para telas menores */
-@media (max-width: 1024px) {
-  .logo-float img {
-    height: 90px;
-  }
-}
-
-@media (max-width: 768px) {
-  .logo-float {
-    display: none;
-  }
-}
+    .logo-float {
+      position: fixed;
+      top: 140px;
+      left: 20px;
+      z-index: 9998;
+      background: rgba(255,255,255,0.95);
+      padding: 14px 18px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .logo-float img { height: 110px; width: auto; display: block; }
+    @media (max-width: 1024px) { .logo-float img { height: 90px; } }
+    @media (max-width: 768px) { .logo-float { display: none; } }
 
   </style>
 </head>
 <body>
 
-<!-- LOGO FLUTUANTE -->
-<div class="logo-float">
-  <img src="logo.png" alt="Suporte Delivery">
-</div>
+  <!-- LOGO FLUTUANTE -->
+  <div class="logo-float">
+    <img src="logo.png" alt="Suporte Delivery">
+  </div>
 
-  <!-- HEADER -->
+  <!-- HEADER (MODIFICADO: Menu Esquerda / Logo Direita) -->
   <header class="site-header">
     <div class="container">
-      <a class="logo-container" href="#">
-        <img src="logo.png" alt="Suporte Delivery" class="logo-img">
-      </a>
+      
+      <!-- 1. Menu de Navegação (Agora na Esquerda) -->
       <nav class="nav">
         <a href="#servicos">Serviços</a>
         <a href="#comparativo">Comparativo</a>
         <a href="#modelos-contratos">Contratos</a>
         <a class="cta" href="#contato">Solicitar Proposta</a>
       </nav>
+
+      <!-- 2. Logo (Agora na Direita) -->
+      <a class="logo-container" href="#">
+        <img src="logo.png" alt="Suporte Delivery" class="logo-img">
+      </a>
+
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (CARROSSEL) -->
     <section class="hero">
       <div class="hero-slides">
-        <!-- Slide 1: Sua foto 1 -->
+        <!-- 
+           IMPORTANTE: Verifique se os nomes dos arquivos na pasta "img"
+           são EXATAMENTE estes (letras maiúsculas/minúsculas importam):
+           1. slide1.avif
+           2. slide2.jpeg
+           3. slide3.png
+           4. slide4.jpg
+           5. slide5.jpg
+        -->
+        
+        <!-- Slide 1 -->
         <div class="hero-slide active" style="background-image: url('img/slide1.avif');"></div>
         
-        <!-- Slide 2: Sua foto 2 -->
+        <!-- Slide 2 -->
         <div class="hero-slide" style="background-image: url('img/slide2.jpeg');"></div>
         
-        <!-- Slide 3: Sua foto 3 -->
+        <!-- Slide 3 -->
         <div class="hero-slide" style="background-image: url('img/slide3.png');"></div>
         
-        <!-- Slide 4: Sua foto 4 -->
+        <!-- Slide 4 -->
         <div class="hero-slide" style="background-image: url('img/slide4.jpg');"></div>
 
-               <!-- Slide 5: Sua foto 5 -->
+        <!-- Slide 5 -->
         <div class="hero-slide" style="background-image: url('img/slide5.jpg');"></div>
       </div>
       
@@ -648,12 +662,20 @@
     /* --- Carrossel Hero (Aumentado tempo para 6s) --- */
     let heroIndex = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
+    
     function rotateHero() {
+      // Verifica se existem slides antes de tentar rodar
+      if (heroSlides.length === 0) return;
+      
       heroSlides[heroIndex].classList.remove('active');
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add('active');
     }
-    setInterval(rotateHero, 6000);
+    
+    // Inicia o carrossel apenas se houver slides
+    if (heroSlides.length > 0) {
+      setInterval(rotateHero, 6000);
+    }
 
     /* --- Carrossel Depoimentos --- */
     let testIndex = 1;
@@ -664,6 +686,8 @@
       let i;
       let slides = document.getElementsByClassName("testimonial-slide");
       let dots = document.getElementsByClassName("dot");
+      if (slides.length === 0) return; // Evita erro se não houver depoimentos
+
       if (n > slides.length) {testIndex = 1}    
       if (n < 1) {testIndex = slides.length}
       for (i = 0; i < slides.length; i++) {

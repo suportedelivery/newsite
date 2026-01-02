@@ -161,9 +161,46 @@
     .border-proxmox { border-top-color: #E05D44 !important; }
     .border-pfsense { border-top-color: #003399 !important; }
     .border-pbs { border-top-color: #34A853 !important; }
+
+    /* LOGO FLUTUANTE FIXO */
+.logo-float {
+  position: fixed;
+  top: 140px;
+  left: 20px;
+  z-index: 9998;
+  background: rgba(255,255,255,0.95);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.logo-float img {
+  height: 110px; /* LOGO GRANDE */
+  width: auto;
+  display: block;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 1024px) {
+  .logo-float img {
+    height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-float {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
+
+<!-- LOGO FLUTUANTE -->
+<div class="logo-float">
+  <img src="logo.png" alt="Suporte Delivery">
+</div>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -195,10 +232,7 @@
         
         <!-- Slide 4: Escola (Laboratório de Informática) -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');"></div>
-     
-        <!-- Slide 5: Indústria (Mantida) -->
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');"></div>
-       </div>
+      </div>
       
       <div class="hero-overlay"></div>
       <div class="container hero-content">

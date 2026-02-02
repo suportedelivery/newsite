@@ -298,44 +298,48 @@
       
       <div class="services-grid">
         
-        <!-- CARD 1 (Adicionado ID para Sitelink) -->
+        <!-- CARD 1 (ID no Card + ID no Botão) -->
         <div class="card" id="card-contratos">
           <div class="card-content">
             <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
             <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> CLT / Equipe Interna</div>
-          <a class="btn-more" onclick="openModal('modal-contrato')">Saiba mais <i class="fas fa-arrow-right"></i></a>
+          <!-- ID NOVO NO BOTÃO -->
+          <a id="card-contratos-saibamais" class="btn-more" onclick="openModal('modal-contrato')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- CARD 2 (Adicionado ID para Sitelink) -->
+        <!-- CARD 2 (ID no Card + ID no Botão) -->
         <div class="card border-proxmox" id="card-proxmox">
           <div class="card-content">
             <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
             <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem custo por socket.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> VMware / Hyper-V</div>
-          <a class="btn-more" onclick="openModal('modal-proxmox')">Saiba mais <i class="fas fa-arrow-right"></i></a>
+          <!-- ID NOVO NO BOTÃO -->
+          <a id="card-proxmox-saibamais" class="btn-more" onclick="openModal('modal-proxmox')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- CARD 3 (Adicionado ID para Sitelink) -->
+        <!-- CARD 3 (ID no Card + ID no Botão) -->
         <div class="card border-pfsense" id="card-pfsense">
           <div class="card-content">
             <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
             <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> Fortinet / SonicWall</div>
-          <a class="btn-more" onclick="openModal('modal-pfsense')">Saiba mais <i class="fas fa-arrow-right"></i></a>
+          <!-- ID NOVO NO BOTÃO -->
+          <a id="card-pfsense-saibamais" class="btn-more" onclick="openModal('modal-pfsense')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
         
-        <!-- CARD 4 (Adicionado ID para Sitelink) -->
+        <!-- CARD 4 (ID no Card + ID no Botão) -->
         <div class="card border-pbs" id="card-pbs">
           <div class="card-content">
             <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup</h3>
             <p>Backup incremental rápido e imutabilidade contra Ransomware. Tudo integrado.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> Veeam / Dataprotect</div>
-          <a class="btn-more" onclick="openModal('modal-pbs')">Saiba mais <i class="fas fa-arrow-right"></i></a>
+          <!-- ID NOVO NO BOTÃO -->
+          <a id="card-pbs-saibamais" class="btn-more" onclick="openModal('modal-pbs')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
       </div>
@@ -369,7 +373,7 @@
       <h2>Comparativo de Custos Detalhado</h2>
       <p>Veja a economia real migrando para nossas soluções gerenciadas.</p>
 
-      <!-- Tabela 1: VIRTUALIZAÇÃO (Adicionado ID para Sitelink) -->
+      <!-- Tabela 1: VIRTUALIZAÇÃO -->
       <div class="compare-container" id="tab-virtualizacao">
         <div class="compare-header" style="background: var(--dark);">
           <i class="fas fa-server"></i> Cenário 1: Virtualização (2 Servidores Host)
@@ -407,7 +411,7 @@
         </table>
       </div>
 
-      <!-- Tabela 2: FIREWALL (Adicionado ID para Sitelink) -->
+      <!-- Tabela 2: FIREWALL -->
       <div class="compare-container" id="tab-vpn">
         <div class="compare-header" style="background: var(--primary);">
           <i class="fas fa-shield-alt"></i> Cenário 2: Segurança e VPN (40 Usuários)
@@ -440,7 +444,7 @@
         </table>
       </div>
 
-      <!-- Tabela 3: BACKUP (Adicionado ID para Sitelink) -->
+      <!-- Tabela 3: BACKUP -->
       <div class="compare-container" id="tab-backup">
         <div class="compare-header" style="background: var(--success);">
           <i class="fas fa-database"></i> Cenário 3: Backup Corporativo
@@ -728,6 +732,23 @@
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) { event.target.style.display = "none"; }
     }
+    
+    /* --- AUTO-OPEN MODAL VIA URL (Lógica para Sitelinks) --- */
+    // Essa função verifica se a URL tem um hash especifico (ex: #card-contratos-saibamais)
+    // Se tiver, ela abre o modal automaticamente.
+    window.addEventListener('load', function() {
+        const hash = window.location.hash;
+        
+        if (hash === '#card-contratos-saibamais') {
+            openModal('modal-contrato');
+        } else if (hash === '#card-proxmox-saibamais') {
+            openModal('modal-proxmox');
+        } else if (hash === '#card-pfsense-saibamais') {
+            openModal('modal-pfsense');
+        } else if (hash === '#card-pbs-saibamais') {
+            openModal('modal-pbs');
+        }
+    });
 
     /* --- Form Whatsapp (Corrigido para 4137983434) --- */
     function enviarWhatsapp(e) {

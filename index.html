@@ -4,7 +4,6 @@
 
 <!-- Google tag (gtag.js) event - delayed navigation helper -->
 <script>
-  // Helper function to delay opening a URL until a gtag event is sent.
   function gtagSendEvent(url) {
     var callback = function () {
       if (typeof url === 'string') {
@@ -14,12 +13,10 @@
     gtag('event', 'conversion_event_contact', {
       'event_callback': callback,
       'event_timeout': 2000,
-      // <event_parameters>
     });
     return false;
   }
 </script>
-
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -65,13 +62,10 @@
     .site-header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
     .site-header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
     
-    /* Logo na direita */
     .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.4rem; color: var(--primary); }
     .logo-img { height: 50px; width: auto; object-fit: contain; }
 
-    /* Menu na esquerda */
     .nav { display: flex; align-items: center; }
-    /* Alterado de margin-left para margin-right para alinhar corretamente na esquerda */
     .nav a { margin-right: 20px; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
     .nav a:hover { color: var(--primary); }
     .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1.2rem; border-radius: 5px; }
@@ -79,35 +73,13 @@
     @media(max-width: 768px) { .nav { display: none; } }
 
     /* Hero */
-    .hero { 
-        position: relative; 
-        height: 600px; 
-        color: #fff; 
-        overflow: hidden; 
-        display: flex; 
-        align-items: center; 
-        background-color: #001f3f; 
-    }
+    .hero { position: relative; height: 600px; color: #fff; overflow: hidden; display: flex; align-items: center; background-color: #001f3f; }
     .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-    .hero-slide { 
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100%; 
-        background-size: cover; 
-        background-position: center; 
-        opacity: 0; 
-        transition: opacity 1s ease-in-out; 
-    }
+    .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
     .hero-slide.active { opacity: 1; }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%); z-index: 2; }
     .hero-content { position: relative; z-index: 3; max-width: 700px; padding-top: 40px; }
-    
-    .hero-title {
-        color: #00e0ff; /* Azul Ciano Brilhante */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
-    }
+    .hero-title { color: #00e0ff; text-shadow: 2px 2px 5px rgba(0,0,0,0.9); }
     
     .btn-primary { display: inline-block; background: var(--secondary); color: #000; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
     .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; margin-left: 10px; font-weight: bold; }
@@ -123,26 +95,147 @@
     .card h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.5rem; }
     .card-content { flex-grow: 1; }
     .comp-tag { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; }
-    .comp-tag strong { color: var(--danger); }
-    
-    /* Botão Saiba Mais */
     .btn-more { color: var(--primary); font-weight: bold; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
     .btn-more:hover { text-decoration: underline; }
 
-    /* Modais (Popups) */
-    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
-    .modal-content { background-color: #fefefe; margin: 5% auto; padding: 0; border: 1px solid #888; width: 90%; max-width: 800px; border-radius: 10px; animation: fadeEffect 0.4s; position: relative; }
-    .modal-header { padding: 1.5rem; background: var(--dark); color: white; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
-    .modal-body { padding: 2rem; }
-    .close-modal { color: #fff; font-size: 28px; font-weight: bold; cursor: pointer; }
-    .close-modal:hover { color: var(--secondary); }
+    /* --- NOVOS ESTILOS: TABELA DE PREÇOS (PLANOS) --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: center; /* Alinha verticalmente */
+    }
 
-    /* Tabelas nos Modais */
-    .modal-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
-    .modal-table th, .modal-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-    .modal-table th { background-color: #f1f5f9; color: var(--dark); }
-    .modal-table tr:nth-child(even) { background-color: #f9f9f9; }
-    .modal-highlight { background-color: #e6fffa !important; font-weight: bold; color: var(--success); }
+    .pricing-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .pricing-subtitle {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      margin-bottom: 1rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .pricing-features i.fa-check {
+      color: var(--success);
+      margin-top: 4px;
+    }
+
+    .pricing-features i.fa-times {
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .pricing-features .unavailable {
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .btn-pricing {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: bold;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn-pricing:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Destaque para o Plano Business */
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+      box-shadow: 0 10px 40px rgba(0,51,153,0.15);
+      z-index: 1;
+      transform: scale(1.05);
+    }
+    
+    @media(max-width: 900px) {
+        .pricing-card.featured { transform: scale(1); }
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary);
+      color: #000;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .btn-pricing.featured-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+    }
+    
+    .btn-pricing.featured-btn:hover {
+        background: #002266;
+    }
+    
+    /* Efeito de destaque ao rolar (Highlight) */
+    @keyframes flashHighlight {
+        0% { background-color: #fff; }
+        50% { background-color: #e6fffa; box-shadow: 0 0 20px var(--secondary); }
+        100% { background-color: #fff; }
+    }
+    .highlight-card {
+        animation: flashHighlight 2s ease-in-out;
+    }
+
 
     /* Feature Dark */
     .feature-dark { background: var(--dark); color: #fff; }
@@ -150,7 +243,7 @@
     .benefits li { margin-bottom: 1rem; position: relative; padding-left: 25px; }
     .benefits li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--success); }
 
-    /* Tabelas Principais */
+    /* Tabelas Comparativo */
     .compare-container { background: #fff; border-radius: 8px; overflow: hidden; color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; margin-bottom: 2rem; }
     .compare { width: 100%; border-collapse: collapse; }
     .compare th, .compare td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.90rem; }
@@ -160,11 +253,7 @@
     .cost-highlight { font-weight: bold; font-size: 1.1em; }
     .compare-header { padding: 1rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; }
 
-    /* Contracts & Testimonials */
-    .contract-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .contract-list li { background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; border-left: 5px solid var(--primary); }
-    .contract-list strong { display: block; font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
-    
+    /* Testimonials */
     .testimonials-section { background: var(--dark); color: #fff; text-align: center; }
     .testimonial-container { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; min-height: 250px; }
     .testimonial-slide { display: none; padding: 2rem; animation: fadeEffect 1s; }
@@ -174,6 +263,17 @@
     .testimonial-dots { margin-top: 1rem; }
     .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #555; border-radius: 50%; display: inline-block; cursor: pointer; transition: 0.3s; }
     .dot.active { background-color: var(--secondary); transform: scale(1.2); }
+
+    /* Modais */
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+    .modal-content { background-color: #fefefe; margin: 5% auto; padding: 0; border: 1px solid #888; width: 90%; max-width: 800px; border-radius: 10px; animation: fadeEffect 0.4s; position: relative; }
+    .modal-header { padding: 1.5rem; background: var(--dark); color: white; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    .modal-body { padding: 2rem; }
+    .close-modal { color: #fff; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .modal-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+    .modal-table th, .modal-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    .modal-table th { background-color: #f1f5f9; color: var(--dark); }
+    .modal-highlight { background-color: #e6fffa !important; font-weight: bold; color: var(--success); }
 
     /* Form & Footer */
     .form-box { background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; border-top: 5px solid #25D366; }
@@ -221,56 +321,31 @@
     <img src="logo.png" alt="Suporte Delivery">
   </div>
 
-  <!-- HEADER (MODIFICADO: Menu Esquerda / Logo Direita) -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container">
-      
-      <!-- 1. Menu de Navegação (Agora na Esquerda) -->
       <nav class="nav">
         <a href="#servicos">Serviços</a>
         <a href="#comparativo">Comparativo</a>
         <a href="#modelos-contratos">Contratos</a>
         <a class="cta" href="#contato">Solicitar Proposta</a>
       </nav>
-
-      <!-- 2. Logo (Agora na Direita) -->
       <a class="logo-container" href="#">
         <img src="logo.png" alt="Suporte Delivery" class="logo-img">
       </a>
-
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION (CARROSSEL) -->
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-slides">
-        <!-- 
-           IMPORTANTE: Verifique se os nomes dos arquivos na pasta "img"
-           são EXATAMENTE estes (letras maiúsculas/minúsculas importam):
-           1. slide1.avif
-           2. slide2.jpeg
-           3. slide3.png
-           4. slide4.jpg
-           5. slide5.jpg
-        -->
-        
-        <!-- Slide 1 -->
         <div class="hero-slide active" style="background-image: url('img/slide1.avif');"></div>
-        
-        <!-- Slide 2 -->
         <div class="hero-slide" style="background-image: url('img/slide2.jpeg');"></div>
-        
-        <!-- Slide 3 -->
         <div class="hero-slide" style="background-image: url('img/slide3.png');"></div>
-        
-        <!-- Slide 4 -->
         <div class="hero-slide" style="background-image: url('img/slide4.jpg');"></div>
-
-        <!-- Slide 5 -->
         <div class="hero-slide" style="background-image: url('img/slide5.jpg');"></div>
       </div>
-      
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1 class="hero-title">Sua TI em Curitiba: Segurança Máxima, Custo de Licença Zero.</h1>
@@ -295,53 +370,39 @@
         <h2>Tecnologia Enterprise, Custo Acessível</h2>
         <p>Unimos a gestão de TI tradicional com a engenharia de soluções Open Source.</p>
       </div>
-      
       <div class="services-grid">
-        
-        <!-- CARD 1 (ID no Card + ID no Botão) -->
         <div class="card" id="card-contratos">
           <div class="card-content">
             <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
             <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> CLT / Equipe Interna</div>
-          <!-- ID NOVO NO BOTÃO -->
           <a id="card-contratos-saibamais" class="btn-more" onclick="openModal('modal-contrato')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
-
-        <!-- CARD 2 (ID no Card + ID no Botão) -->
         <div class="card border-proxmox" id="card-proxmox">
           <div class="card-content">
             <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
             <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem custo por socket.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> VMware / Hyper-V</div>
-          <!-- ID NOVO NO BOTÃO -->
           <a id="card-proxmox-saibamais" class="btn-more" onclick="openModal('modal-proxmox')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
-
-        <!-- CARD 3 (ID no Card + ID no Botão) -->
         <div class="card border-pfsense" id="card-pfsense">
           <div class="card-content">
             <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
             <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> Fortinet / SonicWall</div>
-          <!-- ID NOVO NO BOTÃO -->
           <a id="card-pfsense-saibamais" class="btn-more" onclick="openModal('modal-pfsense')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <!-- CARD 4 (ID no Card + ID no Botão) -->
         <div class="card border-pbs" id="card-pbs">
           <div class="card-content">
             <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup</h3>
             <p>Backup incremental rápido e imutabilidade contra Ransomware. Tudo integrado.</p>
           </div>
           <div class="comp-tag"><strong>Substitui:</strong> Veeam / Dataprotect</div>
-          <!-- ID NOVO NO BOTÃO -->
           <a id="card-pbs-saibamais" class="btn-more" onclick="openModal('modal-pbs')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
-
       </div>
     </section>
 
@@ -373,7 +434,7 @@
       <h2>Comparativo de Custos Detalhado</h2>
       <p>Veja a economia real migrando para nossas soluções gerenciadas.</p>
 
-      <!-- Tabela 1: VIRTUALIZAÇÃO -->
+      <!-- Tabela 1 -->
       <div class="compare-container" id="tab-virtualizacao">
         <div class="compare-header" style="background: var(--dark);">
           <i class="fas fa-server"></i> Cenário 1: Virtualização (2 Servidores Host)
@@ -411,7 +472,7 @@
         </table>
       </div>
 
-      <!-- Tabela 2: FIREWALL -->
+      <!-- Tabela 2 -->
       <div class="compare-container" id="tab-vpn">
         <div class="compare-header" style="background: var(--primary);">
           <i class="fas fa-shield-alt"></i> Cenário 2: Segurança e VPN (40 Usuários)
@@ -444,7 +505,7 @@
         </table>
       </div>
 
-      <!-- Tabela 3: BACKUP -->
+      <!-- Tabela 3 -->
       <div class="compare-container" id="tab-backup">
         <div class="compare-header" style="background: var(--success);">
           <i class="fas fa-database"></i> Cenário 3: Backup Corporativo
@@ -478,28 +539,76 @@
       </div>
     </section>
 
-    <!-- MODELOS DE CONTRATOS -->
-    <section id="modelos-contratos" class="container section" style="background: #fff; border-top: 1px solid #eee;">
-      <h2 class="text-center">Modelos de Contrato</h2>
-      <p class="lead">Planos com responsabilidade técnica e previsibilidade orçamentária.</p>
-      
-      <ul class="contract-list">
-        <li>
-          <strong>Pacote Essentials</strong>
-          <p>Ideal para pequenas empresas. Suporte remoto ilimitado, monitoramento básico e atendimento 8x5.</p>
-        </li>
-        <li>
-          <strong>Pacote Business <span style="font-size:0.7em; background:var(--secondary); padding:2px 6px; border-radius:4px; color:#000;">Recomendado</span></strong>
-          <p>Suporte remoto + Visitas presenciais preventivas em Curitiba. Gestão de Backup, Firewall e SLA garantido de 4h.</p>
-        </li>
-        <li>
-          <strong>Pacote Enterprise</strong>
-          <p>Missão crítica 24x7. Alta disponibilidade, redundância de link, consultoria trimestral e Disaster Recovery.</p>
-        </li>
-      </ul>
+    <!-- PLANOS DE SUPORTE (NOVO DESIGN) -->
+    <section id="modelos-contratos" class="section" style="background: #fff; border-top: 1px solid #eee;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <h2>Modelos de Contrato</h2>
+          <p class="lead">Planos escaláveis com responsabilidade técnica e previsibilidade orçamentária.</p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Plano 1: Essentials -->
+          <div class="pricing-card" id="plano-essentials">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Essentials</h3>
+              <p class="pricing-subtitle">Ideal para pequenas empresas</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Service Desk Remoto</li>
+              <li><i class="fas fa-check"></i> Monitoramento Básico (Ping/Portas)</li>
+              <li><i class="fas fa-check"></i> Atendimento 8x5 (Seg-Sex)</li>
+              <li><i class="fas fa-check"></i> SLA de Resposta: 8h</li>
+              <li class="unavailable"><i class="fas fa-times"></i> Visitas Presenciais Inclusas</li>
+              <li class="unavailable"><i class="fas fa-times"></i> Gestão de Backup Diário</li>
+              <li class="unavailable"><i class="fas fa-times"></i> Firewall Gerenciado</li>
+            </ul>
+            <a href="#contato" class="btn-pricing">Solicitar Cotação</a>
+          </div>
+
+          <!-- Plano 2: Business (DESTAQUE) -->
+          <div class="pricing-card featured" id="plano-business">
+            <div class="featured-badge">Recomendado</div>
+            <div class="pricing-header">
+              <h3 class="pricing-title">Business</h3>
+              <p class="pricing-subtitle">Segurança e Suporte Híbrido</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> <strong>Service Desk Remoto Ilimitado</strong></li>
+              <li><i class="fas fa-check"></i> <strong>Visitas Preventivas (Curitiba)</strong></li>
+              <li><i class="fas fa-check"></i> Monitoramento Zabbix Proativo</li>
+              <li><i class="fas fa-check"></i> Atendimento 8x5 (Seg-Sex)</li>
+              <li><i class="fas fa-check"></i> SLA de Resposta: 4h</li>
+              <li><i class="fas fa-check"></i> Gestão de Backup Diário</li>
+              <li><i class="fas fa-check"></i> Firewall Gerenciado</li>
+            </ul>
+            <a href="#contato" class="btn-pricing featured-btn">Quero este Plano</a>
+          </div>
+
+          <!-- Plano 3: Enterprise -->
+          <div class="pricing-card" id="plano-enterprise">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Enterprise</h3>
+              <p class="pricing-subtitle">Missão Crítica</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Service Desk Remoto VIP</li>
+              <li><i class="fas fa-check"></i> Visitas Ilimitadas (Corretivas)</li>
+              <li><i class="fas fa-check"></i> Monitoramento Full Stack</li>
+              <li><i class="fas fa-check"></i> <strong>Atendimento 24x7 Plantão</strong></li>
+              <li><i class="fas fa-check"></i> SLA de Resposta: 2h</li>
+              <li><i class="fas fa-check"></i> Consultoria Trimestral (CIO)</li>
+              <li><i class="fas fa-check"></i> Projeto de Disaster Recovery</li>
+            </ul>
+            <a href="#contato" class="btn-pricing">Falar com Consultor</a>
+          </div>
+
+        </div>
+      </div>
     </section>
 
- <!-- DEPOIMENTOS -->
+    <!-- DEPOIMENTOS -->
     <section id="testemunhos" class="section testimonials-section">
       <div class="container">
         <h2 style="color: #fff;">Depoimentos</h2>
@@ -525,7 +634,7 @@
       </div>
     </section>
 
-    <!-- FORMULÁRIO WHATSAPP -->
+    <!-- FORMULÁRIO -->
     <section id="contato" class="section" style="background: #f0fdf4;">
       <div class="container text-center">
         <h2>Solicite sua Proposta</h2>
@@ -557,12 +666,9 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- MODAIS (Popups de Saiba Mais) -->
-  
-  <!-- Modal Contrato -->
   <div id="modal-contrato" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -584,7 +690,6 @@
     </div>
   </div>
 
-  <!-- Modal Proxmox -->
   <div id="modal-proxmox" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -605,7 +710,6 @@
     </div>
   </div>
 
-  <!-- Modal PfSense -->
   <div id="modal-pfsense" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -626,7 +730,6 @@
     </div>
   </div>
 
-  <!-- Modal PBS -->
   <div id="modal-pbs" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -645,12 +748,11 @@
                 <tr><td><strong>Imutabilidade</strong></td><td>Requer Linux Hardened Repository</td><td class="modal-highlight">Nativo (Datastore Locking)</td></tr>
             </tbody>
         </table>
-        <p style="font-size: 0.85rem; margin-top: 1rem; color: #666;">* O PBS foi desenhado especificamente para o Proxmox, garantindo a restauração mais rápida do mercado para este hipervisor.</p>
       </div>
     </div>
   </div>
 
-  <!-- RODAPÉ CORRIGIDO -->
+  <!-- RODAPÉ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -661,9 +763,7 @@
         <div class="footer-contact">
           <h4 style="color:#fff; margin-bottom:1rem;">Contato</h4>
           <div class="footer-links">
-            <!-- Whatsapp / Fixo (Principal) -->
             <a href="https://wa.me/554137983434" style="font-size: 1.1rem; color: #fff; font-weight: bold;"><i class="fab fa-whatsapp"></i> (41) 3798-3434</a>
-            <!-- Celular (Secundário) -->
             <a href="tel:+5511970839455"><i class="fas fa-mobile-alt"></i> (11) 97083-9455</a>
             <a href="mailto:contato@suportedelivery.com"><i class="fas fa-envelope"></i> contato@suportedelivery.com</a>
           </div>
@@ -683,25 +783,16 @@
 
   <!-- SCRIPTS -->
   <script>
-    /* --- Carrossel Hero (Aumentado tempo para 6s) --- */
     let heroIndex = 0;
     const heroSlides = document.querySelectorAll('.hero-slide');
-    
     function rotateHero() {
-      // Verifica se existem slides antes de tentar rodar
       if (heroSlides.length === 0) return;
-      
       heroSlides[heroIndex].classList.remove('active');
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add('active');
     }
-    
-    // Inicia o carrossel apenas se houver slides
-    if (heroSlides.length > 0) {
-      setInterval(rotateHero, 6000);
-    }
+    if (heroSlides.length > 0) setInterval(rotateHero, 6000);
 
-    /* --- Carrossel Depoimentos --- */
     let testIndex = 1;
     showSlides(testIndex);
     setInterval(function(){ showSlides(testIndex += 1); }, 7000);
@@ -710,8 +801,7 @@
       let i;
       let slides = document.getElementsByClassName("testimonial-slide");
       let dots = document.getElementsByClassName("dot");
-      if (slides.length === 0) return; // Evita erro se não houver depoimentos
-
+      if (slides.length === 0) return;
       if (n > slides.length) {testIndex = 1}    
       if (n < 1) {testIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
@@ -726,31 +816,34 @@
       dots[testIndex-1].className += " active";
     }
 
-    /* --- Modais (Popups) Logic --- */
     function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
     function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) { event.target.style.display = "none"; }
     }
     
-    /* --- AUTO-OPEN MODAL VIA URL (Lógica para Sitelinks) --- */
-    // Essa função verifica se a URL tem um hash especifico (ex: #card-contratos-saibamais)
-    // Se tiver, ela abre o modal automaticamente.
+    // Auto-open modal logic and Highlight Pricing Plans logic
     window.addEventListener('load', function() {
         const hash = window.location.hash;
         
-        if (hash === '#card-contratos-saibamais') {
-            openModal('modal-contrato');
-        } else if (hash === '#card-proxmox-saibamais') {
-            openModal('modal-proxmox');
-        } else if (hash === '#card-pfsense-saibamais') {
-            openModal('modal-pfsense');
-        } else if (hash === '#card-pbs-saibamais') {
-            openModal('modal-pbs');
+        // Modal Logic
+        if (hash === '#card-contratos-saibamais') { openModal('modal-contrato'); } 
+        else if (hash === '#card-proxmox-saibamais') { openModal('modal-proxmox'); } 
+        else if (hash === '#card-pfsense-saibamais') { openModal('modal-pfsense'); } 
+        else if (hash === '#card-pbs-saibamais') { openModal('modal-pbs'); }
+
+        // Pricing Table Highlight Logic
+        if (hash.startsWith('#plano-')) {
+            const el = document.querySelector(hash);
+            if(el) {
+                // Remove a class de todos primeiro
+                document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('highlight-card'));
+                // Adiciona a classe que faz piscar
+                el.classList.add('highlight-card');
+            }
         }
     });
 
-    /* --- Form Whatsapp (Corrigido para 4137983434) --- */
     function enviarWhatsapp(e) {
       e.preventDefault();
       const numeroWhatsapp = "554137983434"; 

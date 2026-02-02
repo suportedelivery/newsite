@@ -5,7 +5,6 @@
 <!-- Google tag (gtag.js) event - delayed navigation helper -->
 <script>
   // Helper function to delay opening a URL until a gtag event is sent.
-  // Call it in response to an action that should navigate to a URL.
   function gtagSendEvent(url) {
     var callback = function () {
       if (typeof url === 'string') {
@@ -299,8 +298,8 @@
       
       <div class="services-grid">
         
-        <!-- CARD 1 -->
-        <div class="card">
+        <!-- CARD 1 (Adicionado ID para Sitelink) -->
+        <div class="card" id="card-contratos">
           <div class="card-content">
             <h3><i class="fas fa-headset"></i> Contratos de Suporte</h3>
             <p>Service Desk, monitoramento 24x7 e visitas técnicas preventivas. Sua TI funcionando sem interrupções.</p>
@@ -309,8 +308,8 @@
           <a class="btn-more" onclick="openModal('modal-contrato')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="card border-proxmox">
+        <!-- CARD 2 (Adicionado ID para Sitelink) -->
+        <div class="card border-proxmox" id="card-proxmox">
           <div class="card-content">
             <h3><i class="fas fa-server" style="color: #E05D44"></i> Proxmox VE</h3>
             <p>Virtualização robusta com KVM, Clusters HA e Snapshots. Estabilidade Enterprise sem custo por socket.</p>
@@ -319,8 +318,8 @@
           <a class="btn-more" onclick="openModal('modal-proxmox')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- CARD 3 -->
-        <div class="card border-pfsense">
+        <!-- CARD 3 (Adicionado ID para Sitelink) -->
+        <div class="card border-pfsense" id="card-pfsense">
           <div class="card-content">
             <h3><i class="fas fa-shield-alt" style="color: #003399"></i> pfSense Firewall</h3>
             <p>VPN ilimitada e segurança de borda. Controle de internet e redundância usando hardware padrão.</p>
@@ -329,8 +328,8 @@
           <a class="btn-more" onclick="openModal('modal-pfsense')">Saiba mais <i class="fas fa-arrow-right"></i></a>
         </div>
         
-        <!-- CARD 4 -->
-        <div class="card border-pbs">
+        <!-- CARD 4 (Adicionado ID para Sitelink) -->
+        <div class="card border-pbs" id="card-pbs">
           <div class="card-content">
             <h3><i class="fas fa-database" style="color: #34A853"></i> Proxmox Backup</h3>
             <p>Backup incremental rápido e imutabilidade contra Ransomware. Tudo integrado.</p>
@@ -370,8 +369,8 @@
       <h2>Comparativo de Custos Detalhado</h2>
       <p>Veja a economia real migrando para nossas soluções gerenciadas.</p>
 
-      <!-- Tabela 1: VIRTUALIZAÇÃO -->
-      <div class="compare-container">
+      <!-- Tabela 1: VIRTUALIZAÇÃO (Adicionado ID para Sitelink) -->
+      <div class="compare-container" id="tab-virtualizacao">
         <div class="compare-header" style="background: var(--dark);">
           <i class="fas fa-server"></i> Cenário 1: Virtualização (2 Servidores Host)
         </div>
@@ -408,8 +407,8 @@
         </table>
       </div>
 
-      <!-- Tabela 2: FIREWALL (Com Custo de Implantação) -->
-      <div class="compare-container">
+      <!-- Tabela 2: FIREWALL (Adicionado ID para Sitelink) -->
+      <div class="compare-container" id="tab-vpn">
         <div class="compare-header" style="background: var(--primary);">
           <i class="fas fa-shield-alt"></i> Cenário 2: Segurança e VPN (40 Usuários)
         </div>
@@ -441,8 +440,8 @@
         </table>
       </div>
 
-      <!-- Tabela 3: BACKUP (Com Custo de Implantação) -->
-      <div class="compare-container">
+      <!-- Tabela 3: BACKUP (Adicionado ID para Sitelink) -->
+      <div class="compare-container" id="tab-backup">
         <div class="compare-header" style="background: var(--success);">
           <i class="fas fa-database"></i> Cenário 3: Backup Corporativo
         </div>

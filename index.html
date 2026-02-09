@@ -182,7 +182,7 @@
       border: 2px solid var(--primary);
       background: transparent;
       color: var(--primary);
-      cursor: pointer; /* Importante para o botão funcionar como ação */
+      cursor: pointer;
     }
 
     .btn-pricing:hover {
@@ -271,6 +271,7 @@
     .modal-header { padding: 1.5rem; background: var(--dark); color: white; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
     .modal-body { padding: 2rem; }
     .close-modal { color: #fff; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .close-modal:hover { color: var(--secondary); }
     .modal-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
     .modal-table th, .modal-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
     .modal-table th { background-color: #f1f5f9; color: var(--dark); }
@@ -565,7 +566,6 @@
               <li class="unavailable"><i class="fas fa-times"></i> Gestão de Backup Diário</li>
               <li class="unavailable"><i class="fas fa-times"></i> Firewall Gerenciado</li>
             </ul>
-            <!-- BOTÃO ALTERADO PARA SELECIONAR PLANO -->
             <button class="btn-pricing" onclick="selectPlan('Pacote Essentials')">Solicitar Cotação</button>
           </div>
 
@@ -585,7 +585,6 @@
               <li><i class="fas fa-check"></i> Gestão de Backup Diário</li>
               <li><i class="fas fa-check"></i> Firewall Gerenciado</li>
             </ul>
-            <!-- BOTÃO ALTERADO PARA SELECIONAR PLANO -->
             <button class="btn-pricing featured-btn" onclick="selectPlan('Pacote Business')">Quero este Plano</button>
           </div>
 
@@ -604,7 +603,6 @@
               <li><i class="fas fa-check"></i> Consultoria Trimestral (CIO)</li>
               <li><i class="fas fa-check"></i> Projeto de Disaster Recovery</li>
             </ul>
-            <!-- BOTÃO ALTERADO PARA SELECIONAR PLANO -->
             <button class="btn-pricing" onclick="selectPlan('Pacote Enterprise')">Falar com Consultor</button>
           </div>
 
@@ -661,7 +659,7 @@
               </div>
             </div>
 
-            <!-- NOVO CAMPO: SELETOR DE PLANO -->
+            <!-- SELETOR DE PLANO -->
             <div class="form-group">
               <label class="form-label">Qual modelo de contrato te interessou?</label>
               <select id="plano-selecionado" class="form-input">
@@ -769,6 +767,37 @@
     </div>
   </div>
 
+  <!-- Modal Política de Privacidade (NOVO) -->
+  <div id="modal-politica" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Política de Privacidade</h3>
+        <span class="close-modal" onclick="closeModal('modal-politica')">&times;</span>
+      </div>
+      <div class="modal-body" style="font-size: 0.9rem; line-height: 1.6;">
+        <p><strong>Última atualização: Fevereiro de 2026</strong></p>
+        
+        <h4>1. Coleta de Dados</h4>
+        <p>A SuporteDelivery coleta informações fornecidas voluntariamente pelo usuário através de formulários de contato (nome, e-mail, telefone/WhatsApp e nome da empresa) com a única finalidade de retornar o contato comercial solicitado.</p>
+
+        <h4>2. Uso das Informações</h4>
+        <p>Os dados coletados são utilizados exclusivamente para:
+        <br>- Elaboração de propostas comerciais de serviços de TI.
+        <br>- Contato via telefone ou WhatsApp para agendamento de visitas técnicas.</p>
+        <p>Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins de marketing.</p>
+
+        <h4>3. Cookies e Tecnologias de Rastreamento</h4>
+        <p>Este site utiliza cookies do Google Ads e Google Analytics para monitorar o desempenho de nossas campanhas publicitárias e melhorar a experiência do usuário. Esses cookies não armazenam informações pessoais identificáveis (PII).</p>
+
+        <h4>4. Segurança</h4>
+        <p>Adotamos medidas de segurança adequadas para proteger contra acesso não autorizado, alteração, divulgação ou destruição dos seus dados pessoais.</p>
+
+        <h4>5. Seus Direitos</h4>
+        <p>Você pode solicitar a exclusão dos seus dados de nossa base de contatos a qualquer momento, enviando um e-mail para contato@suportedelivery.com.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- RODAPÉ -->
   <footer class="site-footer">
     <div class="container">
@@ -792,6 +821,9 @@
       </div>
       <div style="margin-top: 3rem; text-align: center; border-top: 1px solid #334155; padding-top: 1rem;">
         © 2026 SuporteDelivery — Todos os direitos reservados.
+        <br>
+        <!-- LINK DISCRETO PARA POLÍTICA -->
+        <a href="#politica" onclick="openModal('modal-politica')" style="font-size: 0.75rem; color: #475569; text-decoration: none; margin-top: 5px; display: inline-block;">Política de Privacidade</a>
       </div>
     </div>
   </footer>
@@ -843,11 +875,16 @@
     window.addEventListener('load', function() {
         const hash = window.location.hash;
         
+        // Modais de Serviço
         if (hash === '#card-contratos-saibamais') { openModal('modal-contrato'); } 
         else if (hash === '#card-proxmox-saibamais') { openModal('modal-proxmox'); } 
         else if (hash === '#card-pfsense-saibamais') { openModal('modal-pfsense'); } 
         else if (hash === '#card-pbs-saibamais') { openModal('modal-pbs'); }
+        
+        // Modal de Política (Google Ads)
+        else if (hash === '#politica') { openModal('modal-politica'); }
 
+        // Pricing Table Highlight
         if (hash.startsWith('#plano-')) {
             const el = document.querySelector(hash);
             if(el) {
@@ -859,15 +896,12 @@
 
     // Função para Selecionar o Plano Automaticamente vindo da Tabela de Preços
     function selectPlan(planName) {
-        // 1. Define o valor no Dropdown
         const select = document.getElementById('plano-selecionado');
         if(select) select.value = planName;
         
-        // 2. Marca a caixa "Contratos de TI" automaticamente para ajudar o usuário
         const checkContrato = document.querySelector('input[value="Contratos de TI"]');
         if(checkContrato) checkContrato.checked = true;
 
-        // 3. Rola suavemente até o formulário
         document.getElementById('contato').scrollIntoView();
     }
 
@@ -877,7 +911,7 @@
       const numeroWhatsapp = "554137983434"; 
       const nome = document.getElementById('nome').value;
       const mensagemExtra = document.getElementById('mensagem').value;
-      const planoSelecionado = document.getElementById('plano-selecionado').value; // Pega o valor do Dropdown
+      const planoSelecionado = document.getElementById('plano-selecionado').value;
 
       let interesses = [];
       document.querySelectorAll('.checkbox-group input:checked').forEach((checkbox) => { interesses.push("✅ " + checkbox.value); });
@@ -885,7 +919,6 @@
       
       let texto = `*NOVA SOLICITAÇÃO VIA SITE*\n\n*Nome/Empresa:* ${nome}\n*Interesses:* \n${interesses.join('\n')}\n`;
       
-      // Adiciona o plano selecionado na mensagem, se houver
       if(planoSelecionado) {
           texto += `\n*Plano de Interesse:* ${planoSelecionado}\n`;
       }

@@ -2153,88 +2153,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Botão flutuante do WhatsApp atualizado com irParaEmergencia() -->
         <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer;"><i class="fab fa-whatsapp"></i></a>
 
-        <!-- SCRIPTS FINAL COMPLETOS -->
-        <script>
-            let heroIndex = 0;
-            const heroSlides = document.querySelectorAll(".hero-slide");
-            function rotateHero() {
-                if (heroSlides.length === 0) return;
-                heroSlides[heroIndex].classList.remove("active");
-                heroIndex = (heroIndex + 1) % heroSlides.length;
-                heroSlides[heroIndex].classList.add("active");
-            }
-            if (heroSlides.length > 0) setInterval(rotateHero, 6000);
-
-            function openModal(modalId) {
-                document.getElementById(modalId).style.display = "block";
-            }
-            function closeModal(modalId) {
-                document.getElementById(modalId).style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target.classList.contains("modal")) {
-                    event.target.style.display = "none";
-                }
-            };
-
-            window.addEventListener("load", function () {
-                const hash = window.location.hash;
-
-                // Modais de Serviço - Links diretos via hashtag
-                if (hash === "#card-manutencao-saibamais" || hash === "#manutencao" || hash === "#anchor-manutencao") {
-                    openModal("modal-manutencao");
-                } else if (hash === "#card-contratos-saibamais" || hash === "#contrato" || hash === "#anchor-contrato") {
-                    openModal("modal-contrato");
-                } else if (hash === "#card-proxmox-saibamais" || hash === "#proxmox" || hash === "#infraestrutura" || hash === "#anchor-proxmox") {
-                    openModal("modal-proxmox");
-                } else if (hash === "#card-pfsense-saibamais" || hash === "#pfsense" || hash === "#firewall" || hash === "#seguranca" || hash === "#vpn" || hash === "#anchor-pfsense") {
-                    openModal("modal-pfsense");
-                } else if (hash === "#card-pbs-saibamais" || hash === "#backup" || hash === "#pbs" || hash === "#anchor-pbs") {
-                    openModal("modal-pbs");
-                } else if (hash === "#politica" || hash === "#privacidade" || hash === "#anchor-politica") {
-                    openModal("modal-politica");
-                } 
-                // Modais de Estratégia (Emergência à Prevenção)
-                else if (hash === "#resgate" || hash === "#emergencia" || hash === "#anchor-resgate") {
-                    openModal("modal-resgate");
-                } else if (hash === "#diagnostico" || hash === "#analise" || hash === "#anchor-diagnostico") {
-                    openModal("modal-diagnostico");
-                } else if (hash === "#terceirizacao" || hash === "#prevencao" || hash === "#anchor-terceirizacao") {
-                    openModal("modal-terceirizacao-inteligente");
-                }
-                // Modais de Nichos/Setores
-                else if (hash === "#advocacia" || hash === "#escritorio-advocacia" || hash === "#anchor-advocacia") {
-                    openModal("modal-advocacia");
-                } else if (hash === "#contabilidade" || hash === "#escritorio-contabilidade" || hash === "#anchor-contabilidade") {
-                    openModal("modal-contabilidade");
-                } else if (hash === "#industria" || hash === "#fabrica" || hash === "#anchor-industria") {
-                    openModal("modal-industria");
-                }
-
-                if (hash.startsWith("#plano-")) {
-                    const el = document.querySelector(hash);
-                    if (el) {
-                        document
-                            .querySelectorAll(".pricing-card")
-                            .forEach((c) =>
-                                c.classList.remove("highlight-card"),
-                            );
-                        el.classList.add("highlight-card");
+        <!-- SCRIPTS FINAL COMPLETOS (ATUALIZADO COM OS NOVOS MODAIS) -->
+                <script>
+                    let heroIndex = 0;
+                    const heroSlides = document.querySelectorAll(".hero-slide");
+                    function rotateHero() {
+                        if (heroSlides.length === 0) return;
+                        heroSlides[heroIndex].classList.remove("active");
+                        heroIndex = (heroIndex + 1) % heroSlides.length;
+                        heroSlides[heroIndex].classList.add("active");
                     }
-                }
-            });
-
-            function selectPlan(planName) {
-                const select = document.getElementById("plano-selecionado");
-                if (select) select.value = planName;
-
-                const checkContrato = document.querySelector(
-                    'input[value="Contrato de TI Empresarial"]',
-                );
-                if (checkContrato) checkContrato.checked = true;
-
-                document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
-            }
-        </script>
+                    if (heroSlides.length > 0) setInterval(rotateHero, 6000);
+        
+                    function openModal(modalId) {
+                        document.getElementById(modalId).style.display = "block";
+                    }
+                    function closeModal(modalId) {
+                        document.getElementById(modalId).style.display = "none";
+                    }
+                    window.onclick = function (event) {
+                        if (event.target.classList.contains("modal")) {
+                            event.target.style.display = "none";
+                        }
+                    };
+        
+                    window.addEventListener("load", function () {
+                        const hash = window.location.hash;
+                        
+                        // Modais Antigos de Serviços
+                        if (hash === "#card-manutencao-saibamais") openModal("modal-manutencao");
+                        else if (hash === "#card-contratos-saibamais") openModal("modal-contrato");
+                        else if (hash === "#card-proxmox-saibamais") openModal("modal-proxmox");
+                        else if (hash === "#card-pfsense-saibamais") openModal("modal-pfsense");
+                        else if (hash === "#card-pbs-saibamais") openModal("modal-pbs");
+                        else if (hash === "#politica") openModal("modal-politica");
+                        
+                        // NOVOS MODAIS (Links Mágicos: 3 Passos e Setores)
+                        else if (hash === "#resgate") openModal("modal-resgate");
+                        else if (hash === "#diagnostico") openModal("modal-diagnostico");
+                        else if (hash === "#terceirizacao") openModal("modal-terceirizacao-inteligente");
+                        else if (hash === "#advocacia") openModal("modal-advocacia");
+                        else if (hash === "#contabilidade") openModal("modal-contabilidade");
+                        else if (hash === "#industria") openModal("modal-industria");
+        
+                        // Destaque de Planos
+                        if (hash.startsWith("#plano-")) {
+                            const el = document.querySelector(hash);
+                            if (el) {
+                                document.querySelectorAll(".pricing-card").forEach((c) => c.classList.remove("highlight-card"));
+                                el.classList.add("highlight-card");
+                            }
+                        }
+                    });
+        
+                    function selectPlan(planName) {
+                        const select = document.getElementById("plano-selecionado");
+                        if (select) select.value = planName;
+                        const checkContrato = document.querySelector('input[value="Contrato de TI Empresarial"]');
+                        if (checkContrato) checkContrato.checked = true;
+                        document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
+                    }
+                </script>
     </body>
 </html>

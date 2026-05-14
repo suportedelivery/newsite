@@ -1,13 +1,73 @@
 <!doctype html>
 <html lang="pt-BR">
+    <!-- INÍCIO: SEO LOCAL GOOGLE MEU NEGÓCIO -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ITUtility",
+            "name": "Suporte Delivery - Empresa de TI",
+            "image": "https://www.suportedelivery.com/logo.png",
+            "@id": "https://www.suportedelivery.com",
+            "url": "https://www.suportedelivery.com",
+            "telephone": "+554137983434",
+            "priceRange": "$$",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Curitiba",
+                "addressRegion": "PR",
+                "addressCountry": "BR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -25.4284,
+                "longitude": -49.2733
+            },
+            "areaServed": [
+                "Curitiba",
+                "Araucária",
+                "São José dos Pinhais",
+                "Pinhais",
+                "Colombo",
+                "Campo Largo"
+            ],
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            "sameAs": [
+                "https://www.instagram.com/suportedeliveryti",
+                "COLE_AQUI_O_LINK_DO_SEU_PERFIL_DO_GOOGLE_MAPS"
+            ]
+        }
+    </script>
+    <!-- FIM: SEO LOCAL GOOGLE MEU NEGÓCIO -->
+
     <head>
         <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K56KQK2');</script>
-<!-- End Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-K56KQK2");
+        </script>
+        <!-- End Google Tag Manager -->
         <!-- Google tag (gtag.js) -->
         <script
             async
@@ -80,13 +140,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             // Função para descer até o formulário e pré-selecionar Emergência
             function irParaEmergencia() {
-                document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
-                const checkEmergencia = document.querySelector('input[value="Emergência / Manutenção Avulsa"]');
+                document
+                    .getElementById("contato")
+                    .scrollIntoView({ behavior: "smooth" });
+                const checkEmergencia = document.querySelector(
+                    'input[value="Emergência / Manutenção Avulsa"]',
+                );
                 if (checkEmergencia) checkEmergencia.checked = true;
-                
+
                 // Muda o campo Select automaticamente para a Emergência
-                const selectOpcao = document.getElementById("plano-selecionado");
-                if (selectOpcao) selectOpcao.value = "🚨 Emergência de TI (Atendimento Rápido)";
+                const selectOpcao =
+                    document.getElementById("plano-selecionado");
+                if (selectOpcao)
+                    selectOpcao.value =
+                        "🚨 Emergência de TI (Atendimento Rápido)";
             }
         </script>
 
@@ -244,7 +311,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 margin-right: 20px;
                 color: var(--dark);
                 font-weight: 600;
-                font-size: 0.90rem;
+                font-size: 0.9rem;
             }
             .nav a:hover {
                 color: var(--primary);
@@ -255,12 +322,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 padding: 0.5rem 1rem;
                 border-radius: 5px;
             }
-            
-            /* Destaque Emergência Menu */
-            .menu-emergencia { color: var(--danger) !important; font-weight: 800 !important; border: 1px solid var(--danger); padding: 0.3rem 0.8rem; border-radius: 4px; }
-            .menu-emergencia:hover { background-color: var(--danger); color: white !important; }
 
-            @media (max-width: 900px) { .nav { display: none; } }
+            /* Destaque Emergência Menu */
+            .menu-emergencia {
+                color: var(--danger) !important;
+                font-weight: 800 !important;
+                border: 1px solid var(--danger);
+                padding: 0.3rem 0.8rem;
+                border-radius: 4px;
+            }
+            .menu-emergencia:hover {
+                background-color: var(--danger);
+                color: white !important;
+            }
+
+            @media (max-width: 900px) {
+                .nav {
+                    display: none;
+                }
+            }
 
             /* Hero */
             .hero {
@@ -707,7 +787,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 width: 100%;
                 border-radius: 8px;
                 margin-bottom: 15px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
 
             /* Form & Footer */
@@ -755,7 +835,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
 
             /* Destaque para opção de emergência no formulário */
-            .opcao-emergencia { color: var(--danger); font-weight: bold; }
+            .opcao-emergencia {
+                color: var(--danger);
+                font-weight: bold;
+            }
 
             .site-footer {
                 background: #0f172a;
@@ -853,53 +936,198 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
 
             /* --- ADIÇÕES DE CONVERSÃO DO INDEX_NOVO --- */
-            
+
             /* 1. Barra de Alerta do Topo */
-            .alerta-topo-ti { background-color: var(--danger); color: #ffffff; text-align: center; padding: 10px 20px; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10001; display: flex; justify-content: center; align-items: center; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); min-height: 50px; }
-            .alerta-topo-ti p { margin: 0; font-size: 15px; font-weight: bold; }
-            .btn-alerta-whats { background-color: #25D366; color: white !important; padding: 6px 15px; border-radius: 6px; font-weight: bold; font-size: 14px; white-space: nowrap; text-decoration: none; cursor: pointer;}
-            .btn-alerta-whats:hover { background-color: #128C7E; }
+            .alerta-topo-ti {
+                background-color: var(--danger);
+                color: #ffffff;
+                text-align: center;
+                padding: 10px 20px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 10001;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                min-height: 50px;
+            }
+            .alerta-topo-ti p {
+                margin: 0;
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .btn-alerta-whats {
+                background-color: #25d366;
+                color: white !important;
+                padding: 6px 15px;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 14px;
+                white-space: nowrap;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .btn-alerta-whats:hover {
+                background-color: #128c7e;
+            }
 
             /* Ajustes para a barra fixa não cobrir o header e logotipo do site */
-            body { margin-top: 50px; }
-            .site-header { top: 50px !important; }
-            .logo-float { top: 190px !important; }
+            body {
+                margin-top: 50px;
+            }
+            .site-header {
+                top: 50px !important;
+            }
+            .logo-float {
+                top: 190px !important;
+            }
 
             @media (max-width: 768px) {
-                .alerta-topo-ti { flex-direction: column; padding: 10px; gap: 8px; min-height: 80px; }
-                body { margin-top: 80px; }
-                .site-header { top: 80px !important; }
-                .logo-float { top: 220px !important; }
+                .alerta-topo-ti {
+                    flex-direction: column;
+                    padding: 10px;
+                    gap: 8px;
+                    min-height: 80px;
+                }
+                body {
+                    margin-top: 80px;
+                }
+                .site-header {
+                    top: 80px !important;
+                }
+                .logo-float {
+                    top: 220px !important;
+                }
             }
 
             /* 2. Estilos para as Novas Seções (Cards Clicáveis) */
-            .container-cards-ti { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 2rem; }
-            .card-ti { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px 20px 45px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; text-align: center; height: 100%; cursor: pointer; position: relative;}
-            .card-ti:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
-            .icone-ti { font-size: 45px; margin-bottom: 15px; }
-            .card-ti h3 { color: var(--dark); font-size: 1.25rem; margin-bottom: 10px; }
-            .card-ti p { color: var(--text); font-size: 0.95rem; margin: 0; margin-bottom: 10px;}
-            .clique-aqui-tag { font-size: 0.8rem; font-weight: bold; color: var(--primary); background: #ebf8ff; padding: 4px 10px; border-radius: 12px; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); opacity: 0.9; white-space: nowrap;}
-            
-            .btn-orcamento-ti { display: inline-block; margin-top: 3rem; background-color: var(--primary); color: white !important; padding: 1rem 2rem; border-radius: 6px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; cursor: pointer; }
-            .btn-orcamento-ti:hover { background-color: #002266; }
+            .container-cards-ti {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                margin-top: 2rem;
+            }
+            .card-ti {
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 30px 20px 45px 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s;
+                text-align: center;
+                height: 100%;
+                cursor: pointer;
+                position: relative;
+            }
+            .card-ti:hover {
+                transform: translateY(-5px);
+                border-color: var(--primary);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            .icone-ti {
+                font-size: 45px;
+                margin-bottom: 15px;
+            }
+            .card-ti h3 {
+                color: var(--dark);
+                font-size: 1.25rem;
+                margin-bottom: 10px;
+            }
+            .card-ti p {
+                color: var(--text);
+                font-size: 0.95rem;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            .clique-aqui-tag {
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: var(--primary);
+                background: #ebf8ff;
+                padding: 4px 10px;
+                border-radius: 12px;
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0.9;
+                white-space: nowrap;
+            }
+
+            .btn-orcamento-ti {
+                display: inline-block;
+                margin-top: 3rem;
+                background-color: var(--primary);
+                color: white !important;
+                padding: 1rem 2rem;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 1.1rem;
+                text-decoration: none;
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            .btn-orcamento-ti:hover {
+                background-color: #002266;
+            }
 
             /* Balão Mágico do WhatsApp (Tooltip) */
-            .float-wa::before { content: "Precisa de um Técnico Hoje?"; position: absolute; right: 75px; background: #fff; color: var(--dark); padding: 10px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 1px solid #e2e8f0; }
-            .float-wa::after { content: ''; position: absolute; right: 65px; border-width: 8px; border-style: solid; border-color: transparent transparent transparent #fff; }
-            @media (max-width: 600px) { .float-wa::before, .float-wa::after { display: none; } }
+            .float-wa::before {
+                content: "Precisa de um Técnico Hoje?";
+                position: absolute;
+                right: 75px;
+                background: #fff;
+                color: var(--dark);
+                padding: 10px 15px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: bold;
+                white-space: nowrap;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                border: 1px solid #e2e8f0;
+            }
+            .float-wa::after {
+                content: "";
+                position: absolute;
+                right: 65px;
+                border-width: 8px;
+                border-style: solid;
+                border-color: transparent transparent transparent #fff;
+            }
+            @media (max-width: 600px) {
+                .float-wa::before,
+                .float-wa::after {
+                    display: none;
+                }
+            }
         </style>
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K56KQK2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-K56KQK2"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
         <!-- INÍCIO: BARRA DE ALERTA NO TOPO (DO INDEX_NOVO) -->
         <div class="alerta-topo-ti">
-            <p>🚨 EMERGÊNCIA DE TI EM CURITIBA E REGIÃO? Equipe de prontidão. SLA em até 4 horas.</p>
-            <a onclick="irParaEmergencia()" class="btn-alerta-whats">Chamar Técnico Agora</a>
+            <p>
+                🚨 EMERGÊNCIA DE TI EM CURITIBA E REGIÃO? Equipe de prontidão.
+                SLA em até 4 horas.
+            </p>
+            <a onclick="irParaEmergencia()" class="btn-alerta-whats"
+                >Chamar Técnico Agora</a
+            >
         </div>
         <!-- FIM: BARRA DE ALERTA NO TOPO -->
 
@@ -917,7 +1145,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="#comparativo-suporte">Vantagens</a>
                     <a href="#modelos-contratos">Contratos</a>
                     <!-- MENU DE EMERGÊNCIA (DO INDEX_NOVO) -->
-                    <a href="javascript:void(0)" onclick="irParaEmergencia()" class="menu-emergencia">
+                    <a
+                        href="javascript:void(0)"
+                        onclick="irParaEmergencia()"
+                        class="menu-emergencia"
+                    >
                         Chamado de Emergência!
                     </a>
                     <a class="cta" href="#contato">Solicitar Proposta</a>
@@ -1133,31 +1365,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </section>
 
             <!-- INÍCIO: BLOCO DE NICHOS B2B INTERATIVOS (DO INDEX_NOVO) -->
-            <section id="nichos" class="section" style="background-color: var(--light);">
+            <section
+                id="nichos"
+                class="section"
+                style="background-color: var(--light)"
+            >
                 <div class="container text-center">
                     <h2>Expertise e Setores Atendidos</h2>
-                    <p class="lead">Para empresas de 10 a 300 computadores. 25 anos garantindo que seu negócio não pare.</p>
-                    
+                    <p class="lead">
+                        Para empresas de 10 a 300 computadores. 25 anos
+                        garantindo que seu negócio não pare.
+                    </p>
+
                     <div class="container-cards-ti">
-                        <div class="card-ti" onclick="openModal('modal-advocacia')">
+                        <div
+                            class="card-ti"
+                            onclick="openModal('modal-advocacia')"
+                        >
                             <div class="icone-ti">⚖️</div>
                             <h3>Escritórios de Advocacia</h3>
-                            <p>Proteção de dados, servidores seguros e sistemas jurídicos rodando sem lentidão.</p>
-                            <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                            <p>
+                                Proteção de dados, servidores seguros e sistemas
+                                jurídicos rodando sem lentidão.
+                            </p>
+                            <div class="clique-aqui-tag">
+                                Clique para ler as Soluções
+                            </div>
                         </div>
-                        
-                        <div class="card-ti" onclick="openModal('modal-contabilidade')">
+
+                        <div
+                            class="card-ti"
+                            onclick="openModal('modal-contabilidade')"
+                        >
                             <div class="icone-ti">📊</div>
                             <h3>Contabilidades</h3>
-                            <p>Foco nas obrigações fiscais. Mantemos Domínio e ERPs rodando sem interrupções.</p>
-                            <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                            <p>
+                                Foco nas obrigações fiscais. Mantemos Domínio e
+                                ERPs rodando sem interrupções.
+                            </p>
+                            <div class="clique-aqui-tag">
+                                Clique para ler as Soluções
+                            </div>
                         </div>
-                        
-                        <div class="card-ti" onclick="openModal('modal-industria')">
+
+                        <div
+                            class="card-ti"
+                            onclick="openModal('modal-industria')"
+                        >
                             <div class="icone-ti">🏭</div>
                             <h3>Indústrias</h3>
-                            <p>Chão de fábrica operando, faturamento liberado e sistemas de rede protegidos.</p>
-                            <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                            <p>
+                                Chão de fábrica operando, faturamento liberado e
+                                sistemas de rede protegidos.
+                            </p>
+                            <div class="clique-aqui-tag">
+                                Clique para ler as Soluções
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1165,38 +1428,107 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- FIM: BLOCO DE NICHOS B2B -->
 
             <!-- INÍCIO: BLOCO DOS 3 PASSOS COMPLETAMENTE CLICÁVEIS (DO INDEX_NOVO) -->
-            <section class="section" style="background-color: #ffffff; border-top: 1px solid #e2e8f0;">
+            <section
+                class="section"
+                style="background-color: #ffffff; border-top: 1px solid #e2e8f0"
+            >
                 <div class="container text-center">
                     <h2>Como funciona: Da Emergência à Paz de Espírito</h2>
-                    <p class="lead">Não apenas apagamos incêndios. Nós garantimos o futuro e a economia da sua operação.</p>
-                    
+                    <p class="lead">
+                        Não apenas apagamos incêndios. Nós garantimos o futuro e
+                        a economia da sua operação.
+                    </p>
+
                     <div class="container-cards-ti">
                         <!-- Card 1: Emergência -->
-                        <div class="card-ti" style="border-top: 4px solid var(--danger); background-color: #fff5f5;" onclick="openModal('modal-resgate')">
+                        <div
+                            class="card-ti"
+                            style="
+                                border-top: 4px solid var(--danger);
+                                background-color: #fff5f5;
+                            "
+                            onclick="openModal('modal-resgate')"
+                        >
                             <div class="icone-ti">🚨</div>
-                            <h3 style="color: var(--danger);">1. Resgate Imediato</h3>
-                            <p>Servidor ou rede parou? Chegamos em até 4 horas na Grande Curitiba para devolver sua operação à normalidade.</p>
-                            <div class="clique-aqui-tag" style="background-color: #fed7d7; color: var(--danger);">Clique para ver como atuamos</div>
+                            <h3 style="color: var(--danger)">
+                                1. Resgate Imediato
+                            </h3>
+                            <p>
+                                Servidor ou rede parou? Chegamos em até 4 horas
+                                na Grande Curitiba para devolver sua operação à
+                                normalidade.
+                            </p>
+                            <div
+                                class="clique-aqui-tag"
+                                style="
+                                    background-color: #fed7d7;
+                                    color: var(--danger);
+                                "
+                            >
+                                Clique para ver como atuamos
+                            </div>
                         </div>
-                        
+
                         <!-- Card 2: Diagnóstico -->
-                        <div class="card-ti" style="border-top: 4px solid var(--secondary);" onclick="openModal('modal-diagnostico')">
+                        <div
+                            class="card-ti"
+                            style="border-top: 4px solid var(--secondary)"
+                            onclick="openModal('modal-diagnostico')"
+                        >
                             <div class="icone-ti">🔍</div>
                             <h3>2. Diagnóstico Pós-Crise</h3>
-                            <p>Após resolver a urgência, fazemos um raio-X para entender exatamente qual vulnerabilidade causou a parada.</p>
-                            <div class="clique-aqui-tag" style="background-color: #fefcbf; color: #b7791f;">Clique para ver a análise</div>
+                            <p>
+                                Após resolver a urgência, fazemos um raio-X para
+                                entender exatamente qual vulnerabilidade causou
+                                a parada.
+                            </p>
+                            <div
+                                class="clique-aqui-tag"
+                                style="
+                                    background-color: #fefcbf;
+                                    color: #b7791f;
+                                "
+                            >
+                                Clique para ver a análise
+                            </div>
                         </div>
-                        
+
                         <!-- Card 3: Terceirização -->
-                        <div class="card-ti" style="border-top: 4px solid var(--success);" onclick="openModal('modal-terceirizacao-inteligente')">
+                        <div
+                            class="card-ti"
+                            style="border-top: 4px solid var(--success)"
+                            onclick="
+                                openModal('modal-terceirizacao-inteligente')
+                            "
+                        >
                             <div class="icone-ti">🛡️</div>
                             <h3>3. Terceirização (Prevenção)</h3>
-                            <p>Apresentamos um plano de gestão contínua (contrato) para sua empresa nunca mais perder dinheiro com a TI parada.</p>
-                            <div class="clique-aqui-tag" style="background-color: #c6f6d5; color: var(--success);">Clique e conheça a solução</div>
+                            <p>
+                                Apresentamos um plano de gestão contínua
+                                (contrato) para sua empresa nunca mais perder
+                                dinheiro com a TI parada.
+                            </p>
+                            <div
+                                class="clique-aqui-tag"
+                                style="
+                                    background-color: #c6f6d5;
+                                    color: var(--success);
+                                "
+                            >
+                                Clique e conheça a solução
+                            </div>
                         </div>
                     </div>
 
-                    <a onclick="document.getElementById('modelos-contratos').scrollIntoView();" class="btn-orcamento-ti">Conhecer Planos de Terceirização</a>
+                    <a
+                        onclick="
+                            document
+                                .getElementById('modelos-contratos')
+                                .scrollIntoView()
+                        "
+                        class="btn-orcamento-ti"
+                        >Conhecer Planos de Terceirização</a
+                    >
                 </div>
             </section>
             <!-- FIM: BLOCO DOS 3 PASSOS -->
@@ -1526,44 +1858,124 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <section id="contato" class="section" style="background: #f0fdf4">
                 <div class="container text-center">
                     <h2>Fale com um Especialista</h2>
-                    <p>Preencha os dados abaixo. Responderemos em minutos via WhatsApp com a melhor solução para sua empresa.</p>
+                    <p>
+                        Preencha os dados abaixo. Responderemos em minutos via
+                        WhatsApp com a melhor solução para sua empresa.
+                    </p>
 
                     <div class="form-box">
-                        <form id="whatsappForm" onsubmit="enviarWhatsapp(event)">
+                        <form
+                            id="whatsappForm"
+                            onsubmit="enviarWhatsapp(event)"
+                        >
                             <div class="form-group">
-                                <label class="form-label">Seu Nome / Cargo</label>
-                                <input type="text" id="nome" class="form-input" placeholder="Ex: João - Diretor/TI" required />
+                                <label class="form-label"
+                                    >Seu Nome / Cargo</label
+                                >
+                                <input
+                                    type="text"
+                                    id="nome"
+                                    class="form-input"
+                                    placeholder="Ex: João - Diretor/TI"
+                                    required
+                                />
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Motivo do Contato:</label>
+                                <label class="form-label"
+                                    >Motivo do Contato:</label
+                                >
                                 <div class="checkbox-group">
-                                    <label class="checkbox-item"><input type="checkbox" value="Emergência / Manutenção Avulsa" /> Emergência / Manutenção</label>
-                                    <label class="checkbox-item"><input type="checkbox" value="Contrato de TI Empresarial" /> Contrato de TI Corporativo</label>
-                                    <label class="checkbox-item"><input type="checkbox" value="Consultoria Servidor/Proxmox" /> Consultoria Servidor/Proxmox</label>
-                                    <label class="checkbox-item"><input type="checkbox" value="Configuração de Firewall/VPN" /> Firewall (Segurança/VPN)</label>
+                                    <label class="checkbox-item"
+                                        ><input
+                                            type="checkbox"
+                                            value="Emergência / Manutenção Avulsa"
+                                        />
+                                        Emergência / Manutenção</label
+                                    >
+                                    <label class="checkbox-item"
+                                        ><input
+                                            type="checkbox"
+                                            value="Contrato de TI Empresarial"
+                                        />
+                                        Contrato de TI Corporativo</label
+                                    >
+                                    <label class="checkbox-item"
+                                        ><input
+                                            type="checkbox"
+                                            value="Consultoria Servidor/Proxmox"
+                                        />
+                                        Consultoria Servidor/Proxmox</label
+                                    >
+                                    <label class="checkbox-item"
+                                        ><input
+                                            type="checkbox"
+                                            value="Configuração de Firewall/VPN"
+                                        />
+                                        Firewall (Segurança/VPN)</label
+                                    >
                                 </div>
                             </div>
 
                             <!-- O CAMPO SELECT ATUALIZADO COMO NO INDEX_NOVO -->
                             <div class="form-group">
-                                <label class="form-label" style="font-weight: bold; font-size: 1.1rem; color: var(--dark);">Selecione sua Opção:</label>
-                                <select id="plano-selecionado" class="form-input" style="font-weight: bold;">
-                                    <option value="" disabled selected>Escolha o que precisa agora...</option>
-                                    <option value="🚨 Emergência de TI (Atendimento Rápido)" class="opcao-emergencia" style="color: var(--danger); font-weight: bold;">🚨 Emergência de TI (Atendimento Rápido)</option>
-                                    <option value="Pacote Essentials">Contrato Mensal: Essentials</option>
-                                    <option value="Pacote Business">Contrato Mensal: Business</option>
-                                    <option value="Pacote Enterprise">Contrato Mensal: Enterprise</option>
-                                    <option value="Outras Dúvidas / Orçamento">Outras Dúvidas / Orçamento</option>
+                                <label
+                                    class="form-label"
+                                    style="
+                                        font-weight: bold;
+                                        font-size: 1.1rem;
+                                        color: var(--dark);
+                                    "
+                                    >Selecione sua Opção:</label
+                                >
+                                <select
+                                    id="plano-selecionado"
+                                    class="form-input"
+                                    style="font-weight: bold"
+                                >
+                                    <option value="" disabled selected>
+                                        Escolha o que precisa agora...
+                                    </option>
+                                    <option
+                                        value="🚨 Emergência de TI (Atendimento Rápido)"
+                                        class="opcao-emergencia"
+                                        style="
+                                            color: var(--danger);
+                                            font-weight: bold;
+                                        "
+                                    >
+                                        🚨 Emergência de TI (Atendimento Rápido)
+                                    </option>
+                                    <option value="Pacote Essentials">
+                                        Contrato Mensal: Essentials
+                                    </option>
+                                    <option value="Pacote Business">
+                                        Contrato Mensal: Business
+                                    </option>
+                                    <option value="Pacote Enterprise">
+                                        Contrato Mensal: Enterprise
+                                    </option>
+                                    <option value="Outras Dúvidas / Orçamento">
+                                        Outras Dúvidas / Orçamento
+                                    </option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Descreva o seu cenário/problema brevemente (Opcional):</label>
-                                <textarea id="mensagem" class="form-textarea" rows="3" placeholder="Ex: Nosso servidor parou... Ou: Buscamos uma nova empresa de TI para cuidar de 15 computadores..."></textarea>
+                                <label class="form-label"
+                                    >Descreva o seu cenário/problema brevemente
+                                    (Opcional):</label
+                                >
+                                <textarea
+                                    id="mensagem"
+                                    class="form-textarea"
+                                    rows="3"
+                                    placeholder="Ex: Nosso servidor parou... Ou: Buscamos uma nova empresa de TI para cuidar de 15 computadores..."
+                                ></textarea>
                             </div>
                             <button type="submit" class="btn-whatsapp-submit">
-                                <i class="fab fa-whatsapp"></i> Iniciar Atendimento via WhatsApp
+                                <i class="fab fa-whatsapp"></i> Iniciar
+                                Atendimento via WhatsApp
                             </button>
                         </form>
                     </div>
@@ -1572,20 +1984,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </main>
 
         <!-- MODAIS (Popups de Saad Mais) - DO INDEX ORIGINAL -->
-        
+
         <!-- ANCORAS PARA MODAIS - Section IDs para links diretos -->
-        <section id="anchor-manutencao" style="display:none;"></section>
-        <section id="anchor-contrato" style="display:none;"></section>
-        <section id="anchor-proxmox" style="display:none;"></section>
-        <section id="anchor-pfsense" style="display:none;"></section>
-        <section id="anchor-pbs" style="display:none;"></section>
-        <section id="anchor-politica" style="display:none;"></section>
-        <section id="anchor-resgate" style="display:none;"></section>
-        <section id="anchor-diagnostico" style="display:none;"></section>
-        <section id="anchor-terceirizacao" style="display:none;"></section>
-        <section id="anchor-advocacia" style="display:none;"></section>
-        <section id="anchor-contabilidade" style="display:none;"></section>
-        <section id="anchor-industria" style="display:none;"></section>
+        <section id="anchor-manutencao" style="display: none"></section>
+        <section id="anchor-contrato" style="display: none"></section>
+        <section id="anchor-proxmox" style="display: none"></section>
+        <section id="anchor-pfsense" style="display: none"></section>
+        <section id="anchor-pbs" style="display: none"></section>
+        <section id="anchor-politica" style="display: none"></section>
+        <section id="anchor-resgate" style="display: none"></section>
+        <section id="anchor-diagnostico" style="display: none"></section>
+        <section id="anchor-terceirizacao" style="display: none"></section>
+        <section id="anchor-advocacia" style="display: none"></section>
+        <section id="anchor-contabilidade" style="display: none"></section>
+        <section id="anchor-industria" style="display: none"></section>
 
         <div id="modal-manutencao" class="modal">
             <div class="modal-content">
@@ -1939,28 +2351,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- MODAIS DA ESTRATÉGIA "DA EMERGÊNCIA À PREVENÇÃO" (DO INDEX_NOVO) -->
-        
+
         <!-- Modal Passo 1: Resgate -->
         <div id="modal-resgate" class="modal">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: var(--danger);">
-                    <h3><i class="fas fa-ambulance"></i> Emergência TI: Ação Imediata</h3>
-                    <span class="close-modal" onclick="closeModal('modal-resgate')">&times;</span>
+                <div
+                    class="modal-header"
+                    style="background-color: var(--danger)"
+                >
+                    <h3>
+                        <i class="fas fa-ambulance"></i> Emergência TI: Ação
+                        Imediata
+                    </h3>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-resgate')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Técnico verificando servidor" class="modal-img" />
-                    <p>Sabemos que cada minuto que o seu servidor, rede ou sistema fica fora do ar, sua empresa perde dinheiro. Nosso foco é <strong>estancar o sangramento imediato</strong> e devolver a operação do seu negócio em tempo recorde.</p>
-                    
-                    <h4 style="color: var(--danger);">SLA de 4 Horas (Curitiba e Região)</h4>
-                    <p>No modelo de socorro emergencial, um técnico sênior da SuporteDelivery se desloca fisicamente até a sua empresa com foco total na resolução do seu problema crítico (Hardware, Switches, Servidor).</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80"
+                        alt="Técnico verificando servidor"
+                        class="modal-img"
+                    />
+                    <p>
+                        Sabemos que cada minuto que o seu servidor, rede ou
+                        sistema fica fora do ar, sua empresa perde dinheiro.
+                        Nosso foco é
+                        <strong>estancar o sangramento imediato</strong> e
+                        devolver a operação do seu negócio em tempo recorde.
+                    </p>
 
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Manutenção e estruturação de rede" class="modal-img" />
-                    
+                    <h4 style="color: var(--danger)">
+                        SLA de 4 Horas (Curitiba e Região)
+                    </h4>
+                    <p>
+                        No modelo de socorro emergencial, um técnico sênior da
+                        SuporteDelivery se desloca fisicamente até a sua empresa
+                        com foco total na resolução do seu problema crítico
+                        (Hardware, Switches, Servidor).
+                    </p>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
+                        alt="Manutenção e estruturação de rede"
+                        class="modal-img"
+                    />
+
                     <h4>Diagnóstico Real no Local</h4>
-                    <p>Não terceirizamos nossa inteligência. Nossos profissionais estão preparados para atuar diretamente em racks, cabos, firewalls e virtualizadores para trazer a normalidade de volta ao seu ambiente de trabalho.</p>
+                    <p>
+                        Não terceirizamos nossa inteligência. Nossos
+                        profissionais estão preparados para atuar diretamente em
+                        racks, cabos, firewalls e virtualizadores para trazer a
+                        normalidade de volta ao seu ambiente de trabalho.
+                    </p>
 
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button onclick="closeModal('modal-resgate'); irParaEmergencia();" class="btn-whatsapp-submit" style="background-color: var(--danger); width: auto; padding: 10px 20px; display: inline-block;">Acionar Resgate Agora</button>
+                    <div style="text-align: center; margin-top: 20px">
+                        <button
+                            onclick="
+                                closeModal('modal-resgate');
+                                irParaEmergencia();
+                            "
+                            class="btn-whatsapp-submit"
+                            style="
+                                background-color: var(--danger);
+                                width: auto;
+                                padding: 10px 20px;
+                                display: inline-block;
+                            "
+                        >
+                            Acionar Resgate Agora
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1969,24 +2431,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Modal Passo 2: Diagnóstico -->
         <div id="modal-diagnostico" class="modal">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #b7791f;">
+                <div class="modal-header" style="background-color: #b7791f">
                     <h3><i class="fas fa-search"></i> Diagnóstico Pós-Crise</h3>
-                    <span class="close-modal" onclick="closeModal('modal-diagnostico')">&times;</span>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-diagnostico')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <p>Apagar o incêndio não resolve o problema a longo prazo. Depois de restabelecermos o seu sistema (Passo 1), nossa equipe realiza uma <strong>varredura completa (Raio-X)</strong> no seu ambiente de TI para descobrir <strong>por que</strong> o problema aconteceu.</p>
-                    
-                    <h4 style="color: #b7791f;">O que analisamos?</h4>
+                    <p>
+                        Apagar o incêndio não resolve o problema a longo prazo.
+                        Depois de restabelecermos o seu sistema (Passo 1), nossa
+                        equipe realiza uma
+                        <strong>varredura completa (Raio-X)</strong> no seu
+                        ambiente de TI para descobrir <strong>por que</strong> o
+                        problema aconteceu.
+                    </p>
+
+                    <h4 style="color: #b7791f">O que analisamos?</h4>
                     <ul>
-                        <li><strong>Segurança:</strong> Seu firewall está configurado corretamente? Você corre risco de invasões ou ataques de Ransomware?</li>
-                        <li><strong>Redundância:</strong> Se o HD do seu servidor queimar amanhã, você tem um backup testado e seguro?</li>
-                        <li><strong>Gargalos de Rede:</strong> Cabeamento antigo ou switches mal dimensionados estão deixando o sistema da sua empresa lento?</li>
+                        <li>
+                            <strong>Segurança:</strong> Seu firewall está
+                            configurado corretamente? Você corre risco de
+                            invasões ou ataques de Ransomware?
+                        </li>
+                        <li>
+                            <strong>Redundância:</strong> Se o HD do seu
+                            servidor queimar amanhã, você tem um backup testado
+                            e seguro?
+                        </li>
+                        <li>
+                            <strong>Gargalos de Rede:</strong> Cabeamento antigo
+                            ou switches mal dimensionados estão deixando o
+                            sistema da sua empresa lento?
+                        </li>
                     </ul>
 
-                    <p>Ao fim da nossa atuação emergencial, entregamos um <strong>relatório de riscos</strong>. É aqui que mostramos como transformar a sua TI, que hoje dá dor de cabeça, em um setor previsível e seguro.</p>
+                    <p>
+                        Ao fim da nossa atuação emergencial, entregamos um
+                        <strong>relatório de riscos</strong>. É aqui que
+                        mostramos como transformar a sua TI, que hoje dá dor de
+                        cabeça, em um setor previsível e seguro.
+                    </p>
 
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button onclick="closeModal('modal-diagnostico'); document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });" class="btn-whatsapp-submit" style="background-color: #b7791f; width: auto; padding: 10px 20px; display: inline-block;">Quero uma Avaliação da minha TI</button>
+                    <div style="text-align: center; margin-top: 20px">
+                        <button
+                            onclick="
+                                closeModal('modal-diagnostico');
+                                document
+                                    .getElementById('contato')
+                                    .scrollIntoView({ behavior: 'smooth' });
+                            "
+                            class="btn-whatsapp-submit"
+                            style="
+                                background-color: #b7791f;
+                                width: auto;
+                                padding: 10px 20px;
+                                display: inline-block;
+                            "
+                        >
+                            Quero uma Avaliação da minha TI
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1995,24 +2501,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Modal Passo 3: Terceirização -->
         <div id="modal-terceirizacao-inteligente" class="modal">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: var(--success);">
-                    <h3><i class="fas fa-shield-alt"></i> A Solução: Terceirização Inteligente</h3>
-                    <span class="close-modal" onclick="closeModal('modal-terceirizacao-inteligente')">&times;</span>
+                <div
+                    class="modal-header"
+                    style="background-color: var(--success)"
+                >
+                    <h3>
+                        <i class="fas fa-shield-alt"></i> A Solução:
+                        Terceirização Inteligente
+                    </h3>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-terceirizacao-inteligente')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <p>A fase final e definitiva da nossa metodologia. Depois de resolvermos a emergência e mapearmos as falhas, é hora de assumirmos a gestão total da sua infraestrutura.</p>
-                    
-                    <h4 style="color: var(--success);">Chega de apagar incêndios.</h4>
-                    <p>Com um <strong>Contrato de Suporte Mensal</strong> da SuporteDelivery, sua empresa para de trabalhar no modelo reativo (esperar quebrar para consertar) e passa a ter:</p>
+                    <p>
+                        A fase final e definitiva da nossa metodologia. Depois
+                        de resolvermos a emergência e mapearmos as falhas, é
+                        hora de assumirmos a gestão total da sua infraestrutura.
+                    </p>
+
+                    <h4 style="color: var(--success)">
+                        Chega de apagar incêndios.
+                    </h4>
+                    <p>
+                        Com um <strong>Contrato de Suporte Mensal</strong> da
+                        SuporteDelivery, sua empresa para de trabalhar no modelo
+                        reativo (esperar quebrar para consertar) e passa a ter:
+                    </p>
 
                     <ul>
-                        <li><strong>Monitoramento Pró-ativo (24x7):</strong> Nós usamos softwares (Zabbix/Grafana) para monitorar seus servidores. Se um HD ameaçar pifar, nós ficamos sabendo antes dele parar a sua empresa.</li>
-                        <li><strong>Custo Fixo Mensal:</strong> Chega de faturas surpresas com técnicos avulsos. A previsibilidade ajuda o seu fluxo de caixa.</li>
-                        <li><strong>Consultoria de CIO:</strong> Nós não somos apenas "quem conserta o computador". Sentamos com você para planejar os próximos passos de tecnologia para o seu negócio crescer de forma segura.</li>
+                        <li>
+                            <strong>Monitoramento Pró-ativo (24x7):</strong> Nós
+                            usamos softwares (Zabbix/Grafana) para monitorar
+                            seus servidores. Se um HD ameaçar pifar, nós ficamos
+                            sabendo antes dele parar a sua empresa.
+                        </li>
+                        <li>
+                            <strong>Custo Fixo Mensal:</strong> Chega de faturas
+                            surpresas com técnicos avulsos. A previsibilidade
+                            ajuda o seu fluxo de caixa.
+                        </li>
+                        <li>
+                            <strong>Consultoria de CIO:</strong> Nós não somos
+                            apenas "quem conserta o computador". Sentamos com
+                            você para planejar os próximos passos de tecnologia
+                            para o seu negócio crescer de forma segura.
+                        </li>
                     </ul>
 
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button onclick="closeModal('modal-terceirizacao-inteligente'); document.getElementById('modelos-contratos').scrollIntoView({ behavior: 'smooth' });" class="btn-whatsapp-submit" style="background-color: var(--success); width: auto; padding: 10px 20px; display: inline-block;">Ver Planos de Terceirização</button>
+                    <div style="text-align: center; margin-top: 20px">
+                        <button
+                            onclick="
+                                closeModal('modal-terceirizacao-inteligente');
+                                document
+                                    .getElementById('modelos-contratos')
+                                    .scrollIntoView({ behavior: 'smooth' });
+                            "
+                            class="btn-whatsapp-submit"
+                            style="
+                                background-color: var(--success);
+                                width: auto;
+                                padding: 10px 20px;
+                                display: inline-block;
+                            "
+                        >
+                            Ver Planos de Terceirização
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2023,15 +2579,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>TI para Escritórios de Advocacia</h3>
-                    <span class="close-modal" onclick="closeModal('modal-advocacia')">&times;</span>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-advocacia')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Escritório Moderno" class="modal-img" />
-                    <p>Escritórios de advocacia lidam com dados sensíveis e prazos fatais. A perda de um arquivo ou a indisponibilidade de rede no último dia de um prazo no PJe é inaceitável.</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                        alt="Escritório Moderno"
+                        class="modal-img"
+                    />
+                    <p>
+                        Escritórios de advocacia lidam com dados sensíveis e
+                        prazos fatais. A perda de um arquivo ou a
+                        indisponibilidade de rede no último dia de um prazo no
+                        PJe é inaceitável.
+                    </p>
                     <ul>
-                        <li><strong>Proteção LGPD:</strong> Políticas rígidas de acesso aos dados dos seus clientes.</li>
-                        <li><strong>Disponibilidade:</strong> Manutenção de servidores de arquivos sempre rápidos e acessíveis.</li>
-                        <li><strong>Sistemas Jurídicos:</strong> Experiência no suporte a softwares como CPJ, Projuris, Astrea, entre outros.</li>
+                        <li>
+                            <strong>Proteção LGPD:</strong> Políticas rígidas de
+                            acesso aos dados dos seus clientes.
+                        </li>
+                        <li>
+                            <strong>Disponibilidade:</strong> Manutenção de
+                            servidores de arquivos sempre rápidos e acessíveis.
+                        </li>
+                        <li>
+                            <strong>Sistemas Jurídicos:</strong> Experiência no
+                            suporte a softwares como CPJ, Projuris, Astrea,
+                            entre outros.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -2041,15 +2620,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>TI para Escritórios de Contabilidade</h3>
-                    <span class="close-modal" onclick="closeModal('modal-contabilidade')">&times;</span>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-contabilidade')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Equipe de Especialistas TI" class="modal-img" />
-                    <p>Rotinas de fechamento fiscal não podem parar. A TI do seu escritório de contabilidade precisa ser invisível (apenas funcionar) para que sua equipe foque nas obrigações acessórias.</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                        alt="Equipe de Especialistas TI"
+                        class="modal-img"
+                    />
+                    <p>
+                        Rotinas de fechamento fiscal não podem parar. A TI do
+                        seu escritório de contabilidade precisa ser invisível
+                        (apenas funcionar) para que sua equipe foque nas
+                        obrigações acessórias.
+                    </p>
                     <ul>
-                        <li><strong>Sistemas Contábeis:</strong> Expertise total em estabilizar ERPs como Domínio, Alterdata e Nasajon.</li>
-                        <li><strong>Backup Anti-Ransomware:</strong> Proteção total para os XMLs e bancos de dados do escritório.</li>
-                        <li><strong>Conectividade Social:</strong> Resolução de falhas de Java e acessos ao e-CAC ou Conectividade ICP.</li>
+                        <li>
+                            <strong>Sistemas Contábeis:</strong> Expertise total
+                            em estabilizar ERPs como Domínio, Alterdata e
+                            Nasajon.
+                        </li>
+                        <li>
+                            <strong>Backup Anti-Ransomware:</strong> Proteção
+                            total para os XMLs e bancos de dados do escritório.
+                        </li>
+                        <li>
+                            <strong>Conectividade Social:</strong> Resolução de
+                            falhas de Java e acessos ao e-CAC ou Conectividade
+                            ICP.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -2059,19 +2662,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>TI para Indústrias</h3>
-                    <span class="close-modal" onclick="closeModal('modal-industria')">&times;</span>
+                    <span
+                        class="close-modal"
+                        onclick="closeModal('modal-industria')"
+                        >&times;</span
+                    >
                 </div>
                 <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="TI na Indústria" class="modal-img" />
-                    <p>Se o sistema para, a linha de produção para e o caminhão não sai com a nota fiscal. Na indústria, a TI é o coração da operação logística e de montagem.</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                        alt="TI na Indústria"
+                        class="modal-img"
+                    />
+                    <p>
+                        Se o sistema para, a linha de produção para e o caminhão
+                        não sai com a nota fiscal. Na indústria, a TI é o
+                        coração da operação logística e de montagem.
+                    </p>
                     <ul>
-                        <li><strong>Alta Disponibilidade:</strong> Servidores em Cluster HA para garantir que o ERP (SAP, Totvs, Sankhya) não caia.</li>
-                        <li><strong>Rede de Chão de Fábrica:</strong> Wi-Fi industrial dimensionado para coletores de dados e máquinas automatizadas.</li>
-                        <li><strong>Plantão Crítico:</strong> SLAs agressivos e opções de suporte para operações em 2 e 3 turnos.</li>
+                        <li>
+                            <strong>Alta Disponibilidade:</strong> Servidores em
+                            Cluster HA para garantir que o ERP (SAP, Totvs,
+                            Sankhya) não caia.
+                        </li>
+                        <li>
+                            <strong>Rede de Chão de Fábrica:</strong> Wi-Fi
+                            industrial dimensionado para coletores de dados e
+                            máquinas automatizadas.
+                        </li>
+                        <li>
+                            <strong>Plantão Crítico:</strong> SLAs agressivos e
+                            opções de suporte para operações em 2 e 3 turnos.
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <!-- INÍCIO: MAPA GOOGLE MEU NEGÓCIO E AVALIAÇÕES -->
+        <section
+            class="section"
+            style="padding: 4rem 0; background-color: var(--light)"
+        >
+            <div class="container text-center">
+                <h2 style="margin-bottom: 0.5rem">
+                    Nossa Base de Operações em Curitiba
+                </h2>
+                <p class="lead" style="margin-bottom: 2rem">
+                    Atendimento local rápido com qualidade comprovada por quem
+                    já confiou na nossa equipe.
+                </p>
+
+                <!-- Botão de Prova Social (Avaliações do Google) -->
+                <!-- Cole o link da sua foto (https://share.google/...) no lugar do # abaixo, caso queira -->
+                <a
+                    href="#"
+                    target="_blank"
+                    style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        background: #ffffff;
+                        padding: 12px 25px;
+                        border-radius: 50px;
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                        color: var(--dark);
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                        margin-bottom: 2.5rem;
+                        border: 1px solid #e2e8f0;
+                        transition: transform 0.2s;
+                        text-decoration: none;
+                    "
+                    onmouseover="this.style.transform = 'scale(1.05)'"
+                    onmouseout="this.style.transform = 'scale(1)'"
+                >
+                    <span
+                        style="
+                            color: #fbbc05;
+                            font-size: 1.3rem;
+                            letter-spacing: 2px;
+                        "
+                        >⭐⭐⭐⭐⭐</span
+                    >
+                    Ver nossas avaliações no Google
+                    <i
+                        class="fab fa-google"
+                        style="color: #4285f4; margin-left: 5px"
+                    ></i>
+                </a>
+
+                <!-- Mapa Mais Largo (Widescreen) apontando para a Suporte Delivery -->
+                <div
+                    style="
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                        max-width: 1000px;
+                        margin: 0 auto;
+                        border: 2px solid #ffffff;
+                    "
+                >
+                    <iframe
+                        src="https://maps.google.com/maps?q=Suporte%20Delivery%20TI%20Curitiba%20-%20Contratos%20de%20Suporte%20Mensal&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="450"
+                        style="border: 0; display: block"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+        <!-- FIM: MAPA GOOGLE MEU NEGÓCIO E AVALIAÇÕES -->
 
         <!-- RODAPÉ -->
         <footer class="site-footer">
@@ -2151,68 +2855,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </footer>
 
         <!-- Botão flutuante do WhatsApp atualizado com irParaEmergencia() -->
-        <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer;"><i class="fab fa-whatsapp"></i></a>
+        <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer"
+            ><i class="fab fa-whatsapp"></i
+        ></a>
 
         <!-- SCRIPTS FINAL COMPLETOS (ATUALIZADO COM OS NOVOS MODAIS) -->
-                <script>
-                    let heroIndex = 0;
-                    const heroSlides = document.querySelectorAll(".hero-slide");
-                    function rotateHero() {
-                        if (heroSlides.length === 0) return;
-                        heroSlides[heroIndex].classList.remove("active");
-                        heroIndex = (heroIndex + 1) % heroSlides.length;
-                        heroSlides[heroIndex].classList.add("active");
+        <script>
+            let heroIndex = 0;
+            const heroSlides = document.querySelectorAll(".hero-slide");
+            function rotateHero() {
+                if (heroSlides.length === 0) return;
+                heroSlides[heroIndex].classList.remove("active");
+                heroIndex = (heroIndex + 1) % heroSlides.length;
+                heroSlides[heroIndex].classList.add("active");
+            }
+            if (heroSlides.length > 0) setInterval(rotateHero, 6000);
+
+            function openModal(modalId) {
+                document.getElementById(modalId).style.display = "block";
+            }
+            function closeModal(modalId) {
+                document.getElementById(modalId).style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target.classList.contains("modal")) {
+                    event.target.style.display = "none";
+                }
+            };
+
+            window.addEventListener("load", function () {
+                const hash = window.location.hash;
+
+                // Modais Antigos de Serviços
+                if (hash === "#card-manutencao-saibamais")
+                    openModal("modal-manutencao");
+                else if (hash === "#card-contratos-saibamais")
+                    openModal("modal-contrato");
+                else if (hash === "#card-proxmox-saibamais")
+                    openModal("modal-proxmox");
+                else if (hash === "#card-pfsense-saibamais")
+                    openModal("modal-pfsense");
+                else if (hash === "#card-pbs-saibamais") openModal("modal-pbs");
+                else if (hash === "#politica") openModal("modal-politica");
+                // NOVOS MODAIS (Links Mágicos: 3 Passos e Setores)
+                else if (hash === "#resgate") openModal("modal-resgate");
+                else if (hash === "#diagnostico")
+                    openModal("modal-diagnostico");
+                else if (hash === "#terceirizacao")
+                    openModal("modal-terceirizacao-inteligente");
+                else if (hash === "#advocacia") openModal("modal-advocacia");
+                else if (hash === "#contabilidade")
+                    openModal("modal-contabilidade");
+                else if (hash === "#industria") openModal("modal-industria");
+
+                // Destaque de Planos
+                if (hash.startsWith("#plano-")) {
+                    const el = document.querySelector(hash);
+                    if (el) {
+                        document
+                            .querySelectorAll(".pricing-card")
+                            .forEach((c) =>
+                                c.classList.remove("highlight-card"),
+                            );
+                        el.classList.add("highlight-card");
                     }
-                    if (heroSlides.length > 0) setInterval(rotateHero, 6000);
-        
-                    function openModal(modalId) {
-                        document.getElementById(modalId).style.display = "block";
-                    }
-                    function closeModal(modalId) {
-                        document.getElementById(modalId).style.display = "none";
-                    }
-                    window.onclick = function (event) {
-                        if (event.target.classList.contains("modal")) {
-                            event.target.style.display = "none";
-                        }
-                    };
-        
-                    window.addEventListener("load", function () {
-                        const hash = window.location.hash;
-                        
-                        // Modais Antigos de Serviços
-                        if (hash === "#card-manutencao-saibamais") openModal("modal-manutencao");
-                        else if (hash === "#card-contratos-saibamais") openModal("modal-contrato");
-                        else if (hash === "#card-proxmox-saibamais") openModal("modal-proxmox");
-                        else if (hash === "#card-pfsense-saibamais") openModal("modal-pfsense");
-                        else if (hash === "#card-pbs-saibamais") openModal("modal-pbs");
-                        else if (hash === "#politica") openModal("modal-politica");
-                        
-                        // NOVOS MODAIS (Links Mágicos: 3 Passos e Setores)
-                        else if (hash === "#resgate") openModal("modal-resgate");
-                        else if (hash === "#diagnostico") openModal("modal-diagnostico");
-                        else if (hash === "#terceirizacao") openModal("modal-terceirizacao-inteligente");
-                        else if (hash === "#advocacia") openModal("modal-advocacia");
-                        else if (hash === "#contabilidade") openModal("modal-contabilidade");
-                        else if (hash === "#industria") openModal("modal-industria");
-        
-                        // Destaque de Planos
-                        if (hash.startsWith("#plano-")) {
-                            const el = document.querySelector(hash);
-                            if (el) {
-                                document.querySelectorAll(".pricing-card").forEach((c) => c.classList.remove("highlight-card"));
-                                el.classList.add("highlight-card");
-                            }
-                        }
-                    });
-        
-                    function selectPlan(planName) {
-                        const select = document.getElementById("plano-selecionado");
-                        if (select) select.value = planName;
-                        const checkContrato = document.querySelector('input[value="Contrato de TI Empresarial"]');
-                        if (checkContrato) checkContrato.checked = true;
-                        document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
-                    }
-                </script>
+                }
+            });
+
+            function selectPlan(planName) {
+                const select = document.getElementById("plano-selecionado");
+                if (select) select.value = planName;
+                const checkContrato = document.querySelector(
+                    'input[value="Contrato de TI Empresarial"]',
+                );
+                if (checkContrato) checkContrato.checked = true;
+                document
+                    .getElementById("contato")
+                    .scrollIntoView({ behavior: "smooth" });
+            }
+        </script>
     </body>
 </html>

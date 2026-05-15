@@ -1,2938 +1,858 @@
 <!doctype html>
 <html lang="pt-BR">
-    <!-- INÍCIO: SEO LOCAL GOOGLE MEU NEGÓCIO -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "ITUtility",
-            "name": "Suporte Delivery - Empresa de TI",
-            "image": "https://www.suportedelivery.com/logo.png",
-            "@id": "https://www.suportedelivery.com",
-            "url": "https://www.suportedelivery.com",
-            "telephone": "+554137983434",
-            "priceRange": "$$",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Curitiba",
-                "addressRegion": "PR",
-                "addressCountry": "BR"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -25.4284,
-                "longitude": -49.2733
-            },
-            "areaServed": [
-                "Curitiba",
-                "Araucária",
-                "São José dos Pinhais",
-                "Pinhais",
-                "Colombo",
-                "Campo Largo"
-            ],
-            "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "18:00"
-            },
-            "sameAs": [
-                "https://www.instagram.com/suportedeliveryti",
-                "COLE_AQUI_O_LINK_DO_SEU_PERFIL_DO_GOOGLE_MAPS"
-            ]
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K56KQK2');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VX6PDL1ZP6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-VX6PDL1ZP6");
+    </script>
+
+    <!-- Event snippet for conversion page -->
+    <script>
+        gtag("event", "conversion", { send_to: "AW-991359241/jtFhCOH-jGgQieLb2AM" });
+    </script>
+
+    <script>
+        // Função do WhatsApp
+        function enviarWhatsapp(event) {
+            event.preventDefault();
+
+            var telefone = "554137983434";
+            var campoNome = document.getElementById("nome").value;
+            var campoMsg = document.getElementById("mensagem").value;
+            var campoPlano = document.getElementById("plano-selecionado").value;
+
+            var checkboxes = document.querySelectorAll(".checkbox-group input:checked");
+            var itensSelecionados = [];
+
+            checkboxes.forEach(function (box) { 
+                itensSelecionados.push("✅ " + box.value); 
+            });
+
+            if (itensSelecionados.length === 0) { 
+                itensSelecionados.push("Geral"); 
+            }
+
+            var textoZap = "*NOVA SOLICITAÇÃO VIA SITE*\n\n*Nome/Empresa:* " + campoNome + "\n*Interesses:* \n" + itensSelecionados.join("\n") + "\n";
+
+            if (campoPlano !== "") { 
+                textoZap += "\n*Opção Selecionada:* " + campoPlano + "\n"; 
+            }
+            if (campoMsg !== "") { 
+                textoZap += "\n*Mensagem:* " + campoMsg; 
+            }
+
+            window.open("https://wa.me/" + telefone + "?text=" + encodeURIComponent(textoZap), "_blank");
+        }
+
+        // Função para descer até o formulário e pré-selecionar Emergência
+        function irParaEmergencia() {
+            document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
+            const checkEmergencia = document.querySelector('input[value="Emergência / Manutenção Avulsa"]');
+            if (checkEmergencia) checkEmergencia.checked = true;
+            
+            const selectOpcao = document.getElementById("plano-selecionado");
+            if (selectOpcao) selectOpcao.value = "🚨 Emergência de TI (Atendimento Rápido)";
+        }
+
+        function gtagSendEvent(url) {
+            var callback = function () {
+                if (typeof url === "string") {
+                    window.location = url;
+                }
+            };
+            gtag("event", "conversion_event_contact", {
+                event_callback: callback,
+                event_timeout: 2000,
+            });
+            return false;
         }
     </script>
-    <!-- FIM: SEO LOCAL GOOGLE MEU NEGÓCIO -->
 
-    <head>
-        <!-- Google Tag Manager -->
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    "gtm.start": new Date().getTime(),
-                    event: "gtm.js",
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != "dataLayer" ? "&l=" + l : "";
-                j.async = true;
-                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-K56KQK2");
-        </script>
-        <!-- End Google Tag Manager -->
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-VX6PDL1ZP6"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SuporteDelivery — Suporte de TI para Empresas e Terceirização em Curitiba</title>
+    <meta name="description" content="Especialistas em TI para Empresas em Curitiba. Chamados avulsos, manutenção de servidores, redes e contratos de suporte técnico preventivo. Reduza custos." />
 
-            gtag("config", "G-VX6PDL1ZP6");
-        </script>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-        <!-- Event snippet for www.suportedelivery.com conversion page -->
-        <script>
-            gtag("event", "conversion", {
-                send_to: "AW-991359241/jtFhCOH-jGgQieLb2AM",
-            });
-        </script>
+    <style>
+        /* --- CSS Geral Original --- */
+        :root {
+            --primary: #003399;
+            --secondary: #fbbc05;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #34a853;
+            --danger: #ea4335;
+            --text: #334155;
+        }
 
-        <script>
-            // Função do WhatsApp movida para o topo para evitar o erro da IA
-            function enviarWhatsapp(event) {
-                event.preventDefault();
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        body { font-family: "Segoe UI", system-ui, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--light); }
+        h1, h2, h3 { color: var(--dark); margin-bottom: 1rem; font-weight: 700; }
+        h1 { font-size: 2.5rem; line-height: 1.2; }
+        h2 { font-size: 2rem; margin-top: 0; }
+        p { margin-bottom: 1.5rem; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
 
-                var telefone = "554137983434";
-                var campoNome = document.getElementById("nome").value;
-                var campoMsg = document.getElementById("mensagem").value;
-                var campoPlano =
-                    document.getElementById("plano-selecionado").value;
+        /* Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 4rem 0; }
+        .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
 
-                var checkboxes = document.querySelectorAll(
-                    ".checkbox-group input:checked",
-                );
-                var itensSelecionados = [];
+        /* Header */
+        .site-header { background: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.4rem; color: var(--primary); }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
 
-                checkboxes.forEach(function (box) {
-                    itensSelecionados.push("✅ " + box.value);
-                });
+        .nav { display: flex; align-items: center; }
+        .nav a { margin-right: 20px; color: var(--dark); font-weight: 600; font-size: 0.90rem; }
+        .nav a:hover { color: var(--primary); }
+        .nav .cta { background: var(--primary); color: #fff; padding: 0.5rem 1rem; border-radius: 5px; }
+        
+        .menu-emergencia { color: var(--danger) !important; font-weight: 800 !important; border: 1px solid var(--danger); padding: 0.3rem 0.8rem; border-radius: 4px; }
+        .menu-emergencia:hover { background-color: var(--danger); color: white !important; }
+        
+        @media (max-width: 900px) { .nav { display: none; } }
 
-                if (itensSelecionados.length === 0) {
-                    itensSelecionados.push("Geral");
-                }
+        /* Hero */
+        .hero { position: relative; height: 600px; color: #fff; overflow: hidden; display: flex; align-items: center; background-color: #001f3f; }
+        .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
+        .hero-slide.active { opacity: 1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; max-width: 750px; padding-top: 40px; }
+        .hero-title { color: #00e0ff; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); font-size: 2.8rem; }
+        .btn-primary { display: inline-block; background: var(--secondary); color: #000; padding: 0.8rem 1.5rem; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
+        .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 0.8rem 1.5rem; border-radius: 5px; margin-left: 10px; font-weight: bold; }
+        .hero-features ul { list-style: none; padding: 0; margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
+        .hero-features li { border-left: 3px solid var(--secondary); padding-left: 10px; }
+        .hero-features strong { display: block; color: var(--secondary); font-size: 1.1rem; }
+        .hero-features span { font-size: 0.9rem; opacity: 0.9; }
 
-                var textoZap =
-                    "*NOVA SOLICITAÇÃO VIA SITE*\n\n*Nome/Empresa:* " +
-                    campoNome +
-                    "\n*Interesses:* \n" +
-                    itensSelecionados.join("\n") +
-                    "\n";
+        /* Cards Serviços */
+        .card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border-top: 4px solid var(--primary); transition: transform 0.2s; height: 100%; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .card h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .card-content { flex-grow: 1; }
+        .comp-tag { display: block; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; }
+        .btn-more { color: var(--primary); font-weight: bold; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
 
-                if (campoPlano !== "") {
-                    textoZap += "\n*Plano de Interesse:* " + campoPlano + "\n";
-                }
+        /* Box Comparativo Reativo x Preventivo */
+        .vs-box { padding: 2rem; border-radius: 10px; height: 100%; position: relative; }
+        .vs-reativo { background: #fff0f0; border: 2px solid #ffcdd2; }
+        .vs-preventivo { background: #f0fdf4; border: 2px solid #bbf7d0; box-shadow: 0 10px 25px rgba(52, 168, 83, 0.15); transform: scale(1.02); z-index: 1; }
+        .vs-box ul { list-style: none; padding: 0; }
+        .vs-box li { margin-bottom: 1rem; display: flex; gap: 10px; align-items: flex-start; }
+        .vs-icon-bad { color: var(--danger); margin-top: 4px; }
+        .vs-icon-good { color: var(--success); margin-top: 4px; font-size: 1.2rem; }
 
-                if (campoMsg !== "") {
-                    textoZap += "\n*Mensagem:* " + campoMsg;
-                }
+        /* Pricing Plans */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center; }
+        .pricing-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .pricing-card:hover { box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); transform: translateY(-5px); }
+        .pricing-header { text-align: center; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+        .pricing-title { font-size: 1.5rem; color: var(--dark); margin: 0; }
+        .pricing-subtitle { color: #64748b; font-size: 0.9rem; margin-top: 5px; }
+        .pricing-features { list-style: none; padding: 0; margin: 0 0 2rem 0; flex-grow: 1; }
+        .pricing-features li { margin-bottom: 1rem; color: var(--text); display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; }
+        .pricing-features i.fa-check { color: var(--success); margin-top: 4px; }
+        .pricing-features i.fa-times { color: #cbd5e1; margin-top: 4px; }
+        .pricing-features .unavailable { color: #94a3b8; text-decoration: line-through; }
+        .btn-pricing { display: block; width: 100%; padding: 1rem; text-align: center; border-radius: 6px; font-weight: bold; border: 2px solid var(--primary); background: transparent; color: var(--primary); cursor: pointer; }
+        .btn-pricing:hover { background: var(--primary); color: #fff; }
+        .pricing-card.featured { border: 2px solid var(--primary); box-shadow: 0 10px 40px rgba(0, 51, 153, 0.15); z-index: 1; transform: scale(1.05); }
+        @media (max-width: 900px) { .pricing-card.featured { transform: scale(1); } }
+        .featured-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--secondary); color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+        .btn-pricing.featured-btn { background: var(--primary); color: #fff; border: none; }
+        .btn-pricing.featured-btn:hover { background: #002266; }
 
-                window.open(
-                    "https://wa.me/" +
-                        telefone +
-                        "?text=" +
-                        encodeURIComponent(textoZap),
-                    "_blank",
-                );
-            }
+        .feature-dark { background: var(--dark); color: #fff; }
+        .feature-dark h2 { color: #fff; }
 
-            // Função para descer até o formulário e pré-selecionar Emergência
-            function irParaEmergencia() {
-                document
-                    .getElementById("contato")
-                    .scrollIntoView({ behavior: "smooth" });
-                const checkEmergencia = document.querySelector(
-                    'input[value="Emergência / Manutenção Avulsa"]',
-                );
-                if (checkEmergencia) checkEmergencia.checked = true;
+        /* Modais Gerais */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
+        .modal-content { background-color: #fefefe; margin: 5% auto; padding: 0; border: 1px solid #888; width: 90%; max-width: 800px; border-radius: 10px; animation: fadeEffect 0.4s; position: relative; overflow: hidden; }
+        .modal-header { padding: 1.5rem; background: var(--dark); color: white; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .modal-body { padding: 2rem; max-height: 75vh; overflow-y: auto; }
+        .close-modal { color: #fff; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close-modal:hover { color: var(--secondary); }
+        .modal-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+        .modal-table th, .modal-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .modal-table th { background-color: #f1f5f9; color: var(--dark); }
+        .modal-highlight { background-color: #e6fffa !important; font-weight: bold; color: var(--success); }
+        .modal-img { width: 100%; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-                // Muda o campo Select automaticamente para a Emergência
-                const selectOpcao =
-                    document.getElementById("plano-selecionado");
-                if (selectOpcao)
-                    selectOpcao.value =
-                        "🚨 Emergência de TI (Atendimento Rápido)";
-            }
-        </script>
+        /* Form & Footer */
+        .form-box { background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); max-width: 700px; margin: 0 auto; border-top: 5px solid #25d366; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-input, .form-textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; font-family: inherit; }
+        .opcao-emergencia { color: var(--danger); font-weight: bold; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn-whatsapp-submit { background: #25d366; color: white; width: 100%; padding: 1rem; font-size: 1.2rem; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
-        <script>
-            function gtagSendEvent(url) {
-                var callback = function () {
-                    if (typeof url === "string") {
-                        window.location = url;
-                    }
-                };
-                gtag("event", "conversion_event_contact", {
-                    event_callback: callback,
-                    event_timeout: 2000,
-                });
-                return false;
-            }
-        </script>
+        .site-footer { background: #0f172a; color: #94a3b8; padding: 3rem 0; font-size: 0.95rem; border-top: 5px solid var(--secondary); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-links a { display: block; margin-bottom: 10px; color: #cbd5e1; }
+        .footer-logo-img { height: 60px; width: auto; margin-bottom: 1rem; background: rgba(255, 255, 255, 0.9); padding: 5px; border-radius: 4px; }
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>
-            SuporteDelivery — Suporte de TI para Empresas e Terceirização em
-            Curitiba
-        </title>
-        <meta
-            name="description"
-            content="Especialistas em TI para Empresas em Curitiba. Chamados avulsos, manutenção de servidores, redes e contratos de suporte técnico preventivo. Reduza custos."
-        />
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); z-index: 9999; transition: transform 0.3s; }
+        .float-wa:hover { transform: scale(1.1); }
+        @keyframes fadeEffect { from { opacity: 0; } to { opacity: 1; } }
 
-        <link rel="icon" type="image/png" href="favicon.png" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
+        /* LOGO FLUTUANTE FIXO */
+        .logo-float { position: fixed; top: 140px; left: 20px; z-index: 9998; background: rgba(255, 255, 255, 0.95); padding: 14px 18px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
+        .logo-float img { height: 110px; width: auto; display: block; }
+        @media (max-width: 1024px) { .logo-float img { height: 90px; } }
+        @media (max-width: 768px) { .logo-float { display: none; } }
 
-        <style>
-            /* --- CSS Geral --- */
-            :root {
-                --primary: #003399;
-                --secondary: #fbbc05;
-                --dark: #1e293b;
-                --light: #f8fafc;
-                --success: #34a853;
-                --danger: #ea4335;
-                --text: #334155;
-            }
+        /* --- ESTILOS DAS NOVIDADES E CONVERSÃO --- */
+        .alerta-topo-ti { background-color: var(--danger); color: #ffffff; text-align: center; padding: 10px 20px; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10001; display: flex; justify-content: center; align-items: center; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); min-height: 50px; }
+        .alerta-topo-ti p { margin: 0; font-size: 15px; font-weight: bold; }
+        .btn-alerta-whats { background-color: #25D366; color: white !important; padding: 6px 15px; border-radius: 6px; font-weight: bold; font-size: 14px; white-space: nowrap; text-decoration: none; cursor: pointer;}
+        .btn-alerta-whats:hover { background-color: #128C7E; }
+        
+        body { margin-top: 50px; }
+        .site-header { top: 50px !important; }
+        .logo-float { top: 190px !important; }
+        @media (max-width: 768px) {
+            .alerta-topo-ti { flex-direction: column; padding: 10px; gap: 8px; min-height: 80px; }
+            body { margin-top: 80px; }
+            .site-header { top: 80px !important; }
+            .logo-float { top: 220px !important; }
+        }
 
-            * {
-                box-sizing: border-box;
-            }
-            html {
-                scroll-behavior: smooth;
-                scroll-padding-top: 100px;
-            }
-            body {
-                font-family: "Segoe UI", system-ui, sans-serif;
-                line-height: 1.6;
-                color: var(--text);
-                margin: 0;
-                background: var(--light);
-            }
+        .container-cards-ti { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 2rem; }
+        .card-ti { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px 20px 45px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; text-align: center; height: 100%; cursor: pointer; position: relative;}
+        .card-ti:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .icone-ti { font-size: 45px; margin-bottom: 15px; }
+        .card-ti h3 { color: var(--dark); font-size: 1.25rem; margin-bottom: 10px; }
+        .card-ti p { color: var(--text); font-size: 0.95rem; margin: 0; margin-bottom: 10px;}
+        .clique-aqui-tag { font-size: 0.8rem; font-weight: bold; color: var(--primary); background: #ebf8ff; padding: 4px 10px; border-radius: 12px; position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); opacity: 0.9; white-space: nowrap;}
+        .btn-orcamento-ti { display: inline-block; margin-top: 3rem; background-color: var(--primary); color: white !important; padding: 1rem 2rem; border-radius: 6px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; cursor: pointer; }
+        .btn-orcamento-ti:hover { background-color: #002266; }
 
-            h1,
-            h2,
-            h3 {
-                color: var(--dark);
-                margin-bottom: 1rem;
-                font-weight: 700;
-            }
-            h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            h2 {
-                font-size: 2rem;
-                margin-top: 0;
-            }
-            p {
-                margin-bottom: 1.5rem;
-            }
-            a {
-                text-decoration: none;
-                transition: 0.3s;
-                color: inherit;
-            }
+        /* Estilo das Avaliações (Review Cards) */
+        .reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto 3rem auto; }
+        .review-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: left; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .reviewer-info { display: flex; align-items: center; gap: 10px; }
+        .reviewer-avatar { width: 40px; height: 40px; background-color: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+        .reviewer-name { font-weight: bold; color: var(--dark); margin: 0; line-height: 1.2; }
+        .review-date { font-size: 0.8rem; color: #64748b; margin: 0; }
+        .review-stars { color: #fbbc05; font-size: 1rem; margin-bottom: 10px; }
+        .review-text { font-size: 0.95rem; color: var(--text); font-style: italic; margin: 0; }
+    </style>
+</head>
 
-            /* Layout */
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            .section {
-                padding: 4rem 0;
-            }
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K56KQK2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-            .services-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            @media (min-width: 1024px) {
-                .services-grid {
-                    grid-template-columns: repeat(4, 1fr);
-                }
-            }
+    <!-- BARRA DE ALERTA NO TOPO -->
+    <div class="alerta-topo-ti">
+        <p>🚨 EMERGÊNCIA DE TI EM CURITIBA E REGIÃO? Equipe de prontidão. SLA em até 4 horas.</p>
+        <a onclick="irParaEmergencia()" class="btn-alerta-whats">Chamar Técnico Agora</a>
+    </div>
 
-            .two-col {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-                align-items: stretch;
-            }
-            @media (max-width: 768px) {
-                .two-col {
-                    grid-template-columns: 1fr;
-                }
-            }
+    <!-- LOGO FLUTUANTE -->
+    <div class="logo-float">
+        <img src="logo.png" alt="Suporte Delivery" />
+    </div>
 
-            /* Header */
-            .site-header {
-                background: #fff;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-            }
-            .site-header .container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 80px;
-            }
-
-            .logo-container {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-weight: 900;
-                font-size: 1.4rem;
-                color: var(--primary);
-            }
-            .logo-img {
-                height: 50px;
-                width: auto;
-                object-fit: contain;
-            }
-
-            /* Menu de Navegação */
-            .nav {
-                display: flex;
-                align-items: center;
-            }
-            .nav a {
-                margin-right: 20px;
-                color: var(--dark);
-                font-weight: 600;
-                font-size: 0.9rem;
-            }
-            .nav a:hover {
-                color: var(--primary);
-            }
-            .nav .cta {
-                background: var(--primary);
-                color: #fff;
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-            }
-
-            /* Destaque Emergência Menu */
-            .menu-emergencia {
-                color: var(--danger) !important;
-                font-weight: 800 !important;
-                border: 1px solid var(--danger);
-                padding: 0.3rem 0.8rem;
-                border-radius: 4px;
-            }
-            .menu-emergencia:hover {
-                background-color: var(--danger);
-                color: white !important;
-            }
-
-            @media (max-width: 900px) {
-                .nav {
-                    display: none;
-                }
-            }
-
-            /* Hero */
-            .hero {
-                position: relative;
-                height: 600px;
-                color: #fff;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                background-color: #001f3f;
-            }
-            .hero-slides {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-            }
-            .hero-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-size: cover;
-                background-position: center;
-                opacity: 0;
-                transition: opacity 1s ease-in-out;
-            }
-            .hero-slide.active {
-                opacity: 1;
-            }
-            .hero-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(
-                    to right,
-                    rgba(0, 0, 0, 0.95) 0%,
-                    rgba(0, 0, 0, 0.7) 50%,
-                    rgba(0, 0, 0, 0.4) 100%
-                );
-                z-index: 2;
-            }
-            .hero-content {
-                position: relative;
-                z-index: 3;
-                max-width: 750px;
-                padding-top: 40px;
-            }
-            .hero-title {
-                color: #00e0ff;
-                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
-                font-size: 2.8rem;
-            }
-
-            .btn-primary {
-                display: inline-block;
-                background: var(--secondary);
-                color: #000;
-                padding: 0.8rem 1.5rem;
-                border-radius: 5px;
-                font-weight: bold;
-                border: none;
-                cursor: pointer;
-            }
-            .btn-outline {
-                display: inline-block;
-                border: 2px solid #fff;
-                color: #fff;
-                padding: 0.8rem 1.5rem;
-                border-radius: 5px;
-                margin-left: 10px;
-                font-weight: bold;
-            }
-
-            .hero-features ul {
-                list-style: none;
-                padding: 0;
-                margin-top: 2rem;
-                display: flex;
-                gap: 2rem;
-                flex-wrap: wrap;
-            }
-            .hero-features li {
-                border-left: 3px solid var(--secondary);
-                padding-left: 10px;
-            }
-            .hero-features strong {
-                display: block;
-                color: var(--secondary);
-                font-size: 1.1rem;
-            }
-            .hero-features span {
-                font-size: 0.9rem;
-                opacity: 0.9;
-            }
-
-            /* Cards Serviços */
-            .card {
-                background: #fff;
-                padding: 2rem;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                border-top: 4px solid var(--primary);
-                transition: transform 0.2s;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            .card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            }
-            .card h3 {
-                color: var(--primary);
-                font-size: 1.25rem;
-                margin-bottom: 0.5rem;
-            }
-            .card-content {
-                flex-grow: 1;
-            }
-            .comp-tag {
-                display: block;
-                margin-top: 1rem;
-                padding-top: 1rem;
-                border-top: 1px dashed #cbd5e1;
-                font-size: 0.85rem;
-                color: #64748b;
-                margin-bottom: 0.5rem;
-            }
-            .btn-more {
-                color: var(--primary);
-                font-weight: bold;
-                font-size: 0.9rem;
-                cursor: pointer;
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-            }
-            .btn-more:hover {
-                text-decoration: underline;
-            }
-
-            /* Box Comparativo Reativo x Preventivo */
-            .vs-box {
-                padding: 2rem;
-                border-radius: 10px;
-                height: 100%;
-                position: relative;
-            }
-            .vs-reativo {
-                background: #fff0f0;
-                border: 2px solid #ffcdd2;
-            }
-            .vs-preventivo {
-                background: #f0fdf4;
-                border: 2px solid #bbf7d0;
-                box-shadow: 0 10px 25px rgba(52, 168, 83, 0.15);
-                transform: scale(1.02);
-                z-index: 1;
-            }
-            .vs-box ul {
-                list-style: none;
-                padding: 0;
-            }
-            .vs-box li {
-                margin-bottom: 1rem;
-                display: flex;
-                gap: 10px;
-                align-items: flex-start;
-            }
-            .vs-icon-bad {
-                color: var(--danger);
-                margin-top: 4px;
-            }
-            .vs-icon-good {
-                color: var(--success);
-                margin-top: 4px;
-                font-size: 1.2rem;
-            }
-
-            /* Pricing Plans */
-            .pricing-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-                align-items: center;
-            }
-            .pricing-card {
-                background: #fff;
-                border: 1px solid #e2e8f0;
-                border-radius: 12px;
-                padding: 2.5rem;
-                position: relative;
-                transition: all 0.3s ease;
-                display: flex;
-                flex-direction: column;
-            }
-            .pricing-card:hover {
-                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-                transform: translateY(-5px);
-            }
-            .pricing-header {
-                text-align: center;
-                margin-bottom: 2rem;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 1rem;
-            }
-            .pricing-title {
-                font-size: 1.5rem;
-                color: var(--dark);
-                margin: 0;
-            }
-            .pricing-subtitle {
-                color: #64748b;
-                font-size: 0.9rem;
-                margin-top: 5px;
-            }
-            .pricing-features {
-                list-style: none;
-                padding: 0;
-                margin: 0 0 2rem 0;
-                flex-grow: 1;
-            }
-            .pricing-features li {
-                margin-bottom: 1rem;
-                color: var(--text);
-                display: flex;
-                align-items: flex-start;
-                gap: 10px;
-                font-size: 0.95rem;
-            }
-            .pricing-features i.fa-check {
-                color: var(--success);
-                margin-top: 4px;
-            }
-            .pricing-features i.fa-times {
-                color: #cbd5e1;
-                margin-top: 4px;
-            }
-            .pricing-features .unavailable {
-                color: #94a3b8;
-                text-decoration: line-through;
-            }
-            .btn-pricing {
-                display: block;
-                width: 100%;
-                padding: 1rem;
-                text-align: center;
-                border-radius: 6px;
-                font-weight: bold;
-                border: 2px solid var(--primary);
-                background: transparent;
-                color: var(--primary);
-                cursor: pointer;
-            }
-            .btn-pricing:hover {
-                background: var(--primary);
-                color: #fff;
-            }
-
-            .pricing-card.featured {
-                border: 2px solid var(--primary);
-                box-shadow: 0 10px 40px rgba(0, 51, 153, 0.15);
-                z-index: 1;
-                transform: scale(1.05);
-            }
-            @media (max-width: 900px) {
-                .pricing-card.featured {
-                    transform: scale(1);
-                }
-            }
-            .featured-badge {
-                position: absolute;
-                top: -15px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--secondary);
-                color: #000;
-                padding: 5px 15px;
-                border-radius: 20px;
-                font-size: 0.8rem;
-                font-weight: bold;
-                text-transform: uppercase;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            }
-            .btn-pricing.featured-btn {
-                background: var(--primary);
-                color: #fff;
-                border: none;
-            }
-            .btn-pricing.featured-btn:hover {
-                background: #002266;
-            }
-
-            @keyframes flashHighlight {
-                0% {
-                    background-color: #fff;
-                }
-                50% {
-                    background-color: #e6fffa;
-                    box-shadow: 0 0 20px var(--secondary);
-                }
-                100% {
-                    background-color: #fff;
-                }
-            }
-            .highlight-card {
-                animation: flashHighlight 2s ease-in-out;
-            }
-
-            /* Feature Dark */
-            .feature-dark {
-                background: var(--dark);
-                color: #fff;
-            }
-            .feature-dark h2 {
-                color: #fff;
-            }
-
-            /* Tabelas Comparativo */
-            .compare-container {
-                background: #fff;
-                border-radius: 8px;
-                overflow: hidden;
-                color: var(--text);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-                border: 1px solid #e2e8f0;
-                margin-bottom: 2rem;
-            }
-            .compare {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            .compare th,
-            .compare td {
-                padding: 1rem;
-                text-align: left;
-                border-bottom: 1px solid #eee;
-                font-size: 0.9rem;
-            }
-            .compare th {
-                background: #f1f5f9;
-                font-weight: 700;
-                color: var(--dark);
-                text-transform: uppercase;
-                font-size: 0.8rem;
-            }
-            .col-bad {
-                color: var(--danger);
-            }
-            .col-good {
-                color: var(--success);
-                font-weight: bold;
-                background: rgba(52, 168, 83, 0.05);
-            }
-            .cost-highlight {
-                font-weight: bold;
-                font-size: 1.1em;
-            }
-            .compare-header {
-                padding: 1rem;
-                font-weight: bold;
-                color: white;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            /* Modais */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 2000;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.6);
-                backdrop-filter: blur(4px);
-            }
-            .modal-content {
-                background-color: #fefefe;
-                margin: 5% auto;
-                padding: 0;
-                border: 1px solid #888;
-                width: 90%;
-                max-width: 800px;
-                border-radius: 10px;
-                animation: fadeEffect 0.4s;
-                position: relative;
-                overflow: hidden;
-            }
-            .modal-header {
-                padding: 1.5rem;
-                background: var(--dark);
-                color: white;
-                border-radius: 10px 10px 0 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .modal-body {
-                padding: 2rem;
-                max-height: 75vh;
-                overflow-y: auto;
-            }
-            .close-modal {
-                color: #fff;
-                font-size: 28px;
-                font-weight: bold;
-                cursor: pointer;
-            }
-            .close-modal:hover {
-                color: var(--secondary);
-            }
-            .modal-table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 1rem;
-                font-size: 0.9rem;
-            }
-            .modal-table th,
-            .modal-table td {
-                border: 1px solid #ddd;
-                padding: 12px;
-                text-align: left;
-            }
-            .modal-table th {
-                background-color: #f1f5f9;
-                color: var(--dark);
-            }
-            .modal-highlight {
-                background-color: #e6fffa !important;
-                font-weight: bold;
-                color: var(--success);
-            }
-            .modal-img {
-                width: 100%;
-                border-radius: 8px;
-                margin-bottom: 15px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            /* Form & Footer */
-            .form-box {
-                background: #fff;
-                padding: 2rem;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                max-width: 700px;
-                margin: 0 auto;
-                border-top: 5px solid #25d366;
-            }
-            .form-group {
-                margin-bottom: 1.5rem;
-                text-align: left;
-            }
-            .form-input,
-            .form-textarea {
-                width: 100%;
-                padding: 0.8rem;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 1rem;
-                font-family: inherit;
-            }
-            .checkbox-group {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            .btn-whatsapp-submit {
-                background: #25d366;
-                color: white;
-                width: 100%;
-                padding: 1rem;
-                font-size: 1.2rem;
-                border: none;
-                border-radius: 5px;
-                font-weight: bold;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-            }
-
-            /* Destaque para opção de emergência no formulário */
-            .opcao-emergencia {
-                color: var(--danger);
-                font-weight: bold;
-            }
-
-            .site-footer {
-                background: #0f172a;
-                color: #94a3b8;
-                padding: 3rem 0;
-                font-size: 0.95rem;
-                border-top: 5px solid var(--secondary);
-            }
-            .footer-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-            }
-            .footer-links a {
-                display: block;
-                margin-bottom: 10px;
-                color: #cbd5e1;
-            }
-            .footer-logo-img {
-                height: 60px;
-                width: auto;
-                margin-bottom: 1rem;
-                background: rgba(255, 255, 255, 0.9);
-                padding: 5px;
-                border-radius: 4px;
-            }
-
-            .float-wa {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background: #25d366;
-                color: #fff;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 30px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-                z-index: 9999;
-                transition: transform 0.3s;
-            }
-            .float-wa:hover {
-                transform: scale(1.1);
-            }
-
-            @keyframes fadeEffect {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-            @media (max-width: 600px) {
-                .hero {
-                    height: auto;
-                    padding: 80px 0;
-                }
-                h1 {
-                    font-size: 2rem;
-                }
-                .checkbox-group {
-                    flex-direction: column;
-                }
-            }
-
-            /* LOGO FLUTUANTE FIXO */
-            .logo-float {
-                position: fixed;
-                top: 140px;
-                left: 20px;
-                z-index: 9998;
-                background: rgba(255, 255, 255, 0.95);
-                padding: 14px 18px;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            }
-            .logo-float img {
-                height: 110px;
-                width: auto;
-                display: block;
-            }
-            @media (max-width: 1024px) {
-                .logo-float img {
-                    height: 90px;
-                }
-            }
-            @media (max-width: 768px) {
-                .logo-float {
-                    display: none;
-                }
-            }
-
-            /* --- ADIÇÕES DE CONVERSÃO DO INDEX_NOVO --- */
-
-            /* 1. Barra de Alerta do Topo */
-            .alerta-topo-ti {
-                background-color: var(--danger);
-                color: #ffffff;
-                text-align: center;
-                padding: 10px 20px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                z-index: 10001;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-                min-height: 50px;
-            }
-            .alerta-topo-ti p {
-                margin: 0;
-                font-size: 15px;
-                font-weight: bold;
-            }
-            .btn-alerta-whats {
-                background-color: #25d366;
-                color: white !important;
-                padding: 6px 15px;
-                border-radius: 6px;
-                font-weight: bold;
-                font-size: 14px;
-                white-space: nowrap;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            .btn-alerta-whats:hover {
-                background-color: #128c7e;
-            }
-
-            /* Ajustes para a barra fixa não cobrir o header e logotipo do site */
-            body {
-                margin-top: 50px;
-            }
-            .site-header {
-                top: 50px !important;
-            }
-            .logo-float {
-                top: 190px !important;
-            }
-
-            @media (max-width: 768px) {
-                .alerta-topo-ti {
-                    flex-direction: column;
-                    padding: 10px;
-                    gap: 8px;
-                    min-height: 80px;
-                }
-                body {
-                    margin-top: 80px;
-                }
-                .site-header {
-                    top: 80px !important;
-                }
-                .logo-float {
-                    top: 220px !important;
-                }
-            }
-
-            /* 2. Estilos para as Novas Seções (Cards Clicáveis) */
-            .container-cards-ti {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-                margin-top: 2rem;
-            }
-            .card-ti {
-                background: #fff;
-                border: 1px solid #e2e8f0;
-                border-radius: 8px;
-                padding: 30px 20px 45px 20px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                transition: transform 0.3s;
-                text-align: center;
-                height: 100%;
-                cursor: pointer;
-                position: relative;
-            }
-            .card-ti:hover {
-                transform: translateY(-5px);
-                border-color: var(--primary);
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            }
-            .icone-ti {
-                font-size: 45px;
-                margin-bottom: 15px;
-            }
-            .card-ti h3 {
-                color: var(--dark);
-                font-size: 1.25rem;
-                margin-bottom: 10px;
-            }
-            .card-ti p {
-                color: var(--text);
-                font-size: 0.95rem;
-                margin: 0;
-                margin-bottom: 10px;
-            }
-            .clique-aqui-tag {
-                font-size: 0.8rem;
-                font-weight: bold;
-                color: var(--primary);
-                background: #ebf8ff;
-                padding: 4px 10px;
-                border-radius: 12px;
-                position: absolute;
-                bottom: 15px;
-                left: 50%;
-                transform: translateX(-50%);
-                opacity: 0.9;
-                white-space: nowrap;
-            }
-
-            .btn-orcamento-ti {
-                display: inline-block;
-                margin-top: 3rem;
-                background-color: var(--primary);
-                color: white !important;
-                padding: 1rem 2rem;
-                border-radius: 6px;
-                font-weight: bold;
-                font-size: 1.1rem;
-                text-decoration: none;
-                transition: 0.3s;
-                cursor: pointer;
-            }
-            .btn-orcamento-ti:hover {
-                background-color: #002266;
-            }
-
-            /* Balão Mágico do WhatsApp (Tooltip) */
-            .float-wa::before {
-                content: "Precisa de um Técnico Hoje?";
-                position: absolute;
-                right: 75px;
-                background: #fff;
-                color: var(--dark);
-                padding: 10px 15px;
-                border-radius: 20px;
-                font-size: 14px;
-                font-weight: bold;
-                white-space: nowrap;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                border: 1px solid #e2e8f0;
-            }
-            .float-wa::after {
-                content: "";
-                position: absolute;
-                right: 65px;
-                border-width: 8px;
-                border-style: solid;
-                border-color: transparent transparent transparent #fff;
-            }
-            @media (max-width: 600px) {
-                .float-wa::before,
-                .float-wa::after {
-                    display: none;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript
-            ><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-K56KQK2"
-                height="0"
-                width="0"
-                style="display: none; visibility: hidden"
-            ></iframe
-        ></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-        <!-- INÍCIO: BARRA DE ALERTA NO TOPO (DO INDEX_NOVO) -->
-        <div class="alerta-topo-ti">
-            <p>
-                🚨 EMERGÊNCIA DE TI EM CURITIBA E REGIÃO? Equipe de prontidão.
-                SLA em até 4 horas.
-            </p>
-            <a onclick="irParaEmergencia()" class="btn-alerta-whats"
-                >Chamar Técnico Agora</a
-            >
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#servicos">Especialidades</a>
+                <a href="#nichos">Expertise</a>
+                <a href="#comparativo-suporte">Vantagens</a>
+                <a href="#modelos-contratos">Contratos</a>
+                <a href="javascript:void(0)" onclick="irParaEmergencia()" class="menu-emergencia">Chamado de Emergência!</a>
+                <a class="cta" href="#contato">Solicitar Proposta</a>
+            </nav>
+            <a class="logo-container" href="#">
+                <img src="logo.png" alt="Suporte Delivery" class="logo-img" />
+            </a>
         </div>
-        <!-- FIM: BARRA DE ALERTA NO TOPO -->
+    </header>
 
-        <!-- LOGO FLUTUANTE -->
-        <div class="logo-float">
-            <img src="logo.png" alt="Suporte Delivery" />
-        </div>
-
-        <!-- HEADER ATUALIZADO (MENUS DO INDEX_NOVO) -->
-        <header class="site-header">
-            <div class="container">
-                <nav class="nav">
-                    <a href="#servicos">Especialidades</a>
-                    <a href="#nichos">Expertise</a>
-                    <a href="#comparativo-suporte">Vantagens</a>
-                    <a href="#modelos-contratos">Contratos</a>
-                    <!-- MENU DE EMERGÊNCIA (DO INDEX_NOVO) -->
-                    <a
-                        href="javascript:void(0)"
-                        onclick="irParaEmergencia()"
-                        class="menu-emergencia"
-                    >
-                        Chamado de Emergência!
-                    </a>
-                    <a class="cta" href="#contato">Solicitar Proposta</a>
-                </nav>
-                <a class="logo-container" href="#">
-                    <img
-                        src="logo.png"
-                        alt="Suporte Delivery"
-                        class="logo-img"
-                    />
-                </a>
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-slides">
+                <div class="hero-slide active" style="background-image: url(&quot;https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80&quot;);"></div>
+                <div class="hero-slide" style="background-image: url(&quot;https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80&quot;);"></div>
+                <div class="hero-slide" style="background-image: url(&quot;https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80&quot;);"></div>
             </div>
-        </header>
-        <main>
-            <!-- HERO SECTION (IMAGENS PROFISSIONAIS B2B) -->
-            <section class="hero">
-                <div class="hero-slides">
-                    <div
-                        class="hero-slide active"
-                        style="
-                            background-image: url(&quot;https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80&quot;);
-                        "
-                    ></div>
-                    <div
-                        class="hero-slide"
-                        style="
-                            background-image: url(&quot;https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80&quot;);
-                        "
-                    ></div>
-                    <div
-                        class="hero-slide"
-                        style="
-                            background-image: url(&quot;https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80&quot;);
-                        "
-                    ></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 class="hero-title">Suporte de TI para Empresas em Curitiba</h1>
+                <p class="lead">Especialistas em Redes, Manutenção de Servidores e Segurança. <strong>Atendemos chamados avulsos emergenciais</strong> ou assumimos a gestão completa da sua TI com nossos Contratos de Suporte.</p>
+                <div style="margin-top: 1.5rem">
+                    <a class="btn-primary" onclick="irParaEmergencia()"><i class="fas fa-headset"></i> Chamar um Técnico Agora</a>
+                    <a class="btn-outline" href="#modelos-contratos">Ver Planos Mensais</a>
                 </div>
-                <div class="hero-overlay"></div>
-                <div class="container hero-content">
-                    <h1 class="hero-title">
-                        Suporte de TI para Empresas em Curitiba
-                    </h1>
-                    <p class="lead">
-                        Especialistas em Redes, Manutenção de Servidores e
-                        Segurança.
-                        <strong>Atendemos chamados avulsos emergenciais</strong>
-                        ou assumimos a gestão completa da sua TI com nossos
-                        Contratos de Suporte.
-                    </p>
-                    <div style="margin-top: 1.5rem">
-                        <a class="btn-primary" onclick="irParaEmergencia()"
-                            ><i class="fas fa-headset"></i> Chamar um Técnico
-                            Agora</a
-                        >
-                        <a class="btn-outline" href="#modelos-contratos"
-                            >Ver Planos Mensais</a
-                        >
-                    </div>
-                    <div class="hero-features">
-                        <ul>
-                            <li>
-                                <strong>Atendimento Local</strong
-                                ><span>Curitiba e Região Metropolitana</span>
-                            </li>
-                            <li>
-                                <strong>SLA Garantido</strong
-                                ><span>Tempo de resposta rápido</span>
-                            </li>
-                            <li>
-                                <strong>Economia Real</strong
-                                ><span>Soluções Open Source de ponta</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SERVIÇOS (Foco em Manutenção e B2B) -->
-            <section id="servicos" class="container section">
-                <div class="text-center" style="margin-bottom: 3rem">
-                    <h2>Soluções Corporativas de Ponta a Ponta</h2>
-                    <p>
-                        Da visita técnica corretiva ao projeto avançado de
-                        infraestrutura.
-                    </p>
-                </div>
-
-                <div class="services-grid">
-                    <div
-                        class="card"
-                        id="card-manutencao"
-                        style="border-top-color: var(--danger)"
-                    >
-                        <div class="card-content">
-                            <h3>
-                                <i
-                                    class="fas fa-tools"
-                                    style="color: var(--danger)"
-                                ></i>
-                                Chamados Avulsos
-                            </h3>
-                            <p>
-                                Seu servidor parou? Rede lenta? Notebook não
-                                liga? Enviamos um técnico especializado para
-                                resolver emergências na sua empresa rapidamente.
-                            </p>
-                        </div>
-                        <div class="comp-tag">
-                            <strong>Foco:</strong> Resolução rápida e
-                            diagnóstico.
-                        </div>
-                        <a
-                            id="card-manutencao-saibamais"
-                            class="btn-more"
-                            onclick="openModal('modal-manutencao')"
-                            >Saber mais <i class="fas fa-arrow-right"></i
-                        ></a>
-                    </div>
-
-                    <div
-                        class="card"
-                        id="card-contratos"
-                        style="border-top-color: var(--success)"
-                    >
-                        <div class="card-content">
-                            <h3>
-                                <i
-                                    class="fas fa-handshake"
-                                    style="color: var(--success)"
-                                ></i>
-                                Contratos de Suporte
-                            </h3>
-                            <p>
-                                Terceirização completa. Service Desk ilimitado,
-                                monitoramento 24x7 e visitas preventivas. Sua
-                                empresa focada no negócio, nós cuidamos da TI.
-                            </p>
-                        </div>
-                        <div class="comp-tag">
-                            <strong>Foco:</strong> Prevenção e Redução de
-                            Custos.
-                        </div>
-                        <a
-                            id="card-contratos-saibamais"
-                            class="btn-more"
-                            onclick="openModal('modal-contrato')"
-                            >Saber mais <i class="fas fa-arrow-right"></i
-                        ></a>
-                    </div>
-
-                    <div
-                        class="card"
-                        id="card-proxmox"
-                        style="border-top-color: #e05d44"
-                    >
-                        <div class="card-content">
-                            <h3>
-                                <i
-                                    class="fas fa-server"
-                                    style="color: #e05d44"
-                                ></i>
-                                Infraestrutura & Servidores
-                            </h3>
-                            <p>
-                                Gestão e implementação de Servidores usando
-                                Proxmox VE. Virtualização robusta com custo de
-                                licença zero e altíssima disponibilidade.
-                            </p>
-                        </div>
-                        <div class="comp-tag">
-                            <strong>Substitui:</strong> VMware / Servidores
-                            Físicos Antigos
-                        </div>
-                        <a
-                            id="card-proxmox-saibamais"
-                            class="btn-more"
-                            onclick="openModal('modal-proxmox')"
-                            >Saber mais <i class="fas fa-arrow-right"></i
-                        ></a>
-                    </div>
-
-                    <div
-                        class="card"
-                        id="card-pfsense"
-                        style="border-top-color: #003399"
-                    >
-                        <div class="card-content">
-                            <h3>
-                                <i
-                                    class="fas fa-shield-alt"
-                                    style="color: #003399"
-                                ></i>
-                                Redes, VPN & Segurança
-                            </h3>
-                            <p>
-                                Proteção da rede corporativa com pfSense e
-                                Proxmox Backup. VPN segura para Home Office,
-                                controle de acessos e rotinas de backup
-                                anti-ransomware.
-                            </p>
-                        </div>
-                        <div class="comp-tag">
-                            <strong>Foco:</strong> Proteção de Dados e Home
-                            Office.
-                        </div>
-                        <a
-                            id="card-pfsense-saibamais"
-                            class="btn-more"
-                            onclick="openModal('modal-pfsense')"
-                            >Saber mais <i class="fas fa-arrow-right"></i
-                        ></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- INÍCIO: BLOCO DE NICHOS B2B INTERATIVOS (DO INDEX_NOVO) -->
-            <section
-                id="nichos"
-                class="section"
-                style="background-color: var(--light)"
-            >
-                <div class="container text-center">
-                    <h2>Expertise e Setores Atendidos</h2>
-                    <p class="lead">
-                        Para empresas de 10 a 300 computadores. 25 anos
-                        garantindo que seu negócio não pare.
-                    </p>
-
-                    <div class="container-cards-ti">
-                        <div
-                            class="card-ti"
-                            onclick="openModal('modal-advocacia')"
-                        >
-                            <div class="icone-ti">⚖️</div>
-                            <h3>Escritórios de Advocacia</h3>
-                            <p>
-                                Proteção de dados, servidores seguros e sistemas
-                                jurídicos rodando sem lentidão.
-                            </p>
-                            <div class="clique-aqui-tag">
-                                Clique para ler as Soluções
-                            </div>
-                        </div>
-
-                        <div
-                            class="card-ti"
-                            onclick="openModal('modal-contabilidade')"
-                        >
-                            <div class="icone-ti">📊</div>
-                            <h3>Contabilidades</h3>
-                            <p>
-                                Foco nas obrigações fiscais. Mantemos Domínio e
-                                ERPs rodando sem interrupções.
-                            </p>
-                            <div class="clique-aqui-tag">
-                                Clique para ler as Soluções
-                            </div>
-                        </div>
-
-                        <div
-                            class="card-ti"
-                            onclick="openModal('modal-industria')"
-                        >
-                            <div class="icone-ti">🏭</div>
-                            <h3>Indústrias</h3>
-                            <p>
-                                Chão de fábrica operando, faturamento liberado e
-                                sistemas de rede protegidos.
-                            </p>
-                            <div class="clique-aqui-tag">
-                                Clique para ler as Soluções
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- FIM: BLOCO DE NICHOS B2B -->
-
-            <!-- INÍCIO: BLOCO DOS 3 PASSOS COMPLETAMENTE CLICÁVEIS (DO INDEX_NOVO) -->
-            <section
-                class="section"
-                style="background-color: #ffffff; border-top: 1px solid #e2e8f0"
-            >
-                <div class="container text-center">
-                    <h2>Como funciona: Da Emergência à Paz de Espírito</h2>
-                    <p class="lead">
-                        Não apenas apagamos incêndios. Nós garantimos o futuro e
-                        a economia da sua operação.
-                    </p>
-
-                    <div class="container-cards-ti">
-                        <!-- Card 1: Emergência -->
-                        <div
-                            class="card-ti"
-                            style="
-                                border-top: 4px solid var(--danger);
-                                background-color: #fff5f5;
-                            "
-                            onclick="openModal('modal-resgate')"
-                        >
-                            <div class="icone-ti">🚨</div>
-                            <h3 style="color: var(--danger)">
-                                1. Resgate Imediato
-                            </h3>
-                            <p>
-                                Servidor ou rede parou? Chegamos em até 4 horas
-                                na Grande Curitiba para devolver sua operação à
-                                normalidade.
-                            </p>
-                            <div
-                                class="clique-aqui-tag"
-                                style="
-                                    background-color: #fed7d7;
-                                    color: var(--danger);
-                                "
-                            >
-                                Clique para ver como atuamos
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Diagnóstico -->
-                        <div
-                            class="card-ti"
-                            style="border-top: 4px solid var(--secondary)"
-                            onclick="openModal('modal-diagnostico')"
-                        >
-                            <div class="icone-ti">🔍</div>
-                            <h3>2. Diagnóstico Pós-Crise</h3>
-                            <p>
-                                Após resolver a urgência, fazemos um raio-X para
-                                entender exatamente qual vulnerabilidade causou
-                                a parada.
-                            </p>
-                            <div
-                                class="clique-aqui-tag"
-                                style="
-                                    background-color: #fefcbf;
-                                    color: #b7791f;
-                                "
-                            >
-                                Clique para ver a análise
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Terceirização -->
-                        <div
-                            class="card-ti"
-                            style="border-top: 4px solid var(--success)"
-                            onclick="
-                                openModal('modal-terceirizacao-inteligente')
-                            "
-                        >
-                            <div class="icone-ti">🛡️</div>
-                            <h3>3. Terceirização (Prevenção)</h3>
-                            <p>
-                                Apresentamos um plano de gestão contínua
-                                (contrato) para sua empresa nunca mais perder
-                                dinheiro com a TI parada.
-                            </p>
-                            <div
-                                class="clique-aqui-tag"
-                                style="
-                                    background-color: #c6f6d5;
-                                    color: var(--success);
-                                "
-                            >
-                                Clique e conheça a solução
-                            </div>
-                        </div>
-                    </div>
-
-                    <a
-                        onclick="
-                            document
-                                .getElementById('modelos-contratos')
-                                .scrollIntoView()
-                        "
-                        class="btn-orcamento-ti"
-                        >Conhecer Planos de Terceirização</a
-                    >
-                </div>
-            </section>
-            <!-- FIM: BLOCO DOS 3 PASSOS -->
-
-            <!-- COMPARATIVO REATIVO VS PREVENTIVO -->
-            <section
-                id="comparativo-suporte"
-                class="section"
-                style="background-color: var(--light)"
-            >
-                <div class="container">
-                    <div class="text-center" style="margin-bottom: 3rem">
-                        <h2>Por que fechar um Contrato Mensal?</h2>
-                        <p class="lead">
-                            Entenda a diferença entre o suporte tradicional
-                            (apagar incêndios) e a gestão inteligente da
-                            SuporteDelivery.
-                        </p>
-                    </div>
-
-                    <div class="two-col">
-                        <div class="vs-box vs-reativo">
-                            <h3 style="color: var(--danger)">
-                                <i class="fas fa-fire-extinguisher"></i> Modelo
-                                Reativo (Visita Avulsa)
-                            </h3>
-                            <p>
-                                A TI é vista como um custo chato. Você só liga
-                                quando o problema já aconteceu e o prejuízo já
-                                começou.
-                            </p>
-                            <ul>
-                                <li>
-                                    <i class="fas fa-times vs-icon-bad"></i>
-                                    <strong>Parada Total:</strong> A empresa
-                                    fica parada até o técnico chegar.
-                                </li>
-                                <li>
-                                    <i class="fas fa-times vs-icon-bad"></i>
-                                    <strong>Custo Imprevisível:</strong> Cada
-                                    chamado é um orçamento surpresa.
-                                </li>
-                                <li>
-                                    <i class="fas fa-times vs-icon-bad"></i>
-                                    <strong>SLA Inexistente:</strong> Depende da
-                                    disponibilidade da agenda do técnico.
-                                </li>
-                                <li>
-                                    <i class="fas fa-times vs-icon-bad"></i>
-                                    <strong>Risco de Dados:</strong> O backup só
-                                    é lembrado quando o HD já queimou.
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="vs-box vs-preventivo">
-                            <div
-                                style="
-                                    position: absolute;
-                                    top: -15px;
-                                    right: 20px;
-                                    background: var(--success);
-                                    color: #fff;
-                                    padding: 5px 15px;
-                                    border-radius: 20px;
-                                    font-weight: bold;
-                                    font-size: 0.8rem;
-                                "
-                            >
-                                RECOMENDADO
-                            </div>
-                            <h3 style="color: var(--success)">
-                                <i class="fas fa-shield-alt"></i> Contrato
-                                Preventivo (Nossa Gestão)
-                            </h3>
-                            <p>
-                                A TI é vista como investimento. Nós monitoramos
-                                seus equipamentos 24x7 para agir antes que a
-                                falha ocorra.
-                            </p>
-                            <ul>
-                                <li>
-                                    <i class="fas fa-check vs-icon-good"></i>
-                                    <strong>Produtividade Máxima:</strong>
-                                    Problemas resolvidos via acesso remoto
-                                    imediato.
-                                </li>
-                                <li>
-                                    <i class="fas fa-check vs-icon-good"></i>
-                                    <strong>Valor Fixo:</strong> Mensalidade que
-                                    cabe no orçamento. Previsibilidade total.
-                                </li>
-                                <li>
-                                    <i class="fas fa-check vs-icon-good"></i>
-                                    <strong>SLA Contratual:</strong> Acordos
-                                    rigorosos de tempo máximo de resposta.
-                                </li>
-                                <li>
-                                    <i class="fas fa-check vs-icon-good"></i>
-                                    <strong>Auditoria Contínua:</strong>
-                                    Antivírus e Backups testados rigorosamente.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TECNOLOGIAS -->
-            <section id="porque-open-source" class="section feature-dark">
-                <div class="container">
-                    <h2>Tecnologia Enterprise no seu Contrato</h2>
-                    <div class="two-col">
-                        <div>
-                            <p>
-                                Para entregar um suporte perfeito, usamos as
-                                melhores ferramentas Open Source do mercado
-                                (<strong>Proxmox VE e pfSense</strong>). O que
-                                isso significa para sua empresa?
-                            </p>
-                            <ul class="benefits">
-                                <li>
-                                    <strong>Custo Zero de Licença:</strong> Você
-                                    não paga taxas em dólar por renovações de
-                                    software.
-                                </li>
-                                <li>
-                                    <strong>Segurança Avançada:</strong> As
-                                    mesmas tecnologias usadas por gigantes de
-                                    telecomunicações.
-                                </li>
-                                <li>
-                                    <strong>Desempenho:</strong> Servidores mais
-                                    rápidos, redes sem quedas e backups
-                                    imutáveis contra Ransomware.
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div
-                                style="
-                                    background: rgba(255, 255, 255, 0.1);
-                                    padding: 2rem;
-                                    border-radius: 8px;
-                                "
-                            >
-                                <h3 style="margin-top: 0">
-                                    <i class="fas fa-chart-line"></i>
-                                    Especialistas, não curiosos.
-                                </h3>
-                                <p>
-                                    Muitas empresas de suporte apenas formatam
-                                    computadores. A SuporteDelivery conta com
-                                    engenharia de infraestrutura, capacitada
-                                    para desenhar desde a rede Wi-Fi até o
-                                    Cluster de Servidores do seu datacenter.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- PLANOS DE SUPORTE (COM AÇÃO DE SELEÇÃO NO FORM) -->
-            <section
-                id="modelos-contratos"
-                class="section"
-                style="background: #fff; border-top: 1px solid #eee"
-            >
-                <div class="container">
-                    <div class="text-center" style="margin-bottom: 3rem">
-                        <h2>Nossos Planos de Gestão de TI</h2>
-                        <p class="lead">
-                            Terceirização escalável com responsabilidade técnica
-                            e previsibilidade orçamentária.
-                        </p>
-                    </div>
-
-                    <div class="pricing-grid">
-                        <!-- Plano 1: Essentials -->
-                        <div class="pricing-card" id="plano-essentials">
-                            <div class="pricing-header">
-                                <h3 class="pricing-title">Essentials</h3>
-                                <p class="pricing-subtitle">
-                                    Ideal para pequenas empresas
-                                </p>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>
-                                    <i class="fas fa-check"></i> Service Desk
-                                    Remoto
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Monitoramento
-                                    Básico (Ping/Portas)
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Atendimento 8x5
-                                    (Seg-Sex)
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> SLA de
-                                    Resposta: 8h
-                                </li>
-                                <li class="unavailable">
-                                    <i class="fas fa-times"></i> Visitas
-                                    Presenciais Inclusas
-                                </li>
-                                <li class="unavailable">
-                                    <i class="fas fa-times"></i> Gestão de
-                                    Backup Diário
-                                </li>
-                                <li class="unavailable">
-                                    <i class="fas fa-times"></i> Firewall
-                                    Gerenciado
-                                </li>
-                            </ul>
-                            <button
-                                class="btn-pricing"
-                                onclick="selectPlan('Pacote Essentials')"
-                            >
-                                Solicitar Cotação
-                            </button>
-                        </div>
-
-                        <!-- Plano 2: Business (DESTAQUE) -->
-                        <div class="pricing-card featured" id="plano-business">
-                            <div class="featured-badge">Mais Escolhido</div>
-                            <div class="pricing-header">
-                                <h3 class="pricing-title">Business</h3>
-                                <p class="pricing-subtitle">
-                                    Segurança e Suporte Híbrido
-                                </p>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>
-                                    <i class="fas fa-check"></i>
-                                    <strong
-                                        >Service Desk Remoto Ilimitado</strong
-                                    >
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i>
-                                    <strong
-                                        >Visitas Preventivas
-                                        (Curitiba/Região)</strong
-                                    >
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Monitoramento
-                                    Zabbix Proativo
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Atendimento 8x5
-                                    (Seg-Sex)
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> SLA de
-                                    Resposta: 4h
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Gestão de
-                                    Backup Diário
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Firewall
-                                    Gerenciado
-                                </li>
-                            </ul>
-                            <button
-                                class="btn-pricing featured-btn"
-                                onclick="selectPlan('Pacote Business')"
-                            >
-                                Quero este Plano
-                            </button>
-                        </div>
-
-                        <!-- Plano 3: Enterprise -->
-                        <div class="pricing-card" id="plano-enterprise">
-                            <div class="pricing-header">
-                                <h3 class="pricing-title">Enterprise</h3>
-                                <p class="pricing-subtitle">
-                                    Para Operações Críticas
-                                </p>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>
-                                    <i class="fas fa-check"></i> Service Desk
-                                    Remoto VIP
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Visitas
-                                    Ilimitadas (Corretivas)
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Monitoramento
-                                    Full Stack
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i>
-                                    <strong>Atendimento 24x7 Plantão</strong>
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> SLA de
-                                    Resposta: 2h
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Consultoria
-                                    Trimestral (CIO)
-                                </li>
-                                <li>
-                                    <i class="fas fa-check"></i> Projeto de
-                                    Disaster Recovery
-                                </li>
-                            </ul>
-                            <button
-                                class="btn-pricing"
-                                onclick="selectPlan('Pacote Enterprise')"
-                            >
-                                Falar com Consultor
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FORMULÁRIO COM SELETOR DE PLANOS ATUALIZADO (DO INDEX_NOVO) -->
-            <section id="contato" class="section" style="background: #f0fdf4">
-                <div class="container text-center">
-                    <h2>Fale com um Especialista</h2>
-                    <p>
-                        Preencha os dados abaixo. Responderemos em minutos via
-                        WhatsApp com a melhor solução para sua empresa.
-                    </p>
-
-                    <div class="form-box">
-                        <form
-                            id="whatsappForm"
-                            onsubmit="enviarWhatsapp(event)"
-                        >
-                            <div class="form-group">
-                                <label class="form-label"
-                                    >Seu Nome / Cargo</label
-                                >
-                                <input
-                                    type="text"
-                                    id="nome"
-                                    class="form-input"
-                                    placeholder="Ex: João - Diretor/TI"
-                                    required
-                                />
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label"
-                                    >Motivo do Contato:</label
-                                >
-                                <div class="checkbox-group">
-                                    <label class="checkbox-item"
-                                        ><input
-                                            type="checkbox"
-                                            value="Emergência / Manutenção Avulsa"
-                                        />
-                                        Emergência / Manutenção</label
-                                    >
-                                    <label class="checkbox-item"
-                                        ><input
-                                            type="checkbox"
-                                            value="Contrato de TI Empresarial"
-                                        />
-                                        Contrato de TI Corporativo</label
-                                    >
-                                    <label class="checkbox-item"
-                                        ><input
-                                            type="checkbox"
-                                            value="Consultoria Servidor/Proxmox"
-                                        />
-                                        Consultoria Servidor/Proxmox</label
-                                    >
-                                    <label class="checkbox-item"
-                                        ><input
-                                            type="checkbox"
-                                            value="Configuração de Firewall/VPN"
-                                        />
-                                        Firewall (Segurança/VPN)</label
-                                    >
-                                </div>
-                            </div>
-
-                            <!-- O CAMPO SELECT ATUALIZADO COMO NO INDEX_NOVO -->
-                            <div class="form-group">
-                                <label
-                                    class="form-label"
-                                    style="
-                                        font-weight: bold;
-                                        font-size: 1.1rem;
-                                        color: var(--dark);
-                                    "
-                                    >Selecione sua Opção:</label
-                                >
-                                <select
-                                    id="plano-selecionado"
-                                    class="form-input"
-                                    style="font-weight: bold"
-                                >
-                                    <option value="" disabled selected>
-                                        Escolha o que precisa agora...
-                                    </option>
-                                    <option
-                                        value="🚨 Emergência de TI (Atendimento Rápido)"
-                                        class="opcao-emergencia"
-                                        style="
-                                            color: var(--danger);
-                                            font-weight: bold;
-                                        "
-                                    >
-                                        🚨 Emergência de TI (Atendimento Rápido)
-                                    </option>
-                                    <option value="Pacote Essentials">
-                                        Contrato Mensal: Essentials
-                                    </option>
-                                    <option value="Pacote Business">
-                                        Contrato Mensal: Business
-                                    </option>
-                                    <option value="Pacote Enterprise">
-                                        Contrato Mensal: Enterprise
-                                    </option>
-                                    <option value="Outras Dúvidas / Orçamento">
-                                        Outras Dúvidas / Orçamento
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label"
-                                    >Descreva o seu cenário/problema brevemente
-                                    (Opcional):</label
-                                >
-                                <textarea
-                                    id="mensagem"
-                                    class="form-textarea"
-                                    rows="3"
-                                    placeholder="Ex: Nosso servidor parou... Ou: Buscamos uma nova empresa de TI para cuidar de 15 computadores..."
-                                ></textarea>
-                            </div>
-                            <button type="submit" class="btn-whatsapp-submit">
-                                <i class="fab fa-whatsapp"></i> Iniciar
-                                Atendimento via WhatsApp
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- MODAIS (Popups de Saad Mais) - DO INDEX ORIGINAL -->
-
-        <!-- ANCORAS PARA MODAIS - Section IDs para links diretos -->
-        <section id="anchor-manutencao" style="display: none"></section>
-        <section id="anchor-contrato" style="display: none"></section>
-        <section id="anchor-proxmox" style="display: none"></section>
-        <section id="anchor-pfsense" style="display: none"></section>
-        <section id="anchor-pbs" style="display: none"></section>
-        <section id="anchor-politica" style="display: none"></section>
-        <section id="anchor-resgate" style="display: none"></section>
-        <section id="anchor-diagnostico" style="display: none"></section>
-        <section id="anchor-terceirizacao" style="display: none"></section>
-        <section id="anchor-advocacia" style="display: none"></section>
-        <section id="anchor-contabilidade" style="display: none"></section>
-        <section id="anchor-industria" style="display: none"></section>
-
-        <div id="modal-manutencao" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Atendimento Avulso Corporativo</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-manutencao')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        A SuporteDelivery está preparada para resolver panes
-                        críticas no seu ambiente de TI. Nossa equipe técnica
-                        atua rapidamente para reduzir o impacto da parada no seu
-                        negócio.
-                    </p>
-                    <ul style="line-height: 1.8; margin-top: 15px">
-                        <li>
-                            <strong>Manutenção de Servidores:</strong> Troca de
-                            discos (RAID), recuperação de SO, diagnóstico de
-                            placas, migração emergencial.
-                        </li>
-                        <li>
-                            <strong>Redes e Wi-Fi:</strong> Resolução de
-                            lentidão, quebra de equipamentos de borda
-                            (roteadores/switches), reconfiguração de VLANs.
-                        </li>
-                        <li>
-                            <strong>Estações de Trabalho:</strong> Formatação,
-                            upgrade de SSD/Memória para frota de PCs e
-                            diagnóstico avançado Windows/Linux.
-                        </li>
-                        <li>
-                            <strong>Recuperação de Desastres:</strong> Apoio em
-                            casos de infecção por Ransomware e reestruturação de
-                            serviços vitais.
-                        </li>
-                    </ul>
-                    <p
-                        style="
-                            margin-top: 15px;
-                            color: var(--primary);
-                            font-weight: bold;
-                        "
-                    >
-                        Custo: Cobrado mediante Visita Técnica (Hora Técnica).
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-contrato" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Vantagens da Terceirização (Contrato)</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-contrato')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Entenda porque terceirizar a TI com a SuporteDelivery é
-                        mais inteligente que manter equipe interna.
-                    </p>
-                    <table class="modal-table">
-                        <thead>
-                            <tr>
-                                <th>Critério</th>
-                                <th>Funcionário CLT (Técnico Local)</th>
-                                <th class="modal-highlight">
-                                    SuporteDelivery (Contrato)
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Custo Mensal</td>
-                                <td>Salário + Férias + Encargos (~R$ 6k+)</td>
-                                <td class="modal-highlight">
-                                    Valor fixo reduzido. Emissão de NF.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disponibilidade</td>
-                                <td>Férias, Atestados, Horário Fixo</td>
-                                <td class="modal-highlight">
-                                    Garantia de atendimento (Técnicos Backup e
-                                    Plantão)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Expertise</td>
-                                <td>Conhecimento limitado a 1 pessoa</td>
-                                <td class="modal-highlight">
-                                    Equipe multidisciplinar (Redes, Servidores,
-                                    Segurança)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ferramentas</td>
-                                <td>A empresa deve comprar as licenças</td>
-                                <td class="modal-highlight">
-                                    Já fornecemos ferramentas de inventário e
-                                    monitoramento
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-proxmox" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Proxmox VE vs Servidores Tradicionais</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-proxmox')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Muitas empresas ainda usam "um servidor físico para cada
-                        sistema" ou pagam licenças caríssimas de VMware. Nós
-                        modernizamos isso usando Proxmox.
-                    </p>
-                    <table class="modal-table">
-                        <thead>
-                            <tr>
-                                <th>Recurso</th>
-                                <th>Ambiente Tradicional / VMware</th>
-                                <th class="modal-highlight">
-                                    Ambiente Proxmox VE (SuporteDelivery)
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Licenciamento</td>
-                                <td>Anual (Dólar) por Processador</td>
-                                <td class="modal-highlight">
-                                    Gratuito (Open Source), pague só pelo
-                                    serviço.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Segurança (HA)</td>
-                                <td>
-                                    Se o servidor físico queimar, tudo para.
-                                </td>
-                                <td class="modal-highlight">
-                                    Cluster Alta Disponibilidade. Se um cai,
-                                    outro assume.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Backup</td>
-                                <td>Sistemas lentos em fita ou HD Externo</td>
-                                <td class="modal-highlight">
-                                    Integração nativa com PBS (Restauração
-                                    rápida)
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-pfsense" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Segurança de Borda: pfSense</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-pfsense')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Protegemos a internet da sua empresa contra invasões e
-                        configuramos VPNs seguras para seus funcionários
-                        trabalharem de casa sem custos abusivos.
-                    </p>
-                    <table class="modal-table">
-                        <thead>
-                            <tr>
-                                <th>Recurso</th>
-                                <th>
-                                    Firewalls Proprietários (Fortinet/Sonicwall)
-                                </th>
-                                <th class="modal-highlight">
-                                    pfSense (SuporteDelivery)
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Equipamento</td>
-                                <td>Hardware "travado" da fabricante</td>
-                                <td class="modal-highlight">
-                                    Hardware flexível. Subimos em Mini-PCs ou
-                                    VMs.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VPN (Home Office)</td>
-                                <td>Venda de "pacotes" de usuários</td>
-                                <td class="modal-highlight">
-                                    Usuários Ilimitados (OpenVPN e Wireguard
-                                    nativos)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mensalidade</td>
-                                <td>Renovação obrigatória de assinaturas</td>
-                                <td class="modal-highlight">
-                                    Incluso nos nossos contratos de suporte.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-pbs" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Proteção de Dados Corporativos (Backup)</h3>
-                    <span class="close-modal" onclick="closeModal('modal-pbs')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Dados são o ativo mais valioso da sua empresa. Uma
-                        rotina de backup falha pode levar a empresa à falência
-                        em um ataque de Ransomware.
-                    </p>
-                    <table class="modal-table">
-                        <thead>
-                            <tr>
-                                <th>Critério</th>
-                                <th>Backup Básico (Arquivos em Nuvem)</th>
-                                <th class="modal-highlight">
-                                    Backup Corporativo (PBS)
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Velocidade</strong></td>
-                                <td>Horas para baixar tudo da internet</td>
-                                <td class="modal-highlight">
-                                    Backups incrementais rápidos locais/remotos
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Proteção</strong></td>
-                                <td>
-                                    Se o vírus ataca o PC, ataca a nuvem
-                                    sincronizada
-                                </td>
-                                <td class="modal-highlight">
-                                    Imutabilidade (O vírus não consegue deletar
-                                    o backup)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Recuperação</strong></td>
-                                <td>
-                                    Instalar o Windows do zero, depois
-                                    programas...
-                                </td>
-                                <td class="modal-highlight">
-                                    Restaura a Máquina Virtual inteira ("Live
-                                    Restore")
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Política de Privacidade -->
-        <div id="modal-politica" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Política de Privacidade</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-politica')"
-                        >&times;</span
-                    >
-                </div>
-                <div
-                    class="modal-body"
-                    style="font-size: 0.9rem; line-height: 1.6"
-                >
-                    <p><strong>Última atualização: Março de 2026</strong></p>
-                    <h4>1. Coleta de Dados</h4>
-                    <p>
-                        A SuporteDelivery coleta informações fornecidas
-                        voluntariamente pelo usuário através de formulários de
-                        contato (nome, e-mail, telefone/WhatsApp e nome da
-                        empresa) com a única finalidade de retornar o contato
-                        comercial solicitado.
-                    </p>
-                    <h4>2. Uso das Informações</h4>
-                    <p>
-                        Os dados coletados são utilizados exclusivamente para:
-                        <br />- Elaboração de propostas comerciais de serviços
-                        de TI. <br />- Contato via telefone ou WhatsApp para
-                        agendamento de visitas técnicas.
-                    </p>
-                    <p>
-                        Não vendemos, alugamos ou compartilhamos seus dados com
-                        terceiros para fins de marketing.
-                    </p>
-                    <h4>3. Cookies e Tecnologias de Rastreamento</h4>
-                    <p>
-                        Este site utiliza cookies do Google Ads e Google
-                        Analytics para monitorar o desempenho de nossas
-                        campanhas publicitárias e melhorar a experiência do
-                        usuário. Esses cookies não armazenam informações
-                        pessoais identificáveis (PII).
-                    </p>
-                    <h4>4. Segurança</h4>
-                    <p>
-                        Adotamos medidas de segurança adequadas para proteger
-                        contra acesso não autorizado, alteração, divulgação ou
-                        destruição dos seus dados pessoais.
-                    </p>
-                    <h4>5. Seus Direitos</h4>
-                    <p>
-                        Você pode solicitar a exclusão dos seus dados de nossa
-                        base de contatos a qualquer momento, enviando um e-mail
-                        para contato@suportedelivery.com.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAIS DA ESTRATÉGIA "DA EMERGÊNCIA À PREVENÇÃO" (DO INDEX_NOVO) -->
-
-        <!-- Modal Passo 1: Resgate -->
-        <div id="modal-resgate" class="modal">
-            <div class="modal-content">
-                <div
-                    class="modal-header"
-                    style="background-color: var(--danger)"
-                >
-                    <h3>
-                        <i class="fas fa-ambulance"></i> Emergência TI: Ação
-                        Imediata
-                    </h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-resgate')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <img
-                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80"
-                        alt="Técnico verificando servidor"
-                        class="modal-img"
-                    />
-                    <p>
-                        Sabemos que cada minuto que o seu servidor, rede ou
-                        sistema fica fora do ar, sua empresa perde dinheiro.
-                        Nosso foco é
-                        <strong>estancar o sangramento imediato</strong> e
-                        devolver a operação do seu negócio em tempo recorde.
-                    </p>
-
-                    <h4 style="color: var(--danger)">
-                        SLA de 4 Horas (Curitiba e Região)
-                    </h4>
-                    <p>
-                        No modelo de socorro emergencial, um técnico sênior da
-                        SuporteDelivery se desloca fisicamente até a sua empresa
-                        com foco total na resolução do seu problema crítico
-                        (Hardware, Switches, Servidor).
-                    </p>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
-                        alt="Manutenção e estruturação de rede"
-                        class="modal-img"
-                    />
-
-                    <h4>Diagnóstico Real no Local</h4>
-                    <p>
-                        Não terceirizamos nossa inteligência. Nossos
-                        profissionais estão preparados para atuar diretamente em
-                        racks, cabos, firewalls e virtualizadores para trazer a
-                        normalidade de volta ao seu ambiente de trabalho.
-                    </p>
-
-                    <div style="text-align: center; margin-top: 20px">
-                        <button
-                            onclick="
-                                closeModal('modal-resgate');
-                                irParaEmergencia();
-                            "
-                            class="btn-whatsapp-submit"
-                            style="
-                                background-color: var(--danger);
-                                width: auto;
-                                padding: 10px 20px;
-                                display: inline-block;
-                            "
-                        >
-                            Acionar Resgate Agora
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Passo 2: Diagnóstico -->
-        <div id="modal-diagnostico" class="modal">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #b7791f">
-                    <h3><i class="fas fa-search"></i> Diagnóstico Pós-Crise</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-diagnostico')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Apagar o incêndio não resolve o problema a longo prazo.
-                        Depois de restabelecermos o seu sistema (Passo 1), nossa
-                        equipe realiza uma
-                        <strong>varredura completa (Raio-X)</strong> no seu
-                        ambiente de TI para descobrir <strong>por que</strong> o
-                        problema aconteceu.
-                    </p>
-
-                    <h4 style="color: #b7791f">O que analisamos?</h4>
+                <div class="hero-features">
                     <ul>
-                        <li>
-                            <strong>Segurança:</strong> Seu firewall está
-                            configurado corretamente? Você corre risco de
-                            invasões ou ataques de Ransomware?
-                        </li>
-                        <li>
-                            <strong>Redundância:</strong> Se o HD do seu
-                            servidor queimar amanhã, você tem um backup testado
-                            e seguro?
-                        </li>
-                        <li>
-                            <strong>Gargalos de Rede:</strong> Cabeamento antigo
-                            ou switches mal dimensionados estão deixando o
-                            sistema da sua empresa lento?
-                        </li>
+                        <li><strong>Atendimento Local</strong><span>Curitiba e Região Metropolitana</span></li>
+                        <li><strong>SLA Garantido</strong><span>Tempo de resposta rápido</span></li>
+                        <li><strong>Economia Real</strong><span>Soluções Open Source de ponta</span></li>
                     </ul>
-
-                    <p>
-                        Ao fim da nossa atuação emergencial, entregamos um
-                        <strong>relatório de riscos</strong>. É aqui que
-                        mostramos como transformar a sua TI, que hoje dá dor de
-                        cabeça, em um setor previsível e seguro.
-                    </p>
-
-                    <div style="text-align: center; margin-top: 20px">
-                        <button
-                            onclick="
-                                closeModal('modal-diagnostico');
-                                document
-                                    .getElementById('contato')
-                                    .scrollIntoView({ behavior: 'smooth' });
-                            "
-                            class="btn-whatsapp-submit"
-                            style="
-                                background-color: #b7791f;
-                                width: auto;
-                                padding: 10px 20px;
-                                display: inline-block;
-                            "
-                        >
-                            Quero uma Avaliação da minha TI
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Passo 3: Terceirização -->
-        <div id="modal-terceirizacao-inteligente" class="modal">
-            <div class="modal-content">
-                <div
-                    class="modal-header"
-                    style="background-color: var(--success)"
-                >
-                    <h3>
-                        <i class="fas fa-shield-alt"></i> A Solução:
-                        Terceirização Inteligente
-                    </h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-terceirizacao-inteligente')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <p>
-                        A fase final e definitiva da nossa metodologia. Depois
-                        de resolvermos a emergência e mapearmos as falhas, é
-                        hora de assumirmos a gestão total da sua infraestrutura.
-                    </p>
-
-                    <h4 style="color: var(--success)">
-                        Chega de apagar incêndios.
-                    </h4>
-                    <p>
-                        Com um <strong>Contrato de Suporte Mensal</strong> da
-                        SuporteDelivery, sua empresa para de trabalhar no modelo
-                        reativo (esperar quebrar para consertar) e passa a ter:
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Monitoramento Pró-ativo (24x7):</strong> Nós
-                            usamos softwares (Zabbix/Grafana) para monitorar
-                            seus servidores. Se um HD ameaçar pifar, nós ficamos
-                            sabendo antes dele parar a sua empresa.
-                        </li>
-                        <li>
-                            <strong>Custo Fixo Mensal:</strong> Chega de faturas
-                            surpresas com técnicos avulsos. A previsibilidade
-                            ajuda o seu fluxo de caixa.
-                        </li>
-                        <li>
-                            <strong>Consultoria de CIO:</strong> Nós não somos
-                            apenas "quem conserta o computador". Sentamos com
-                            você para planejar os próximos passos de tecnologia
-                            para o seu negócio crescer de forma segura.
-                        </li>
-                    </ul>
-
-                    <div style="text-align: center; margin-top: 20px">
-                        <button
-                            onclick="
-                                closeModal('modal-terceirizacao-inteligente');
-                                document
-                                    .getElementById('modelos-contratos')
-                                    .scrollIntoView({ behavior: 'smooth' });
-                            "
-                            class="btn-whatsapp-submit"
-                            style="
-                                background-color: var(--success);
-                                width: auto;
-                                padding: 10px 20px;
-                                display: inline-block;
-                            "
-                        >
-                            Ver Planos de Terceirização
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAIS DE SETORES (Expertise DO INDEX_NOVO) -->
-        <div id="modal-advocacia" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>TI para Escritórios de Advocacia</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-advocacia')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <img
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-                        alt="Escritório Moderno"
-                        class="modal-img"
-                    />
-                    <p>
-                        Escritórios de advocacia lidam com dados sensíveis e
-                        prazos fatais. A perda de um arquivo ou a
-                        indisponibilidade de rede no último dia de um prazo no
-                        PJe é inaceitável.
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Proteção LGPD:</strong> Políticas rígidas de
-                            acesso aos dados dos seus clientes.
-                        </li>
-                        <li>
-                            <strong>Disponibilidade:</strong> Manutenção de
-                            servidores de arquivos sempre rápidos e acessíveis.
-                        </li>
-                        <li>
-                            <strong>Sistemas Jurídicos:</strong> Experiência no
-                            suporte a softwares como CPJ, Projuris, Astrea,
-                            entre outros.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-contabilidade" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>TI para Escritórios de Contabilidade</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-contabilidade')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <img
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                        alt="Equipe de Especialistas TI"
-                        class="modal-img"
-                    />
-                    <p>
-                        Rotinas de fechamento fiscal não podem parar. A TI do
-                        seu escritório de contabilidade precisa ser invisível
-                        (apenas funcionar) para que sua equipe foque nas
-                        obrigações acessórias.
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Sistemas Contábeis:</strong> Expertise total
-                            em estabilizar ERPs como Domínio, Alterdata e
-                            Nasajon.
-                        </li>
-                        <li>
-                            <strong>Backup Anti-Ransomware:</strong> Proteção
-                            total para os XMLs e bancos de dados do escritório.
-                        </li>
-                        <li>
-                            <strong>Conectividade Social:</strong> Resolução de
-                            falhas de Java e acessos ao e-CAC ou Conectividade
-                            ICP.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-industria" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>TI para Indústrias</h3>
-                    <span
-                        class="close-modal"
-                        onclick="closeModal('modal-industria')"
-                        >&times;</span
-                    >
-                </div>
-                <div class="modal-body">
-                    <img
-                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
-                        alt="TI na Indústria"
-                        class="modal-img"
-                    />
-                    <p>
-                        Se o sistema para, a linha de produção para e o caminhão
-                        não sai com a nota fiscal. Na indústria, a TI é o
-                        coração da operação logística e de montagem.
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Alta Disponibilidade:</strong> Servidores em
-                            Cluster HA para garantir que o ERP (SAP, Totvs,
-                            Sankhya) não caia.
-                        </li>
-                        <li>
-                            <strong>Rede de Chão de Fábrica:</strong> Wi-Fi
-                            industrial dimensionado para coletores de dados e
-                            máquinas automatizadas.
-                        </li>
-                        <li>
-                            <strong>Plantão Crítico:</strong> SLAs agressivos e
-                            opções de suporte para operações em 2 e 3 turnos.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- INÍCIO: MAPA GOOGLE MEU NEGÓCIO E AVALIAÇÕES -->
-        <section
-            class="section"
-            style="padding: 4rem 0; background-color: var(--light)"
-        >
-            <div class="container text-center">
-                <h2 style="margin-bottom: 0.5rem">
-                    Nossa Base de Operações em Curitiba
-                </h2>
-                <p class="lead" style="margin-bottom: 2rem">
-                    Atendimento local rápido com qualidade comprovada por quem
-                    já confiou na nossa equipe.
-                </p>
-
-                <!-- Botão de Prova Social (Avaliações do Google) -->
-                <!-- Cole o link da sua foto (https://share.google/...) no lugar do # abaixo, caso queira -->
-                <a
-                    href="#"
-                    target="_blank"
-                    style="
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 10px;
-                        background: #ffffff;
-                        padding: 12px 25px;
-                        border-radius: 50px;
-                        font-weight: bold;
-                        font-size: 1.1rem;
-                        color: var(--dark);
-                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-                        margin-bottom: 2.5rem;
-                        border: 1px solid #e2e8f0;
-                        transition: transform 0.2s;
-                        text-decoration: none;
-                    "
-                    onmouseover="this.style.transform = 'scale(1.05)'"
-                    onmouseout="this.style.transform = 'scale(1)'"
-                >
-                    <span
-                        style="
-                            color: #fbbc05;
-                            font-size: 1.3rem;
-                            letter-spacing: 2px;
-                        "
-                        >⭐⭐⭐⭐⭐</span
-                    >
-                    Ver nossas avaliações no Google
-                    <i
-                        class="fab fa-google"
-                        style="color: #4285f4; margin-left: 5px"
-                    ></i>
-                </a>
-
-                <!-- Mapa Mais Largo (Widescreen) apontando para a Suporte Delivery -->
-                <div
-                    style="
-                        border-radius: 12px;
-                        overflow: hidden;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                        max-width: 1000px;
-                        margin: 0 auto;
-                        border: 2px solid #ffffff;
-                    "
-                >
-                    <iframe
-                        src="https://maps.google.com/maps?q=Suporte%20Delivery%20TI%20Curitiba%20-%20Contratos%20de%20Suporte%20Mensal&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="450"
-                        style="border: 0; display: block"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                    ></iframe>
                 </div>
             </div>
         </section>
-        <!-- FIM: MAPA GOOGLE MEU NEGÓCIO E AVALIAÇÕES -->
 
-        <!-- RODAPÉ -->
-        <footer class="site-footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div>
-                        <img
-                            src="logo.png"
-                            alt="Suporte Delivery"
-                            class="footer-logo-img"
-                        />
-                        <p>
-                            Excelência em Gestão de TI e Suporte Corporativo em
-                            Curitiba e Região Metropolitana.
-                        </p>
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="container section">
+            <div class="text-center" style="margin-bottom: 3rem">
+                <h2>Soluções Corporativas de Ponta a Ponta</h2>
+                <p>Da visita técnica corretiva ao projeto avançado de infraestrutura.</p>
+            </div>
+            <div class="services-grid">
+                <div class="card" id="card-manutencao" style="border-top-color: var(--danger)">
+                    <div class="card-content">
+                        <h3><i class="fas fa-tools" style="color: var(--danger)"></i> Chamados Avulsos</h3>
+                        <p>Seu servidor parou? Rede lenta? Notebook não liga? Enviamos um técnico especializado para resolver emergências na sua empresa rapidamente.</p>
                     </div>
-                    <div class="footer-contact">
-                        <h4 style="color: #fff; margin-bottom: 1rem">
-                            Contato Rápido
-                        </h4>
-                        <div class="footer-links">
-                            <a
-                                href="https://wa.me/554137983434"
-                                style="
-                                    font-size: 1.1rem;
-                                    color: #fff;
-                                    font-weight: bold;
-                                "
-                                ><i class="fab fa-whatsapp"></i> (41)
-                                3798-3434</a
-                            >
-                            <a href="tel:+5511970839455"
-                                ><i class="fas fa-mobile-alt"></i> (11)
-                                97083-9455</a
-                            >
-                            <a href="mailto:contato@suportedelivery.com"
-                                ><i class="fas fa-envelope"></i>
-                                contato@suportedelivery.com</a
-                            >
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="color: #fff; margin-bottom: 1rem">
-                            Área de Atuação
-                        </h4>
-                        <p>
-                            Atendimento presencial focado em empresas de
-                            Curitiba, Araucária, São José dos Pinhais, Pinhais,
-                            Colombo e Campo Largo.
-                        </p>
-                    </div>
+                    <div class="comp-tag"><strong>Foco:</strong> Resolução rápida e diagnóstico.</div>
+                    <a id="card-manutencao-saibamais" class="btn-more" onclick="openModal('modal-manutencao')">Saber mais <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div
-                    style="
-                        margin-top: 3rem;
-                        text-align: center;
-                        border-top: 1px solid #334155;
-                        padding-top: 1rem;
-                    "
-                >
-                    © 2026 SuporteDelivery — Todos os direitos reservados.
-                    <br />
-                    <a
-                        href="#politica"
-                        onclick="openModal('modal-politica')"
-                        style="
-                            font-size: 0.75rem;
-                            color: #475569;
-                            text-decoration: none;
-                            margin-top: 5px;
-                            display: inline-block;
-                        "
-                        >Política de Privacidade</a
-                    >
+                <div class="card" id="card-contratos" style="border-top-color: var(--success)">
+                    <div class="card-content">
+                        <h3><i class="fas fa-handshake" style="color: var(--success)"></i> Contratos de Suporte</h3>
+                        <p>Terceirização completa. Service Desk ilimitado, monitoramento 24x7 e visitas preventivas. Sua empresa focada no negócio, nós cuidamos da TI.</p>
+                    </div>
+                    <div class="comp-tag"><strong>Foco:</strong> Prevenção e Redução de Custos.</div>
+                    <a id="card-contratos-saibamais" class="btn-more" onclick="openModal('modal-contrato')">Saber mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card" id="card-proxmox" style="border-top-color: #e05d44">
+                    <div class="card-content">
+                        <h3><i class="fas fa-server" style="color: #e05d44"></i> Infraestrutura & Servidores</h3>
+                        <p>Gestão e implementação de Servidores usando Proxmox VE. Virtualização robusta com custo de licença zero e altíssima disponibilidade.</p>
+                    </div>
+                    <div class="comp-tag"><strong>Substitui:</strong> VMware / Servidores Físicos Antigos</div>
+                    <a id="card-proxmox-saibamais" class="btn-more" onclick="openModal('modal-proxmox')">Saber mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card" id="card-pfsense" style="border-top-color: #003399">
+                    <div class="card-content">
+                        <h3><i class="fas fa-shield-alt" style="color: #003399"></i> Redes, VPN & Segurança</h3>
+                        <p>Proteção da rede corporativa com pfSense e Proxmox Backup. VPN segura para Home Office, controle de acessos e rotinas de backup anti-ransomware.</p>
+                    </div>
+                    <div class="comp-tag"><strong>Foco:</strong> Proteção de Dados e Home Office.</div>
+                    <a id="card-pfsense-saibamais" class="btn-more" onclick="openModal('modal-pfsense')">Saber mais <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-        </footer>
+        </section>
 
-        <!-- Botão flutuante do WhatsApp atualizado com irParaEmergencia() -->
-        <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer"
-            ><i class="fab fa-whatsapp"></i
-        ></a>
+        <!-- NICHOS / EXPERTISE -->
+        <section id="nichos" class="section" style="background-color: var(--light);">
+            <div class="container text-center">
+                <h2>Expertise e Setores Atendidos</h2>
+                <p class="lead">Para empresas de 10 a 300 computadores. 25 anos garantindo que seu negócio não pare.</p>
+                <div class="container-cards-ti">
+                    <div class="card-ti" onclick="openModal('modal-advocacia')">
+                        <div class="icone-ti">⚖️</div>
+                        <h3>Escritórios de Advocacia</h3>
+                        <p>Proteção de dados, servidores seguros e sistemas jurídicos rodando sem lentidão.</p>
+                        <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                    </div>
+                    <div class="card-ti" onclick="openModal('modal-contabilidade')">
+                        <div class="icone-ti">📊</div>
+                        <h3>Contabilidades</h3>
+                        <p>Foco nas obrigações fiscais. Mantemos Domínio e ERPs rodando sem interrupções.</p>
+                        <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                    </div>
+                    <div class="card-ti" onclick="openModal('modal-industria')">
+                        <div class="icone-ti">🏭</div>
+                        <h3>Indústrias</h3>
+                        <p>Chão de fábrica operando, faturamento liberado e sistemas de rede protegidos.</p>
+                        <div class="clique-aqui-tag">Clique para ler as Soluções</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- SCRIPTS FINAL COMPLETOS (ATUALIZADO COM OS NOVOS MODAIS) -->
-        <script>
-            let heroIndex = 0;
-            const heroSlides = document.querySelectorAll(".hero-slide");
-            function rotateHero() {
-                if (heroSlides.length === 0) return;
-                heroSlides[heroIndex].classList.remove("active");
-                heroIndex = (heroIndex + 1) % heroSlides.length;
-                heroSlides[heroIndex].classList.add("active");
-            }
-            if (heroSlides.length > 0) setInterval(rotateHero, 6000);
+        <!-- 3 PASSOS DA EMERGÊNCIA -->
+        <section class="section" style="background-color: #ffffff; border-top: 1px solid #e2e8f0;">
+            <div class="container text-center">
+                <h2>Como funciona: Da Emergência à Paz de Espírito</h2>
+                <p class="lead">Não apenas apagamos incêndios. Nós garantimos o futuro e a economia da sua operação.</p>
+                <div class="container-cards-ti">
+                    <div class="card-ti" style="border-top: 4px solid var(--danger); background-color: #fff5f5;" onclick="openModal('modal-resgate')">
+                        <div class="icone-ti">🚨</div>
+                        <h3 style="color: var(--danger);">1. Resgate Imediato</h3>
+                        <p>Servidor ou rede parou? Chegamos em até 4 horas na Grande Curitiba para devolver sua operação à normalidade.</p>
+                        <div class="clique-aqui-tag" style="background-color: #fed7d7; color: var(--danger);">Clique para ver como atuamos</div>
+                    </div>
+                    <div class="card-ti" style="border-top: 4px solid var(--secondary);" onclick="openModal('modal-diagnostico')">
+                        <div class="icone-ti">🔍</div>
+                        <h3>2. Diagnóstico Pós-Crise</h3>
+                        <p>Após resolver a urgência, fazemos um raio-X para entender exatamente qual vulnerabilidade causou a parada.</p>
+                        <div class="clique-aqui-tag" style="background-color: #fefcbf; color: #b7791f;">Clique para ver a análise</div>
+                    </div>
+                    <div class="card-ti" style="border-top: 4px solid var(--success);" onclick="openModal('modal-terceirizacao-inteligente')">
+                        <div class="icone-ti">🛡️</div>
+                        <h3>3. Terceirização (Prevenção)</h3>
+                        <p>Apresentamos um plano de gestão contínua (contrato) para sua empresa nunca mais perder dinheiro com a TI parada.</p>
+                        <div class="clique-aqui-tag" style="background-color: #c6f6d5; color: var(--success);">Clique e conheça a solução</div>
+                    </div>
+                </div>
+                <a onclick="document.getElementById('modelos-contratos').scrollIntoView();" class="btn-orcamento-ti">Conhecer Planos de Terceirização</a>
+            </div>
+        </section>
 
-            function openModal(modalId) {
-                document.getElementById(modalId).style.display = "block";
-            }
-            function closeModal(modalId) {
-                document.getElementById(modalId).style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target.classList.contains("modal")) {
-                    event.target.style.display = "none";
+        <!-- COMPARATIVO REATIVO VS PREVENTIVO -->
+        <section id="comparativo-suporte" class="section" style="background-color: var(--light)">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem">
+                    <h2>Por que fechar um Contrato Mensal?</h2>
+                    <p class="lead">Entenda a diferença entre o suporte tradicional (apagar incêndios) e a gestão inteligente da SuporteDelivery.</p>
+                </div>
+                <div class="two-col">
+                    <div class="vs-box vs-reativo">
+                        <h3 style="color: var(--danger)"><i class="fas fa-fire-extinguisher"></i> Modelo Reativo (Visita Avulsa)</h3>
+                        <p>A TI é vista como um custo chato. Você só liga quando o problema já aconteceu e o prejuízo já começou.</p>
+                        <ul>
+                            <li><i class="fas fa-times vs-icon-bad"></i> <strong>Parada Total:</strong> A empresa fica parada até o técnico chegar.</li>
+                            <li><i class="fas fa-times vs-icon-bad"></i> <strong>Custo Imprevisível:</strong> Cada chamado é um orçamento surpresa.</li>
+                            <li><i class="fas fa-times vs-icon-bad"></i> <strong>SLA Inexistente:</strong> Depende da disponibilidade da agenda do técnico.</li>
+                            <li><i class="fas fa-times vs-icon-bad"></i> <strong>Risco de Dados:</strong> O backup só é lembrado quando o HD já queimou.</li>
+                        </ul>
+                    </div>
+                    <div class="vs-box vs-preventivo">
+                        <div style="position: absolute; top: -15px; right: 20px; background: var(--success); color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">RECOMENDADO</div>
+                        <h3 style="color: var(--success)"><i class="fas fa-shield-alt"></i> Contrato Preventivo (Nossa Gestão)</h3>
+                        <p>A TI é vista como investimento. Nós monitoramos seus equipamentos 24x7 para agir antes que a falha ocorra.</p>
+                        <ul>
+                            <li><i class="fas fa-check vs-icon-good"></i> <strong>Produtividade Máxima:</strong> Problemas resolvidos via acesso remoto imediato.</li>
+                            <li><i class="fas fa-check vs-icon-good"></i> <strong>Valor Fixo:</strong> Mensalidade que cabe no orçamento. Previsibilidade total.</li>
+                            <li><i class="fas fa-check vs-icon-good"></i> <strong>SLA Contratual:</strong> Acordos rigorosos de tempo máximo de resposta.</li>
+                            <li><i class="fas fa-check vs-icon-good"></i> <strong>Auditoria Contínua:</strong> Antivírus e Backups testados rigorosamente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGIAS OPEN SOURCE -->
+        <section id="porque-open-source" class="section feature-dark">
+            <div class="container">
+                <h2>Tecnologia Enterprise no seu Contrato</h2>
+                <div class="two-col">
+                    <div>
+                        <p>Para entregar um suporte perfeito, usamos as melhores ferramentas Open Source do mercado (<strong>Proxmox VE e pfSense</strong>). O que isso significa para sua empresa?</p>
+                        <ul class="benefits">
+                            <li><strong>Custo Zero de Licença:</strong> Você não paga taxas em dólar por renovações de software.</li>
+                            <li><strong>Segurança Avançada:</strong> As mesmas tecnologias usadas por gigantes de telecomunicações.</li>
+                            <li><strong>Desempenho:</strong> Servidores mais rápidos, redes sem quedas e backups imutáveis contra Ransomware.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 8px;">
+                            <h3 style="margin-top: 0"><i class="fas fa-chart-line"></i> Especialistas, não curiosos.</h3>
+                            <p>Muitas empresas de suporte apenas formatam computadores. A SuporteDelivery conta com engenharia de infraestrutura, capacitada para desenhar desde a rede Wi-Fi até o Cluster de Servidores do seu datacenter.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLANOS DE SUPORTE -->
+        <section id="modelos-contratos" class="section" style="background: #fff; border-top: 1px solid #eee">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 3rem">
+                    <h2>Nossos Planos de Gestão de TI</h2>
+                    <p class="lead">Terceirização escalável com responsabilidade técnica e previsibilidade orçamentária.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card" id="plano-essentials">
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Essentials</h3>
+                            <p class="pricing-subtitle">Ideal para pequenas empresas</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Service Desk Remoto</li>
+                            <li><i class="fas fa-check"></i> Monitoramento Básico (Ping/Portas)</li>
+                            <li><i class="fas fa-check"></i> Atendimento 8x5 (Seg-Sex)</li>
+                            <li><i class="fas fa-check"></i> SLA de Resposta: 8h</li>
+                            <li class="unavailable"><i class="fas fa-times"></i> Visitas Presenciais Inclusas</li>
+                            <li class="unavailable"><i class="fas fa-times"></i> Gestão de Backup Diário</li>
+                            <li class="unavailable"><i class="fas fa-times"></i> Firewall Gerenciado</li>
+                        </ul>
+                        <button class="btn-pricing" onclick="selectPlan('Pacote Essentials')">Solicitar Cotação</button>
+                    </div>
+                    <div class="pricing-card featured" id="plano-business">
+                        <div class="featured-badge">Mais Escolhido</div>
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Business</h3>
+                            <p class="pricing-subtitle">Segurança e Suporte Híbrido</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> <strong>Service Desk Remoto Ilimitado</strong></li>
+                            <li><i class="fas fa-check"></i> <strong>Visitas Preventivas (Curitiba/Região)</strong></li>
+                            <li><i class="fas fa-check"></i> Monitoramento Zabbix Proativo</li>
+                            <li><i class="fas fa-check"></i> Atendimento 8x5 (Seg-Sex)</li>
+                            <li><i class="fas fa-check"></i> SLA de Resposta: 4h</li>
+                            <li><i class="fas fa-check"></i> Gestão de Backup Diário</li>
+                            <li><i class="fas fa-check"></i> Firewall Gerenciado</li>
+                        </ul>
+                        <button class="btn-pricing featured-btn" onclick="selectPlan('Pacote Business')">Quero este Plano</button>
+                    </div>
+                    <div class="pricing-card" id="plano-enterprise">
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Enterprise</h3>
+                            <p class="pricing-subtitle">Para Operações Críticas</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Service Desk Remoto VIP</li>
+                            <li><i class="fas fa-check"></i> Visitas Ilimitadas (Corretivas)</li>
+                            <li><i class="fas fa-check"></i> Monitoramento Full Stack</li>
+                            <li><i class="fas fa-check"></i> <strong>Atendimento 24x7 Plantão</strong></li>
+                            <li><i class="fas fa-check"></i> SLA de Resposta: 2h</li>
+                            <li><i class="fas fa-check"></i> Consultoria Trimestral (CIO)</li>
+                            <li><i class="fas fa-check"></i> Projeto de Disaster Recovery</li>
+                        </ul>
+                        <button class="btn-pricing" onclick="selectPlan('Pacote Enterprise')">Falar com Consultor</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVALIAÇÕES GOOGLE E MAPA DA ÁREA DE ATUAÇÃO -->
+        <section class="section" style="padding: 4rem 0; background-color: var(--light);">
+            <div class="container text-center">
+                
+                <h2 style="margin-bottom: 0.5rem;">O que dizem nossos clientes</h2>
+                <p class="lead" style="margin-bottom: 3rem;">Temos orgulho das nossas avaliações <strong>5 Estrelas no Google</strong>. Veja algumas experiências reais:</p>
+
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">M</div>
+                                <div><p class="reviewer-name">Marcos Silva</p><p class="review-date">1 mês atrás</p></div>
+                            </div>
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Nosso servidor parou na sexta-feira à tarde e a equipe da Suporte Delivery nos salvou. Chegaram rápido, resolveram o problema e ainda nos ajudaram a fechar um contrato preventivo. Recomendo muito!"</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background-color: #34a853;">A</div>
+                                <div><p class="reviewer-name">Ana Paula - Contabilidade</p><p class="review-date">3 meses atrás</p></div>
+                            </div>
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Atendimento excelente. Desde que terceirizamos nossa TI com eles, o sistema do escritório nunca mais ficou lento e o nosso backup está rodando perfeitamente. Profissionais de extrema confiança."</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background-color: #ea4335;">R</div>
+                                <div><p class="reviewer-name">Roberto Indústria</p><p class="review-date">4 meses atrás</p></div>
+                            </div>
+                            <i class="fab fa-google" style="color: #4285F4; font-size: 1.5rem;"></i>
+                        </div>
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Especialistas de verdade em infraestrutura e Firewall. Substituíram nossos servidores antigos pelo Proxmox com maestria. Reduzimos custos e a segurança da rede melhorou 100%."</p>
+                    </div>
+                </div>
+
+                <a href="https://www.google.com/search?q=Suporte+Delivery+TI+Curitiba" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #ffffff; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; color: var(--dark); box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 4rem; border: 1px solid #e2e8f0; transition: transform 0.2s; text-decoration: none;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <span style="color: #fbbc05; font-size: 1.3rem; letter-spacing: 2px;">⭐⭐⭐⭐⭐</span>
+                    Ver mais avaliações no Google
+                    <i class="fab fa-google" style="color: #4285F4; margin-left: 5px;"></i>
+                </a>
+
+                <h3 style="margin-top: 1rem; margin-bottom: 1rem; color: var(--dark);">Nossa Área de Atuação</h3>
+                <p style="margin-bottom: 2rem;">Chegamos rápido até sua empresa na região demarcada (SLA de até 4 horas para Curitiba e Região Metropolitana).</p>
+                
+                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 1000px; margin: 0 auto; border: 2px solid #ffffff;">
+                    <iframe src="https://maps.google.com/maps?q=Curitiba,%20Paran%C3%A1&t=&z=10&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO DE CONTATO -->
+        <section id="contato" class="section" style="background: #f0fdf4">
+            <div class="container text-center">
+                <h2>Fale com um Especialista</h2>
+                <p>Preencha os dados abaixo. Responderemos em minutos via WhatsApp com a melhor solução para sua empresa.</p>
+                <div class="form-box">
+                    <form id="whatsappForm" onsubmit="enviarWhatsapp(event)">
+                        <div class="form-group">
+                            <label class="form-label">Seu Nome / Cargo</label>
+                            <input type="text" id="nome" class="form-input" placeholder="Ex: João - Diretor/TI" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Motivo do Contato:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox" value="Emergência / Manutenção Avulsa" /> Emergência / Manutenção</label>
+                                <label class="checkbox-item"><input type="checkbox" value="Contrato de TI Empresarial" /> Contrato de TI Corporativo</label>
+                                <label class="checkbox-item"><input type="checkbox" value="Consultoria Servidor/Proxmox" /> Consultoria Servidor/Proxmox</label>
+                                <label class="checkbox-item"><input type="checkbox" value="Configuração de Firewall/VPN" /> Firewall (Segurança/VPN)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: bold; font-size: 1.1rem; color: var(--dark);">Selecione sua Opção:</label>
+                            <select id="plano-selecionado" class="form-input" style="font-weight: bold;">
+                                <option value="" disabled selected>Escolha o que precisa agora...</option>
+                                <option value="🚨 Emergência de TI (Atendimento Rápido)" class="opcao-emergencia" style="color: var(--danger); font-weight: bold;">🚨 Emergência de TI (Atendimento Rápido)</option>
+                                <option value="Pacote Essentials">Contrato Mensal: Essentials</option>
+                                <option value="Pacote Business">Contrato Mensal: Business</option>
+                                <option value="Pacote Enterprise">Contrato Mensal: Enterprise</option>
+                                <option value="Outras Dúvidas / Orçamento">Outras Dúvidas / Apenas Orçamento</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descreva o seu cenário/problema brevemente (Opcional):</label>
+                            <textarea id="mensagem" class="form-textarea" rows="3" placeholder="Ex: Nosso servidor parou... Ou: Buscamos uma nova empresa de TI para cuidar de 15 computadores..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-whatsapp-submit">
+                            <i class="fab fa-whatsapp"></i> Iniciar Atendimento via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAIS DE SERVIÇOS (ORIGINAIS E NOVOS) -->
+    <div id="modal-manutencao" class="modal"><div class="modal-content"><div class="modal-header"><h3>Atendimento Avulso Corporativo</h3><span class="close-modal" onclick="closeModal('modal-manutencao')">&times;</span></div><div class="modal-body"><p>A SuporteDelivery está preparada para resolver panes críticas no seu ambiente de TI. Nossa equipe técnica atua rapidamente para reduzir o impacto da parada no seu negócio.</p><ul style="line-height: 1.8; margin-top: 15px"><li><strong>Manutenção de Servidores:</strong> Troca de discos (RAID), recuperação de SO, diagnóstico de placas, migração emergencial.</li><li><strong>Redes e Wi-Fi:</strong> Resolução de lentidão, quebra de equipamentos de borda (roteadores/switches), reconfiguração de VLANs.</li><li><strong>Estações de Trabalho:</strong> Formatação, upgrade de SSD/Memória para frota de PCs e diagnóstico avançado Windows/Linux.</li><li><strong>Recuperação de Desastres:</strong> Apoio em casos de infecção por Ransomware e reestruturação de serviços vitais.</li></ul><p style="margin-top: 15px; color: var(--primary); font-weight: bold;">Custo: Cobrado mediante Visita Técnica (Hora Técnica).</p></div></div></div>
+    <div id="modal-contrato" class="modal"><div class="modal-content"><div class="modal-header"><h3>Vantagens da Terceirização (Contrato)</h3><span class="close-modal" onclick="closeModal('modal-contrato')">&times;</span></div><div class="modal-body"><p>Entenda porque terceirizar a TI com a SuporteDelivery é mais inteligente que manter equipe interna.</p><table class="modal-table"><thead><tr><th>Critério</th><th>Funcionário CLT (Técnico Local)</th><th class="modal-highlight">SuporteDelivery (Contrato)</th></tr></thead><tbody><tr><td>Custo Mensal</td><td>Salário + Férias + Encargos (~R$ 6k+)</td><td class="modal-highlight">Valor fixo reduzido. Emissão de NF.</td></tr><tr><td>Disponibilidade</td><td>Férias, Atestados, Horário Fixo</td><td class="modal-highlight">Garantia de atendimento (Técnicos Backup e Plantão)</td></tr><tr><td>Expertise</td><td>Conhecimento limitado a 1 pessoa</td><td class="modal-highlight">Equipe multidisciplinar (Redes, Servidores, Segurança)</td></tr><tr><td>Ferramentas</td><td>A empresa deve comprar as licenças</td><td class="modal-highlight">Já fornecemos ferramentas de inventário e monitoramento</td></tr></tbody></table></div></div></div>
+    <div id="modal-proxmox" class="modal"><div class="modal-content"><div class="modal-header"><h3>Proxmox VE vs Servidores Tradicionais</h3><span class="close-modal" onclick="closeModal('modal-proxmox')">&times;</span></div><div class="modal-body"><p>Muitas empresas ainda usam "um servidor físico para cada sistema" ou pagam licenças caríssimas de VMware. Nós modernizamos isso usando Proxmox.</p><table class="modal-table"><thead><tr><th>Recurso</th><th>Ambiente Tradicional / VMware</th><th class="modal-highlight">Ambiente Proxmox VE (SuporteDelivery)</th></tr></thead><tbody><tr><td>Licenciamento</td><td>Anual (Dólar) por Processador</td><td class="modal-highlight">Gratuito (Open Source), pague só pelo serviço.</td></tr><tr><td>Segurança (HA)</td><td>Se o servidor físico queimar, tudo para.</td><td class="modal-highlight">Cluster Alta Disponibilidade. Se um cai, outro assume.</td></tr><tr><td>Backup</td><td>Sistemas lentos em fita ou HD Externo</td><td class="modal-highlight">Integração nativa com PBS (Restauração rápida)</td></tr></tbody></table></div></div></div>
+    <div id="modal-pfsense" class="modal"><div class="modal-content"><div class="modal-header"><h3>Segurança de Borda: pfSense</h3><span class="close-modal" onclick="closeModal('modal-pfsense')">&times;</span></div><div class="modal-body"><p>Protegemos a internet da sua empresa contra invasões e configuramos VPNs seguras para seus funcionários trabalharem de casa sem custos abusivos.</p><table class="modal-table"><thead><tr><th>Recurso</th><th>Firewalls Proprietários (Fortinet/Sonicwall)</th><th class="modal-highlight">pfSense (SuporteDelivery)</th></tr></thead><tbody><tr><td>Equipamento</td><td>Hardware "travado" da fabricante</td><td class="modal-highlight">Hardware flexível. Subimos em Mini-PCs ou VMs.</td></tr><tr><td>VPN (Home Office)</td><td>Venda de "pacotes" de usuários</td><td class="modal-highlight">Usuários Ilimitados (OpenVPN e Wireguard nativos)</td></tr><tr><td>Mensalidade</td><td>Renovação obrigatória de assinaturas</td><td class="modal-highlight">Incluso nos nossos contratos de suporte.</td></tr></tbody></table></div></div></div>
+    <div id="modal-pbs" class="modal"><div class="modal-content"><div class="modal-header"><h3>Proteção de Dados Corporativos (Backup)</h3><span class="close-modal" onclick="closeModal('modal-pbs')">&times;</span></div><div class="modal-body"><p>Dados são o ativo mais valioso da sua empresa. Uma rotina de backup falha pode levar a empresa à falência em um ataque de Ransomware.</p><table class="modal-table"><thead><tr><th>Critério</th><th>Backup Básico (Arquivos em Nuvem)</th><th class="modal-highlight">Backup Corporativo (PBS)</th></tr></thead><tbody><tr><td><strong>Velocidade</strong></td><td>Horas para baixar tudo da internet</td><td class="modal-highlight">Backups incrementais rápidos locais/remotos</td></tr><tr><td><strong>Proteção</strong></td><td>Se o vírus ataca o PC, ataca a nuvem sincronizada</td><td class="modal-highlight">Imutabilidade (O vírus não consegue deletar o backup)</td></tr><tr><td><strong>Recuperação</strong></td><td>Instalar o Windows do zero, depois programas...</td><td class="modal-highlight">Restaura a Máquina Virtual inteira ("Live Restore")</td></tr></tbody></table></div></div></div>
+    <div id="modal-politica" class="modal"><div class="modal-content"><div class="modal-header"><h3>Política de Privacidade</h3><span class="close-modal" onclick="closeModal('modal-politica')">&times;</span></div><div class="modal-body" style="font-size: 0.9rem; line-height: 1.6"><p><strong>Última atualização: Março de 2026</strong></p><h4>1. Coleta de Dados</h4><p>A SuporteDelivery coleta informações fornecidas voluntariamente pelo usuário através de formulários de contato (nome, e-mail, telefone/WhatsApp e nome da empresa) com a única finalidade de retornar o contato comercial solicitado.</p><h4>2. Uso das Informações</h4><p>Os dados coletados são utilizados exclusivamente para: <br />- Elaboração de propostas comerciais de serviços de TI. <br />- Contato via telefone ou WhatsApp para agendamento de visitas técnicas.</p><p>Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins de marketing.</p><h4>3. Cookies e Tecnologias de Rastreamento</h4><p>Este site utiliza cookies do Google Ads e Google Analytics para monitorar o desempenho de nossas campanhas publicitárias e melhorar a experiência do usuário. Esses cookies não armazenam informações pessoais identificáveis (PII).</p><h4>4. Segurança</h4><p>Adotamos medidas de segurança adequadas para proteger contra acesso não autorizado, alteração, divulgação ou destruição dos seus dados pessoais.</p><h4>5. Seus Direitos</h4><p>Você pode solicitar a exclusão dos seus dados de nossa base de contatos a qualquer momento, enviando um e-mail para contato@suportedelivery.com.</p></div></div></div>
+
+    <!-- MODAIS NOVOS (EMERGÊNCIA E SETORES) -->
+    <div id="modal-resgate" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: var(--danger);">
+                <h3><i class="fas fa-ambulance"></i> Emergência TI: Ação Imediata</h3>
+                <span class="close-modal" onclick="closeModal('modal-resgate')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://storage.googleapis.com/chat-v2-dev-testing-storage/f622ba71-19ce-4467-88bb-69b52a1ff372.jpeg" alt="Técnico verificando servidor" class="modal-img" />
+                <p>Sabemos que cada minuto que o seu servidor, rede ou sistema fica fora do ar, sua empresa perde dinheiro. Nosso foco é <strong>estancar o sangramento imediato</strong> e devolver a operação do seu negócio em tempo recorde.</p>
+                <h4 style="color: var(--danger);">SLA de 4 Horas (Curitiba e Região)</h4>
+                <p>No modelo de socorro emergencial, um técnico sênior da SuporteDelivery se desloca fisicamente até a sua empresa com foco total na resolução do seu problema crítico (Hardware, Switches, Servidor).</p>
+                <img src="https://storage.googleapis.com/chat-v2-dev-testing-storage/84f93806-a831-4dd9-a544-d8bc5e1a1795.jpeg" alt="Manutenção e estruturação de rede" class="modal-img" />
+                <h4>Diagnóstico Real no Local</h4>
+                <p>Não terceirizamos nossa inteligência. Nossos profissionais estão preparados para atuar diretamente em racks, cabos, firewalls e virtualizadores para trazer a normalidade de volta ao seu ambiente de trabalho.</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="closeModal('modal-resgate'); irParaEmergencia();" class="btn-whatsapp-submit" style="background-color: var(--danger); width: auto; padding: 10px 20px; display: inline-block;">Acionar Resgate Agora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-diagnostico" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #b7791f;">
+                <h3><i class="fas fa-search"></i> Diagnóstico Pós-Crise</h3>
+                <span class="close-modal" onclick="closeModal('modal-diagnostico')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Apagar o incêndio não resolve o problema a longo prazo. Depois de restabelecermos o seu sistema (Passo 1), nossa equipe realiza uma <strong>varredura completa (Raio-X)</strong> no seu ambiente de TI para descobrir <strong>por que</strong> o problema aconteceu.</p>
+                <h4 style="color: #b7791f;">O que analisamos?</h4>
+                <ul>
+                    <li><strong>Segurança:</strong> Seu firewall está configurado corretamente? Você corre risco de invasões ou ataques de Ransomware?</li>
+                    <li><strong>Redundância:</strong> Se o HD do seu servidor queimar amanhã, você tem um backup testado e seguro?</li>
+                    <li><strong>Gargalos de Rede:</strong> Cabeamento antigo ou switches mal dimensionados estão deixando o sistema da sua empresa lento?</li>
+                </ul>
+                <p>Ao fim da nossa atuação emergencial, entregamos um <strong>relatório de riscos</strong>. É aqui que mostramos como transformar a sua TI, que hoje dá dor de cabeça, em um setor previsível e seguro.</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="closeModal('modal-diagnostico'); document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });" class="btn-whatsapp-submit" style="background-color: #b7791f; width: auto; padding: 10px 20px; display: inline-block;">Quero uma Avaliação da minha TI</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-terceirizacao-inteligente" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: var(--success);">
+                <h3><i class="fas fa-shield-alt"></i> A Solução: Terceirização Inteligente</h3>
+                <span class="close-modal" onclick="closeModal('modal-terceirizacao-inteligente')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>A fase final e definitiva da nossa metodologia. Depois de resolvermos a emergência e mapearmos as falhas, é hora de assumirmos a gestão total da sua infraestrutura.</p>
+                <h4 style="color: var(--success);">Chega de apagar incêndios.</h4>
+                <p>Com um <strong>Contrato de Suporte Mensal</strong> da SuporteDelivery, sua empresa para de trabalhar no modelo reativo (esperar quebrar para consertar) e passa a ter:</p>
+                <ul>
+                    <li><strong>Monitoramento Pró-ativo (24x7):</strong> Nós usamos softwares (Zabbix/Grafana) para monitorar seus servidores. Se um HD ameaçar pifar, nós ficamos sabendo antes dele parar a sua empresa.</li>
+                    <li><strong>Custo Fixo Mensal:</strong> Chega de faturas surpresas com técnicos avulsos. A previsibilidade ajuda o seu fluxo de caixa.</li>
+                    <li><strong>Consultoria de CIO:</strong> Nós não somos apenas "quem conserta o computador". Sentamos com você para planejar os próximos passos de tecnologia para o seu negócio crescer de forma segura.</li>
+                </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="closeModal('modal-terceirizacao-inteligente'); document.getElementById('modelos-contratos').scrollIntoView({ behavior: 'smooth' });" class="btn-whatsapp-submit" style="background-color: var(--success); width: auto; padding: 10px 20px; display: inline-block;">Ver Planos de Terceirização</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-advocacia" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>TI para Escritórios de Advocacia</h3>
+                <span class="close-modal" onclick="closeModal('modal-advocacia')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://storage.googleapis.com/chat-v2-dev-testing-storage/3e956555-5f5f-4bf0-b1ff-e737c37f4017.jpeg" alt="Escritório Moderno" class="modal-img" />
+                <p>Escritórios de advocacia lidam com dados sensíveis e prazos fatais. A perda de um arquivo ou a indisponibilidade de rede no último dia de um prazo no PJe é inaceitável.</p>
+                <ul>
+                    <li><strong>Proteção LGPD:</strong> Políticas rígidas de acesso aos dados dos seus clientes.</li>
+                    <li><strong>Disponibilidade:</strong> Manutenção de servidores de arquivos sempre rápidos e acessíveis.</li>
+                    <li><strong>Sistemas Jurídicos:</strong> Experiência no suporte a softwares como CPJ, Projuris, Astrea, entre outros.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-contabilidade" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>TI para Escritórios de Contabilidade</h3>
+                <span class="close-modal" onclick="closeModal('modal-contabilidade')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://storage.googleapis.com/chat-v2-dev-testing-storage/93c6f082-8bc1-4af4-b3dd-e4483a9926d0.jpeg" alt="Equipe de Especialistas TI" class="modal-img" />
+                <p>Rotinas de fechamento fiscal não podem parar. A TI do seu escritório de contabilidade precisa ser invisível (apenas funcionar) para que sua equipe foque nas obrigações acessórias.</p>
+                <ul>
+                    <li><strong>Sistemas Contábeis:</strong> Expertise total em estabilizar ERPs como Domínio, Alterdata e Nasajon.</li>
+                    <li><strong>Backup Anti-Ransomware:</strong> Proteção total para os XMLs e bancos de dados do escritório.</li>
+                    <li><strong>Conectividade Social:</strong> Resolução de falhas de Java e acessos ao e-CAC ou Conectividade ICP.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-industria" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>TI para Indústrias</h3>
+                <span class="close-modal" onclick="closeModal('modal-industria')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://storage.googleapis.com/chat-v2-dev-testing-storage/002eec89-94d7-463e-ab71-331da0c5c7d0.jpeg" alt="TI na Indústria" class="modal-img" />
+                <p>Se o sistema para, a linha de produção para e o caminhão não sai com a nota fiscal. Na indústria, a TI é o coração da operação logística e de montagem.</p>
+                <ul>
+                    <li><strong>Alta Disponibilidade:</strong> Servidores em Cluster HA para garantir que o ERP (SAP, Totvs, Sankhya) não caia.</li>
+                    <li><strong>Rede de Chão de Fábrica:</strong> Wi-Fi industrial dimensionado para coletores de dados e máquinas automatizadas.</li>
+                    <li><strong>Plantão Crítico:</strong> SLAs agressivos e opções de suporte para operações em 2 e 3 turnos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="logo.png" alt="Suporte Delivery" class="footer-logo-img" />
+                    <p>Excelência em Gestão de TI e Suporte Corporativo em Curitiba e Região Metropolitana.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4 style="color: #fff; margin-bottom: 1rem">Contato Rápido</h4>
+                    <div class="footer-links">
+                        <a href="https://wa.me/554137983434" style="font-size: 1.1rem; color: #fff; font-weight: bold;"><i class="fab fa-whatsapp"></i> (41) 3798-3434</a>
+                        <a href="tel:+5511970839455"><i class="fas fa-mobile-alt"></i> (11) 97083-9455</a>
+                        <a href="mailto:contato@suportedelivery.com"><i class="fas fa-envelope"></i> contato@suportedelivery.com</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 1rem">Área de Atuação</h4>
+                    <p>Atendimento presencial focado em empresas de Curitiba, Araucária, São José dos Pinhais, Pinhais, Colombo e Campo Largo.</p>
+                </div>
+            </div>
+            <div style="margin-top: 3rem; text-align: center; border-top: 1px solid #334155; padding-top: 1rem;">
+                © 2026 SuporteDelivery — Todos os direitos reservados.
+                <br />
+                <a href="#politica" onclick="openModal('modal-politica')" style="font-size: 0.75rem; color: #475569; text-decoration: none; margin-top: 5px; display: inline-block;">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer;"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- SCRIPTS FINAIS -->
+    <script>
+        let heroIndex = 0;
+        const heroSlides = document.querySelectorAll(".hero-slide");
+        function rotateHero() {
+            if (heroSlides.length === 0) return;
+            heroSlides[heroIndex].classList.remove("active");
+            heroIndex = (heroIndex + 1) % heroSlides.length;
+            heroSlides[heroIndex].classList.add("active");
+        }
+        if (heroSlides.length > 0) setInterval(rotateHero, 6000);
+
+        function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
+        function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
+        
+        window.onclick = function (event) { 
+            if (event.target.classList.contains("modal")) { 
+                event.target.style.display = "none"; 
+            } 
+        };
+
+        window.addEventListener("load", function () {
+            const hash = window.location.hash;
+            if (hash === "#card-manutencao-saibamais") openModal("modal-manutencao");
+            else if (hash === "#card-contratos-saibamais") openModal("modal-contrato");
+            else if (hash === "#card-proxmox-saibamais") openModal("modal-proxmox");
+            else if (hash === "#card-pfsense-saibamais") openModal("modal-pfsense");
+            else if (hash === "#card-pbs-saibamais") openModal("modal-pbs");
+            else if (hash === "#politica") openModal("modal-politica");
+            else if (hash === "#resgate") openModal("modal-resgate");
+            else if (hash === "#diagnostico") openModal("modal-diagnostico");
+            else if (hash === "#terceirizacao") openModal("modal-terceirizacao-inteligente");
+            else if (hash === "#advocacia") openModal("modal-advocacia");
+            else if (hash === "#contabilidade") openModal("modal-contabilidade");
+            else if (hash === "#industria") openModal("modal-industria");
+
+            if (hash.startsWith("#plano-")) {
+                const el = document.querySelector(hash);
+                if (el) {
+                    document.querySelectorAll(".pricing-card").forEach((c) => c.classList.remove("highlight-card"));
+                    el.classList.add("highlight-card");
                 }
-            };
-
-            window.addEventListener("load", function () {
-                const hash = window.location.hash;
-
-                // Modais Antigos de Serviços
-                if (hash === "#card-manutencao-saibamais")
-                    openModal("modal-manutencao");
-                else if (hash === "#card-contratos-saibamais")
-                    openModal("modal-contrato");
-                else if (hash === "#card-proxmox-saibamais")
-                    openModal("modal-proxmox");
-                else if (hash === "#card-pfsense-saibamais")
-                    openModal("modal-pfsense");
-                else if (hash === "#card-pbs-saibamais") openModal("modal-pbs");
-                else if (hash === "#politica") openModal("modal-politica");
-                // NOVOS MODAIS (Links Mágicos: 3 Passos e Setores)
-                else if (hash === "#resgate") openModal("modal-resgate");
-                else if (hash === "#diagnostico")
-                    openModal("modal-diagnostico");
-                else if (hash === "#terceirizacao")
-                    openModal("modal-terceirizacao-inteligente");
-                else if (hash === "#advocacia") openModal("modal-advocacia");
-                else if (hash === "#contabilidade")
-                    openModal("modal-contabilidade");
-                else if (hash === "#industria") openModal("modal-industria");
-
-                // Destaque de Planos
-                if (hash.startsWith("#plano-")) {
-                    const el = document.querySelector(hash);
-                    if (el) {
-                        document
-                            .querySelectorAll(".pricing-card")
-                            .forEach((c) =>
-                                c.classList.remove("highlight-card"),
-                            );
-                        el.classList.add("highlight-card");
-                    }
-                }
-            });
-
-            function selectPlan(planName) {
-                const select = document.getElementById("plano-selecionado");
-                if (select) select.value = planName;
-                const checkContrato = document.querySelector(
-                    'input[value="Contrato de TI Empresarial"]',
-                );
-                if (checkContrato) checkContrato.checked = true;
-                document
-                    .getElementById("contato")
-                    .scrollIntoView({ behavior: "smooth" });
             }
-        </script>
-    </body>
+        });
+
+        function selectPlan(planName) {
+            const select = document.getElementById("plano-selecionado");
+            if (select) select.value = planName;
+            const checkContrato = document.querySelector('input[value="Contrato de TI Empresarial"]');
+            if (checkContrato) checkContrato.checked = true;
+            document.getElementById("contato").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+</body>
 </html>

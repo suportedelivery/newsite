@@ -34,11 +34,7 @@
         </script>
 
         <!-- Event snippet for www.suportedelivery.com conversion page -->
-        <script>
-            gtag("event", "conversion", {
-                send_to: "AW-991359241/jtFhCOH-jGgQieLb2AM",
-            });
-        </script>
+        <!-- Conversion tracking moved to button click events -->
 
         <script>
             // Função do WhatsApp movida para o topo para evitar o erro da IA
@@ -79,13 +75,26 @@
                     textoZap += "\n*Mensagem:* " + campoMsg;
                 }
 
-                window.open(
+                var url =
                     "https://wa.me/" +
-                        telefone +
-                        "?text=" +
-                        encodeURIComponent(textoZap),
-                    "_blank",
-                );
+                    telefone +
+                    "?text=" +
+                    encodeURIComponent(textoZap);
+
+                // Dispara conversão do Google Ads antes de abrir o WhatsApp
+                if (typeof gtag === "function") {
+                    gtag("event", "conversion", {
+                        send_to: "AW-991359241/jtFhCOH-jGgQieLb2AM",
+                        event_callback: function () {
+                            window.open(url, "_blank");
+                        },
+                    });
+                    setTimeout(function () {
+                        window.open(url, "_blank");
+                    }, 2000);
+                } else {
+                    window.open(url, "_blank");
+                }
             }
 
             // Função para descer até o formulário e pré-selecionar Emergência
@@ -860,6 +869,41 @@
                 transform: scale(1.1);
             }
 
+            .float-tel {
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                background: var(--primary);
+                color: #fff;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                z-index: 9999;
+                transition: transform 0.3s;
+            }
+            .float-tel:hover {
+                transform: scale(1.1);
+            }
+            .float-tel-label {
+                position: fixed;
+                bottom: 105px;
+                right: 88px;
+                background: var(--primary);
+                color: #fff;
+                padding: 4px 12px;
+                border-radius: 12px;
+                font-size: 12px;
+                font-weight: bold;
+                white-space: nowrap;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+            }
+
             @keyframes fadeEffect {
                 from {
                     opacity: 0;
@@ -1248,10 +1292,19 @@
                         ou assumimos a gestão completa da sua TI com nossos
                         Contratos de Suporte.
                     </p>
-                    <div style="margin-top: 1.5rem">
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap">
                         <a class="btn-primary" onclick="irParaEmergencia()"
                             ><i class="fas fa-headset"></i> Chamar um Técnico
                             Agora</a
+                        >
+                        <a class="btn-outline" href="tel:+554137983434"
+                            data-gtm-phone="+554137983434"
+                            style="
+                                background: var(--success);
+                                border-color: var(--success);
+                                color: #fff;
+                            "
+                            ><i class="fas fa-phone"></i> Ligue Agora</a
                         >
                         <a class="btn-outline" href="#modelos-contratos"
                             >Ver Planos Mensais</a
@@ -2931,18 +2984,18 @@
                         </h4>
                         <div class="footer-links">
                             <a
-                                href="https://wa.me/554137983434"
+                                href="tel:+554137983434"
+                                data-gtm-phone="+554137983434"
                                 style="
                                     font-size: 1.1rem;
                                     color: #fff;
                                     font-weight: bold;
                                 "
-                                ><i class="fab fa-whatsapp"></i> (41)
-                                3798-3434</a
+                                ><i class="fas fa-phone"></i> +55 41 3798-3434</a
                             >
                             <a href="tel:+5511970839455"
-                                ><i class="fas fa-mobile-alt"></i> (11)
-                                97083-9455</a
+                                data-gtm-phone="+5511970839455"
+                                ><i class="fas fa-mobile-alt"></i> +55 11 97083-9455</a
                             >
                             <a href="mailto:contato@suportedelivery.com"
                                 ><i class="fas fa-envelope"></i>
@@ -2986,6 +3039,12 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Botão flutuante Ligue Agora -->
+        <div class="float-tel-label">Ligue Agora</div>
+        <a href="tel:+554137983434" class="float-tel" data-gtm-phone="+554137983434" title="Ligue Agora">
+            <i class="fas fa-phone"></i>
+        </a>
 
         <!-- Botão flutuante do WhatsApp atualizado com irParaEmergencia() -->
         <a onclick="irParaEmergencia()" class="float-wa" style="cursor: pointer"

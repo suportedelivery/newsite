@@ -139,6 +139,29 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
 
+        <!-- Schema Markup: Service Area Business -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "SuporteDelivery",
+          "image": "logo.png",
+          "telephone": "+554137983434",
+          "email": "contato@suportedelivery.com",
+          "url": "https://www.suportedelivery.com",
+          "description": "Suporte de TI para Empresas em Curitiba e Região. Chamados avulsos, manutenção de servidores, redes e contratos de suporte técnico preventivo.",
+          "priceRange": "$$",
+          "areaServed": [
+            { "@type": "City", "name": "Curitiba" },
+            { "@type": "City", "name": "Araucária" },
+            { "@type": "City", "name": "São José dos Pinhais" },
+            { "@type": "City", "name": "Pinhais" },
+            { "@type": "City", "name": "Colombo" },
+            { "@type": "City", "name": "Campo Largo" }
+          ]
+        }
+        </script>
+
         <style>
             /* --- CSS Geral --- */
             :root {
@@ -858,6 +881,82 @@
                 }
             }
 
+            /* Depoimentos */
+            .testimonials-section {
+                background: #f8fafc;
+            }
+            .testimonials-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            .testimonial-card {
+                background: #fff;
+                border-radius: 12px;
+                padding: 2rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+                border: 1px solid #e2e8f0;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .testimonial-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+            .testimonial-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 1rem;
+            }
+            .testimonial-avatar {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: var(--primary);
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+            .testimonial-info h4 {
+                margin: 0;
+                color: var(--dark);
+                font-size: 1rem;
+            }
+            .testimonial-info span {
+                color: #94a3b8;
+                font-size: 0.8rem;
+            }
+            .testimonial-stars {
+                color: #fbbc05;
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+            .testimonial-stars i {
+                margin-right: 2px;
+            }
+            .testimonial-text {
+                color: var(--text);
+                font-size: 0.95rem;
+                line-height: 1.7;
+                margin: 0;
+            }
+            .testimonial-google {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin-top: 1rem;
+                font-size: 0.8rem;
+                color: #94a3b8;
+            }
+            .testimonial-google img {
+                height: 16px;
+            }
+
             /* LOGO FLUTUANTE FIXO */
             .logo-float {
                 position: fixed;
@@ -1094,6 +1193,7 @@
                     <a href="#nichos">Expertise</a>
                     <a href="#comparativo-suporte">Vantagens</a>
                     <a href="#modelos-contratos">Contratos</a>
+                    <a href="#depoimentos">Depoimentos</a>
                     <!-- MENU DE EMERGÊNCIA (DO INDEX_NOVO) -->
                     <a
                         href="javascript:void(0)"
@@ -2648,6 +2748,167 @@
                 </div>
             </div>
         </div>
+
+        <!-- DEPOIMENTOS / PROVA SOCIAL -->
+        <section id="depoimentos" class="section testimonials-section">
+            <div class="container text-center">
+                <h2>O que nossos Clientes dizem</h2>
+                <p class="lead">
+                    Avaliações reais de empresas que confiam na SuporteDelivery para cuidar da sua TI.
+                </p>
+
+                <div class="testimonials-grid">
+                    <!-- Depoimento 1: Renan Braga -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">RB</div>
+                            <div class="testimonial-info">
+                                <h4>Renan Braga</h4>
+                                <span>2 anos atrás</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Excelente prestação de serviços! A empresa revolucionou nosso escritório e permitiu que otimizássemos nossos resultados com a tecnologia implantada, sem contar a simpatia do Sr Edmar, recomendo!!!
+                        </p>
+                        <div class="testimonial-google">
+                            <i class="fab fa-google"></i> Publicado no Google
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 2: Mario Amanajas -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">MA</div>
+                            <div class="testimonial-info">
+                                <h4>Mario Amanajas</h4>
+                                <span>11 meses atrás</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            A muitos anos contamos aqui na Empresa com os Serviços da Suporte Delivery, o que nos ajudou a reduzir os custos e proporcionar melhores investimentos foram os Contratos de TI, atendem rapidamente remoto e com agendamentos presenciais. Economizamos mais ainda depois que optamos pelo Contrato com Garantia de Equipamentos, assim temos custo fixo e eles assumem o riscos e nunca ficamos parados mais com equipamentos consertando. O principal diferencial deles são o conhecimento técnico que é acima da média de qualquer outra empresa que conheço!
+                        </p>
+                        <div class="testimonial-google">
+                            <i class="fab fa-google"></i> Publicado no Google
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 3: Vando Valentini -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">VV</div>
+                            <div class="testimonial-info">
+                                <h4>Vando Valentini</h4>
+                                <span>um ano atrás</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Eles cuidam das Câmeras de Segurança, colocaram um Servidor de Internet para juntar 2 links e todos os Repetidores na Igreja, Secretaria, Salão e Casa Paroquial. Automatizaram os Portões para abrir e fechar pelo Celular. Além de corrigir e resolver o Som da Igreja que tinha muitos chiados e ecos. Nossos Computadores estão sempre atualizados e funcionando bem, quando precisamos resolvem rapidamente por acesso Remoto ou nos atendem aqui também.
+                        </p>
+                        <div class="testimonial-google">
+                            <i class="fab fa-google"></i> Publicado no Google
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 4: Vinícius Masterdil -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">VM</div>
+                            <div class="testimonial-info">
+                                <h4>Vinícius Masterdil</h4>
+                                <span>3 semanas atrás</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            EXCELENTE ATENDIMENTO E SUPORTE TÉCNICO, OFERECEM SERVIÇO DE CONTRATO MENSAL OU AVULSO.
+                        </p>
+                        <div class="testimonial-google">
+                            <i class="fab fa-google"></i> Publicado no Google
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 5: Não Mais Pelo Santa Felicidade -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">SF</div>
+                            <div class="testimonial-info">
+                                <h4>Não Mais Pelo Santa Felicidade</h4>
+                                <span>11 meses atrás</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Ficamos muito satisfeitos com o atendimento do profissional (Edmar) e todo o conhecimento que eles possuem. Indicamos com certeza o trabalho deles!
+                        </p>
+                        <div class="testimonial-google">
+                            <i class="fab fa-google"></i> Publicado no Google
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCALIZAÇÃO / GOOGLE MAPS -->
+        <section id="localizacao" class="section" style="background: #fff">
+            <div class="container text-center">
+                <h2>Nossa Área de Cobertura</h2>
+                <p>
+                    Nossos Técnicos vão até sua Empresa!
+                </p>
+                <div
+                    style="
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                        max-width: 900px;
+                        margin: 0 auto;
+                    "
+                >
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d461054.80044218886!2d-49.66925103631723!3d-25.47198838712365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc453220321cb63%3A0x58816cf7088c6a59!2sSuporte%20Delivery%20TI%20Curitiba%20-%20Contratos%20de%20Suporte%20Mensal%20-%20Virtualiza%C3%A7%C3%A3o%20e%20Backups%20-%20Servidores%20e%20Firewalls!5e0!3m2!1spt-BR!2sbr!4v1778900249836!5m2!1spt-BR!2sbr"
+                        width="100%"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
 
         <!-- RODAPÉ -->
         <footer class="site-footer">

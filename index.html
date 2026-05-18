@@ -150,25 +150,25 @@
 
         <!-- Schema Markup: Service Area Business -->
         <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "SuporteDelivery",
-          "image": "logo.png",
-          "telephone": "+554137983434",
-          "email": "contato@suportedelivery.com",
-          "url": "https://www.suportedelivery.com",
-          "description": "Suporte de TI para Empresas em Curitiba e Região. Chamados avulsos, manutenção de servidores, redes e contratos de suporte técnico preventivo.",
-          "priceRange": "$$",
-          "areaServed": [
-            { "@type": "City", "name": "Curitiba" },
-            { "@type": "City", "name": "Araucária" },
-            { "@type": "City", "name": "São José dos Pinhais" },
-            { "@type": "City", "name": "Pinhais" },
-            { "@type": "City", "name": "Colombo" },
-            { "@type": "City", "name": "Campo Largo" }
-          ]
-        }
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "SuporteDelivery",
+                "image": "logo.png",
+                "telephone": "+554137983434",
+                "email": "contato@suportedelivery.com",
+                "url": "https://www.suportedelivery.com",
+                "description": "Suporte de TI para Empresas em Curitiba e Região. Chamados avulsos, manutenção de servidores, redes e contratos de suporte técnico preventivo.",
+                "priceRange": "$$",
+                "areaServed": [
+                    { "@type": "City", "name": "Curitiba" },
+                    { "@type": "City", "name": "Araucária" },
+                    { "@type": "City", "name": "São José dos Pinhais" },
+                    { "@type": "City", "name": "Pinhais" },
+                    { "@type": "City", "name": "Colombo" },
+                    { "@type": "City", "name": "Campo Largo" }
+                ]
+            }
         </script>
 
         <style>
@@ -941,7 +941,9 @@
                 padding: 2rem;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
                 border: 1px solid #e2e8f0;
-                transition: transform 0.3s, box-shadow 0.3s;
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
             }
             .testimonial-card:hover {
                 transform: translateY(-4px);
@@ -1292,12 +1294,21 @@
                         ou assumimos a gestão completa da sua TI com nossos
                         Contratos de Suporte.
                     </p>
-                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap">
+                    <div
+                        style="
+                            margin-top: 1.5rem;
+                            display: flex;
+                            gap: 1rem;
+                            flex-wrap: wrap;
+                        "
+                    >
                         <a class="btn-primary" onclick="irParaEmergencia()"
                             ><i class="fas fa-headset"></i> Chamar um Técnico
                             Agora</a
                         >
-                        <a class="btn-outline" href="tel:+554137983434"
+                        <a
+                            class="btn-outline"
+                            href="tel:+554137983434"
                             data-gtm-phone="+554137983434"
                             style="
                                 background: var(--success);
@@ -2807,7 +2818,8 @@
             <div class="container text-center">
                 <h2>O que nossos Clientes dizem</h2>
                 <p class="lead">
-                    Avaliações reais de empresas que confiam na SuporteDelivery para cuidar da sua TI.
+                    Avaliações reais de empresas que confiam na SuporteDelivery
+                    para cuidar da sua TI.
                 </p>
 
                 <div class="testimonials-grid">
@@ -2828,7 +2840,11 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">
-                            Excelente prestação de serviços! A empresa revolucionou nosso escritório e permitiu que otimizássemos nossos resultados com a tecnologia implantada, sem contar a simpatia do Sr Edmar, recomendo!!!
+                            Excelente prestação de serviços! A empresa
+                            revolucionou nosso escritório e permitiu que
+                            otimizássemos nossos resultados com a tecnologia
+                            implantada, sem contar a simpatia do Sr Edmar,
+                            recomendo!!!
                         </p>
                         <div class="testimonial-google">
                             <i class="fab fa-google"></i> Publicado no Google
@@ -2852,7 +2868,18 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">
-                            A muitos anos contamos aqui na Empresa com os Serviços da Suporte Delivery, o que nos ajudou a reduzir os custos e proporcionar melhores investimentos foram os Contratos de TI, atendem rapidamente remoto e com agendamentos presenciais. Economizamos mais ainda depois que optamos pelo Contrato com Garantia de Equipamentos, assim temos custo fixo e eles assumem o riscos e nunca ficamos parados mais com equipamentos consertando. O principal diferencial deles são o conhecimento técnico que é acima da média de qualquer outra empresa que conheço!
+                            A muitos anos contamos aqui na Empresa com os
+                            Serviços da Suporte Delivery, o que nos ajudou a
+                            reduzir os custos e proporcionar melhores
+                            investimentos foram os Contratos de TI, atendem
+                            rapidamente remoto e com agendamentos presenciais.
+                            Economizamos mais ainda depois que optamos pelo
+                            Contrato com Garantia de Equipamentos, assim temos
+                            custo fixo e eles assumem o riscos e nunca ficamos
+                            parados mais com equipamentos consertando. O
+                            principal diferencial deles são o conhecimento
+                            técnico que é acima da média de qualquer outra
+                            empresa que conheço!
                         </p>
                         <div class="testimonial-google">
                             <i class="fab fa-google"></i> Publicado no Google
@@ -2876,7 +2903,16 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">
-                            Eles cuidam das Câmeras de Segurança, colocaram um Servidor de Internet para juntar 2 links e todos os Repetidores na Igreja, Secretaria, Salão e Casa Paroquial. Automatizaram os Portões para abrir e fechar pelo Celular. Além de corrigir e resolver o Som da Igreja que tinha muitos chiados e ecos. Nossos Computadores estão sempre atualizados e funcionando bem, quando precisamos resolvem rapidamente por acesso Remoto ou nos atendem aqui também.
+                            Eles cuidam das Câmeras de Segurança, colocaram um
+                            Servidor de Internet para juntar 2 links e todos os
+                            Repetidores na Igreja, Secretaria, Salão e Casa
+                            Paroquial. Automatizaram os Portões para abrir e
+                            fechar pelo Celular. Além de corrigir e resolver o
+                            Som da Igreja que tinha muitos chiados e ecos.
+                            Nossos Computadores estão sempre atualizados e
+                            funcionando bem, quando precisamos resolvem
+                            rapidamente por acesso Remoto ou nos atendem aqui
+                            também.
                         </p>
                         <div class="testimonial-google">
                             <i class="fab fa-google"></i> Publicado no Google
@@ -2900,7 +2936,8 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">
-                            EXCELENTE ATENDIMENTO E SUPORTE TÉCNICO, OFERECEM SERVIÇO DE CONTRATO MENSAL OU AVULSO.
+                            EXCELENTE ATENDIMENTO E SUPORTE TÉCNICO, OFERECEM
+                            SERVIÇO DE CONTRATO MENSAL OU AVULSO.
                         </p>
                         <div class="testimonial-google">
                             <i class="fab fa-google"></i> Publicado no Google
@@ -2924,7 +2961,9 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">
-                            Ficamos muito satisfeitos com o atendimento do profissional (Edmar) e todo o conhecimento que eles possuem. Indicamos com certeza o trabalho deles!
+                            Ficamos muito satisfeitos com o atendimento do
+                            profissional (Edmar) e todo o conhecimento que eles
+                            possuem. Indicamos com certeza o trabalho deles!
                         </p>
                         <div class="testimonial-google">
                             <i class="fab fa-google"></i> Publicado no Google
@@ -2938,9 +2977,7 @@
         <section id="localizacao" class="section" style="background: #fff">
             <div class="container text-center">
                 <h2>Nossa Área de Cobertura</h2>
-                <p>
-                    Nossos Técnicos vão até sua Empresa!
-                </p>
+                <p>Nossos Técnicos vão até sua Empresa!</p>
                 <div
                     style="
                         border-radius: 12px;
@@ -2962,6 +2999,12 @@
                 </div>
             </div>
         </section>
+
+        <div id="soro-blog"></div>
+        <script
+            src="https://app.trysoro.com/api/embed/39bd59bc-9e8e-49a6-8fc7-ce9981c20e16"
+            defer
+        ></script>
 
         <!-- RODAPÉ -->
         <footer class="site-footer">
@@ -2991,11 +3034,14 @@
                                     color: #fff;
                                     font-weight: bold;
                                 "
-                                ><i class="fas fa-phone"></i> +55 41 3798-3434</a
+                                ><i class="fas fa-phone"></i> +55 41
+                                3798-3434</a
                             >
-                            <a href="tel:+5511970839455"
+                            <a
+                                href="tel:+5511970839455"
                                 data-gtm-phone="+5511970839455"
-                                ><i class="fas fa-mobile-alt"></i> +55 11 97083-9455</a
+                                ><i class="fas fa-mobile-alt"></i> +55 11
+                                97083-9455</a
                             >
                             <a href="mailto:contato@suportedelivery.com"
                                 ><i class="fas fa-envelope"></i>
@@ -3042,7 +3088,12 @@
 
         <!-- Botão flutuante Ligue Agora -->
         <div class="float-tel-label">Ligue Agora</div>
-        <a href="tel:+554137983434" class="float-tel" data-gtm-phone="+554137983434" title="Ligue Agora">
+        <a
+            href="tel:+554137983434"
+            class="float-tel"
+            data-gtm-phone="+554137983434"
+            title="Ligue Agora"
+        >
             <i class="fas fa-phone"></i>
         </a>
 

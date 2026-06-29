@@ -35,10 +35,10 @@ export default function SobrePage() {
             <h2 className="text-3xl font-bold text-primary">Nossa História</h2>
             <p className="mt-4 text-gray-600">
               A SuporteDelivery nasceu da paixão por tecnologia e da
-              necessidade de oferecer um suporte de TI verdadeiramente
-              dedicado para empresas. Começamos atendendo pequenos negócios
-              em Curitiba e hoje atendemos empresas de todos os portes na
-              região metropolitana.
+              necessidade de oferecer um Suporte de TI verdadeiramente
+              dedicado para Empresas. Começamos em São Paulo à 25 anos e em
+              2023 migramos para Curitiba onde atendemos Empresas de todos
+              os portes na região metropolitana.
             </p>
 
             <h2 className="mt-10 text-3xl font-bold text-primary">Nossa Missão</h2>

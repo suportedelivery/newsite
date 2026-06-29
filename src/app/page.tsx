@@ -184,7 +184,7 @@ export default function HomePage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-primary/95" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold">
             Por que a SuporteDelivery?
@@ -310,7 +310,7 @@ export default function HomePage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-red/90 via-accent-yellow/90 to-accent-green/90" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Pronto para otimizar sua TI?</h2>
           <p className="mx-auto mt-4 max-w-xl text-white/90">

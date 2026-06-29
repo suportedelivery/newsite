@@ -142,11 +142,12 @@ export default function ContratosPage() {
             </details>
             <details className="rounded-lg bg-white p-4 shadow-sm">
               <summary className="cursor-pointer font-semibold">
-                O que está incluído na garantia de equipamentos?
+                O que está incluído no contrato?
               </summary>
               <p className="mt-2 text-sm text-gray-600">
-                Se um equipamento com defeito estiver coberto pelo contrato,
-                nós assumimos o custo do reparo ou substituição.
+                Suporte técnico remoto e presencial, manutenção preventiva,
+                monitoramento, assistência em servidores, redes e estações de
+                trabalho. Veja os detalhes de cada plano na página de Planos.
               </p>
             </details>
             <details className="rounded-lg bg-white p-4 shadow-sm">

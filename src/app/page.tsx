@@ -190,36 +190,54 @@ export default function HomePage() {
             Por que a SuporteDelivery?
           </h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue text-3xl">
+            <Link
+              href="/servicos/proxmox"
+              className="text-center group"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue text-3xl transition group-hover:scale-110">
                 🚀
               </div>
-              <h3 className="mt-4 text-lg font-semibold">Open Source</h3>
+              <h3 className="mt-4 text-lg font-semibold group-hover:text-accent-yellow">Open Source</h3>
               <p className="mt-2 text-sm text-blue-100">
                 Utilizamos soluções open source como Proxmox e pfSense para
                 reduzir custos com licenças.
               </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-yellow text-3xl">
+              <span className="mt-3 inline-block text-xs font-semibold text-accent-yellow">
+                Saiba mais →
+              </span>
+            </Link>
+            <Link
+              href="/planos"
+              className="text-center group"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-yellow text-3xl transition group-hover:scale-110">
                 💰
               </div>
-              <h3 className="mt-4 text-lg font-semibold">Custo Fixo</h3>
+              <h3 className="mt-4 text-lg font-semibold group-hover:text-accent-yellow">Custo Fixo</h3>
               <p className="mt-2 text-sm text-blue-100">
                 Planos mensais com custo previsível. Sem surpresas na fatura
                 da sua TI.
               </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-green text-3xl">
+              <span className="mt-3 inline-block text-xs font-semibold text-accent-yellow">
+                Saiba mais →
+              </span>
+            </Link>
+            <Link
+              href="/sobre"
+              className="text-center group"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-green text-3xl transition group-hover:scale-110">
                 📍
               </div>
-              <h3 className="mt-4 text-lg font-semibold">Cobertura Regional</h3>
+              <h3 className="mt-4 text-lg font-semibold group-hover:text-accent-yellow">Cobertura Regional</h3>
               <p className="mt-2 text-sm text-blue-100">
                 Atendemos Curitiba e toda a região metropolitana. Técnicos vão
                 até sua empresa.
               </p>
-            </div>
+              <span className="mt-3 inline-block text-xs font-semibold text-accent-yellow">
+                Saiba mais →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -297,6 +315,25 @@ export default function HomePage() {
             >
               Ver todos os depoimentos →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Área de Atuação / Mapa */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-primary">Nossa Área de Cobertura</h2>
+          <p className="mt-2 text-gray-600">Nossos Técnicos vão até sua Empresa!</p>
+          <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-xl shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d461054.80044218886!2d-49.66925103631723!3d-25.47198838712365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc453220321cb63%3A0x58816cf7088c6a59!2sSuporte%20Delivery%20TI%20Curitiba%20-%20Contratos%20de%20Suporte%20Mensal%20-%20Virtualiza%C3%A7%C3%A3o%20e%20Backups%20-%20Servidores%20e%20Firewalls!5e0!3m2!1spt-BR!2sbr!4v1778900249836!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

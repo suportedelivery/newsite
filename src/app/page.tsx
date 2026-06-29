@@ -17,7 +17,7 @@ const services = [
       "Manutenção preventiva e corretiva de computadores, servidores e rede para sua empresa.",
     href: "/servicos/manutencao",
     icon: "🔧",
-    image: "/images/service-tech.jpg",
+    image: "/images/manutencao-hero.jpg",
   },
   {
     title: "Contratos de Suporte",
@@ -25,7 +25,7 @@ const services = [
       "Planos mensais com suporte remoto e presencial. Custo fixo e previsível para sua TI.",
     href: "/servicos/contratos",
     icon: "📋",
-    image: "/images/service-contract.jpg",
+    image: "/images/contratos-hero.jpg",
   },
   {
     title: "Virtualização Proxmox",
@@ -33,7 +33,7 @@ const services = [
       "Servidores virtuais com Proxmox. Reduza custos com infraestrutura open source.",
     href: "/servicos/proxmox",
     icon: "🖥️",
-    image: "/images/service-datacenter.jpg",
+    image: "/images/proxmox-hero.jpg",
   },
   {
     title: "Firewall pfSense",
@@ -41,31 +41,31 @@ const services = [
       "Segurança de rede com pfSense. Proteção completa para sua empresa contra ameaças.",
     href: "/servicos/pfsense",
     icon: "🛡️",
-    image: "/images/service-security.jpg",
+    image: "/images/pfsense-hero.jpg",
   },
 ];
 
-const niches = [
+const segments = [
   {
     title: "Advocacia",
     description: "TI especializada para escritórios de advocacia.",
     href: "/segmentos/advocacia",
     icon: "⚖️",
-    image: "/images/nicho-advocacia.jpg",
+    image: "/images/advocacia-hero.jpg",
   },
   {
     title: "Contabilidade",
     description: "Soluções de TI para escritórios contábeis.",
     href: "/segmentos/contabilidade",
     icon: "📊",
-    image: "/images/nicho-contabilidade.jpg",
+    image: "/images/contabilidade-hero.jpg",
   },
   {
     title: "Indústria",
     description: "TI e automação para o setor industrial.",
     href: "/segmentos/industria",
     icon: "🏭",
-    image: "/images/nicho-industria.jpg",
+    image: "/images/industria-hero.jpg",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="relative py-20 text-white"
+        className="relative min-h-[500px] py-24 text-white"
         style={{
           backgroundImage: "url(/images/hero-cybersecurity.jpg)",
           backgroundSize: "cover",
@@ -104,12 +104,12 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-secondary/90" />
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+          <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             Suporte de TI Empresarial
             <br />
             <span className="text-accent-yellow">em Curitiba</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100 md:text-xl">
             Contratos de suporte mensal, manutenção de computadores,
             virtualização e segurança da informação. Atendimento remoto e
             presencial para sua empresa.
@@ -150,7 +150,7 @@ export default function HomePage() {
                 href={service.href}
                 className="group overflow-hidden rounded-xl bg-white shadow transition hover:shadow-lg"
               >
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -235,25 +235,25 @@ export default function HomePage() {
             soluções sob medida.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {niches.map((nicho) => (
+            {segments.map((segment) => (
               <Link
-                key={nicho.href}
-                href={nicho.href}
+                key={segment.href}
+                href={segment.href}
                 className="group overflow-hidden rounded-xl bg-white shadow transition hover:shadow-lg"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <img
-                    src={nicho.image}
-                    alt={nicho.title}
+                    src={segment.image}
+                    alt={segment.title}
                     className="h-full w-full object-cover transition group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-3xl">{nicho.icon}</div>
+                    <div className="text-3xl">{segment.icon}</div>
                     <h3 className="mt-2 text-xl font-bold text-white">
-                      {nicho.title}
+                      {segment.title}
                     </h3>
-                    <p className="text-sm text-white/80">{nicho.description}</p>
+                    <p className="text-sm text-white/80">{segment.description}</p>
                   </div>
                 </div>
               </Link>
@@ -303,7 +303,7 @@ export default function HomePage() {
 
       {/* CTA Final */}
       <section
-        className="relative py-16 text-white"
+        className="relative py-20 text-white"
         style={{
           backgroundImage: "url(/images/hero-woman-tech.jpg)",
           backgroundSize: "cover",
@@ -312,7 +312,7 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-accent-red/90 via-accent-yellow/90 to-accent-green/90" />
         <div className="relative container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold">Pronto para otimizar sua TI?</h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Pronto para otimizar sua TI?</h2>
           <p className="mx-auto mt-4 max-w-xl text-white/90">
             Fale conosco e descubra como podemos ajudar sua empresa a economizar
             e ter mais eficiência tecnológica.

@@ -59,10 +59,18 @@ const plans = [
 export default function ContratosPage() {
   return (
     <>
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold">Contratos de Suporte</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+      <section
+        className="relative min-h-[300px] py-20 text-white"
+        style={{
+          backgroundImage: "url(/images/contratos-hero.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="relative container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold md:text-5xl">Contratos de Suporte</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">
             Planos mensais com custo fixo e previsível. Escolha o melhor para
             sua empresa.
           </p>
@@ -77,13 +85,13 @@ export default function ContratosPage() {
                 key={plan.name}
                 className={`rounded-xl p-8 ${
                   plan.featured
-                    ? "border-2 border-emerald-600 bg-emerald-50 shadow-lg"
+                    ? "border-2 border-primary bg-blue-50 shadow-lg"
                     : "bg-white shadow-sm"
                 }`}
               >
                 <h3 className="text-xl font-bold">{plan.name}</h3>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-emerald-600">
+                  <span className="text-3xl font-bold text-primary">
                     {plan.price}
                   </span>
                   <span className="text-gray-500">{plan.period}</span>
@@ -92,7 +100,7 @@ export default function ContratosPage() {
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm">
-                      <span className="mt-0.5 text-emerald-500">✓</span> {f}
+                      <span className="mt-0.5 text-primary">✓</span> {f}
                     </li>
                   ))}
                 </ul>
@@ -108,7 +116,7 @@ export default function ContratosPage() {
                   rel="noopener noreferrer"
                   className={`mt-8 block rounded-lg py-3 text-center text-sm font-semibold ${
                     plan.featured
-                      ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                      ? "bg-primary text-white hover:bg-primary-light"
                       : "bg-gray-100 text-gray-800 hover:bg-gray-200"
                   }`}
                 >
@@ -120,10 +128,9 @@ export default function ContratosPage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-2xl font-bold">Perguntas Frequentes</h2>
+          <h2 className="text-center text-2xl font-bold text-primary">Perguntas Frequentes</h2>
           <div className="mx-auto mt-8 max-w-2xl space-y-6">
             <details className="rounded-lg bg-white p-4 shadow-sm">
               <summary className="cursor-pointer font-semibold">
@@ -145,7 +152,7 @@ export default function ContratosPage() {
             </details>
             <details className="rounded-lg bg-white p-4 shadow-sm">
               <summary className="cursor-pointer font-semibold">
-                Atendem fuera do horário comercial?
+                Atendem fora do horário comercial?
               </summary>
               <p className="mt-2 text-sm text-gray-600">
                 Sim, para planos Business e Enterprise temos atendimento

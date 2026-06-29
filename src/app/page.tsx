@@ -49,21 +49,21 @@ const niches = [
   {
     title: "Advocacia",
     description: "TI especializada para escritórios de advocacia.",
-    href: "/nichos/advocacia",
+    href: "/segmentos/advocacia",
     icon: "⚖️",
     image: "/images/nicho-advocacia.jpg",
   },
   {
     title: "Contabilidade",
     description: "Soluções de TI para escritórios contábeis.",
-    href: "/nichos/contabilidade",
+    href: "/segmentos/contabilidade",
     icon: "📊",
     image: "/images/nicho-contabilidade.jpg",
   },
   {
     title: "Indústria",
     description: "TI e automação para o setor industrial.",
-    href: "/nichos/industria",
+    href: "/segmentos/industria",
     icon: "🏭",
     image: "/images/nicho-industria.jpg",
   },
@@ -224,11 +224,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Nichos */}
+      {/* Segmentos */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold text-primary">
-            Atendemos Seu Nicho
+            Segmentos que Atendemos
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
             Conhecemos as necessidades específicas de cada setor e oferecemos

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Soluções de TI para escritórios contábeis em Curitiba. Integração com sistemas contábeis e segurança fiscal.",
   alternates: {
-    canonical: "https://www.suportedelivery.com/nichos/contabilidade",
+    canonical: "https://www.suportedelivery.com/segmentos/contabilidade",
   },
 };
 
@@ -67,7 +67,7 @@ export default function ContabilidadePage() {
                 href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20TI%20para%20contabilidade."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-emerald-600 px-8 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+                className="inline-block rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white hover:bg-primary-light"
               >
                 Fale Conosco
               </a>

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Soluções de TI para escritórios de advocacia em Curitiba. Segurança de dados, backup de processos e conformidade com a OAB.",
   alternates: {
-    canonical: "https://www.suportedelivery.com/nichos/advocacia",
+    canonical: "https://www.suportedelivery.com/segmentos/advocacia",
   },
 };
 
@@ -68,7 +68,7 @@ export default function AdvocaciaPage() {
                 href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20TI%20para%20advocacia."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-emerald-600 px-8 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+                className="inline-block rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white hover:bg-primary-light"
               >
                 Fale Conosco
               </a>

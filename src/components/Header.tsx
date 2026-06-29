@@ -22,7 +22,7 @@ export default function Header() {
           <img
             src="/logo.png"
             alt="SuporteDelivery"
-            className="h-10 w-auto"
+            className="h-12 w-auto"
           />
         </Link>
 

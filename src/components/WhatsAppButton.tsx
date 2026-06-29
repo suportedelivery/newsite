@@ -4,10 +4,16 @@ export default function WhatsAppButton() {
       href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent-green text-3xl text-white shadow-lg transition hover:bg-green-600 hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:bg-[#20ba5a] hover:scale-110"
       aria-label="WhatsApp"
     >
-      💬
+      <svg
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        className="h-7 w-7"
+      >
+        <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.132 6.744 3.058 9.378L1.054 31.29l6.118-1.97C9.696 30.97 12.762 32 16.004 32 24.83 32 32 24.822 32 16S24.83 0 16.004 0zm9.318 22.598c-.39 1.1-1.932 2.014-3.168 2.28-.84.18-1.936.322-5.626-1.206-4.726-1.954-7.762-6.758-7.996-7.07-.226-.312-1.862-2.478-1.862-4.726 0-2.248 1.18-3.35 1.604-3.814.39-.428.946-.54 1.258-.54.312 0 .624.002.896.016.29.014.68-.11 1.062.81.39.95 1.334 3.252 1.45 3.49.116.238.194.514.038.826-.156.314-.234.51-.468.786-.234.276-.492.616-.702.826-.194.194-.396.402-.168.79.228.388 1.014 1.676 2.176 2.716 1.494 1.34 2.754 1.756 3.142 1.95.388.194.614.164.838-.098.228-.262.972-1.134 1.234-1.524.262-.388.524-.324.89-.194.368.13 2.334 1.102 2.736 1.302.402.2.67.3.772.468.1.168.1.82-.29 1.918z"/>
+      </svg>
     </a>
   );
 }

@@ -191,7 +191,7 @@ export default function HomePage() {
           </h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <Link
-              href="/servicos/proxmox"
+              href="/planos#tecnologia"
               className="text-center group"
             >
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue text-3xl transition group-hover:scale-110">
@@ -223,7 +223,7 @@ export default function HomePage() {
               </span>
             </Link>
             <Link
-              href="/sobre"
+              href="#mapa"
               className="text-center group"
             >
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-green text-3xl transition group-hover:scale-110">
@@ -320,7 +320,7 @@ export default function HomePage() {
       </section>
 
       {/* Área de Atuação / Mapa */}
-      <section className="py-16">
+      <section id="mapa" className="py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-primary">Nossa Área de Cobertura</h2>
           <p className="mt-2 text-gray-600">Nossos Técnicos vão até sua Empresa!</p>

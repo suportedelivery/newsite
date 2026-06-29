@@ -73,6 +73,11 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/#mapa" className="hover:text-accent-yellow">
+                  Área de Atuação
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -81,18 +86,28 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-white">
               Contato
             </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-2">
+                <svg className="h-4 w-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
                 <a href="tel:+554137983434" className="hover:text-accent-yellow">
                   (41) 3798-3434
                 </a>
               </li>
-              <li>
+              <li className="flex items-center gap-2">
+                <svg className="h-4 w-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
                 <a href="tel:+5511970839455" className="hover:text-accent-yellow">
                   (11) 97083-9455
                 </a>
               </li>
-              <li>
+              <li className="flex items-center gap-2">
+                <svg className="h-4 w-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
                 <a
                   href="mailto:contato@suportedelivery.com"
                   className="hover:text-accent-yellow"
@@ -100,7 +115,10 @@ export default function Footer() {
                   contato@suportedelivery.com
                 </a>
               </li>
-              <li>
+              <li className="flex items-center gap-2">
+                <svg className="h-4 w-4 text-accent-yellow" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zm-4 0H9v2h2V9z" clipRule="evenodd" />
+                </svg>
                 <a
                   href="https://wa.me/554137983434"
                   target="_blank"

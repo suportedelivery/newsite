@@ -75,7 +75,7 @@ export default function ServicosPage() {
       <section
         className="relative min-h-[300px] py-20 text-white"
         style={{
-          backgroundImage: "url(/images/manutencao-hero.jpg)",
+          backgroundImage: "url(/images/servicos-hero.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

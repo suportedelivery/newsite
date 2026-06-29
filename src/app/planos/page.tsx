@@ -74,7 +74,7 @@ export default function PlanosPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-primary/85" />
+        <div className="absolute inset-0 bg-primary/40" />
         <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold md:text-5xl">Planos e Preços</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">

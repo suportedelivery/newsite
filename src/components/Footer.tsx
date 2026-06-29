@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/#mapa" className="hover:text-accent-yellow">
-                  Área de Atuação
+                  Área de Cobertura
                 </Link>
               </li>
             </ul>

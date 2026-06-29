@@ -209,13 +209,21 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600">
+      <section
+        className="relative py-20"
+        style={{
+          backgroundImage: "url(/images/blog-hero.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="container relative mx-auto px-4 text-center">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent-yellow">
             {post.category}
           </span>
-          <h1 className="mt-2 text-4xl font-bold">{post.title}</h1>
-          <time className="mt-4 block text-sm text-gray-400">
+          <h1 className="mt-2 text-4xl font-bold text-white">{post.title}</h1>
+          <time className="mt-4 block text-sm text-blue-200">
             {new Date(post.date).toLocaleDateString("pt-BR", {
               day: "numeric",
               month: "long",

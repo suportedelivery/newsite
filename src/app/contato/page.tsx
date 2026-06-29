@@ -30,10 +30,18 @@ export default function ContatoPage() {
 
   return (
     <>
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold">Contato</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+      <section
+        className="relative py-20"
+        style={{
+          backgroundImage: "url(/images/contato-hero.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="container relative mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold text-white">Contato</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-blue-100">
             Fale conosco e descubra como podemos ajudar sua empresa.
           </p>
         </div>

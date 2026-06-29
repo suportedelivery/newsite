@@ -45,7 +45,7 @@ const plans = [
     description: "Para empresas grandes com infraestrutura complexa.",
     features: [
       "Suporte 24/7",
-      "Visitante ilimitado",
+      "SLA Mínimo em Contrato",
       "SLA garantido",
       "Gerente de conta dedicado",
       "Manutenção preventiva semanal",

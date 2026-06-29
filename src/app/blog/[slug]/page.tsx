@@ -66,7 +66,6 @@ Se você já perdeu dados importantes por falta de backup, entende a importânci
 - Custo fixo e previsível
 - Suporte remoto e presencial
 - Manutenção preventiva
-- Garantia de equipamentos
 - Segurança da informação
 
 ## Como Escolher

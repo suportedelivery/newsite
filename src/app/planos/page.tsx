@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: "Essentials",
-    price: "R$ 497",
+    price: "R$ 897",
     period: "/mês",
     description: "Para pequenas empresas com até 10 equipamentos.",
     features: [
       "Suporte remoto ilimitado",
-      "Até 2 visitas presenciais/mês",
+      "1 visita presencial/mês",
       "Horário comercial (8h-18h)",
       "Manutenção preventiva trimestral",
       "Relatório mensal de atividades",
@@ -26,14 +26,13 @@ const plans = [
   },
   {
     name: "Business",
-    price: "R$ 997",
+    price: "R$ 2.960",
     period: "/mês",
     description: "Para empresas em crescimento com até 30 equipamentos.",
     features: [
       "Suporte remoto ilimitado",
-      "Até 4 visitas presenciais/mês",
+      "Até 3 visitas presenciais/mês",
       "Horário estendido (7h-20h)",
-      "Garantia de equipamentos",
       "Manutenção preventiva mensal",
       "Relatório semanal de atividades",
       "Prioridade no atendimento",
@@ -153,7 +152,7 @@ export default function PlanosPage() {
                 <li>• Custo fixo e previsível</li>
                 <li>• Tempo de resposta garantido</li>
                 <li>• Manutenção preventiva contínua</li>
-                <li>• Garantia de equipamentos</li>
+                <li>• Manutenção preventiva contínua</li>
               </ul>
             </div>
           </div>

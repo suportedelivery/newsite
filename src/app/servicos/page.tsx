@@ -27,13 +27,12 @@ const services = [
   {
     title: "Contratos de Suporte",
     description:
-      "Planos mensais com suporte dedicado. Custo fixo, atendimento prioritário e garantia de SLA.",
+      "Planos mensais com suporte dedicado. Custo fixo e atendimento prioritário.",
     href: "/servicos/contratos",
     icon: "📋",
     features: [
       "Suporte remoto ilimitado",
       "Visitas presenciais agendadas",
-      "Garantia de equipamentos",
       "Custo fixo mensal",
     ],
   },

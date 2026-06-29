@@ -155,8 +155,7 @@ export default function ContratosPage() {
                 Atendem fora do horário comercial?
               </summary>
               <p className="mt-2 text-sm text-gray-600">
-                Sim, para planos Business e Enterprise temos atendimento
-                estendido e 24/7 respectivamente.
+                Sim, temos atendimento estendido para o Plano Business e 24/7 para o Plano Enterprise.
               </p>
             </details>
           </div>

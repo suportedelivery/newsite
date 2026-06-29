@@ -19,9 +19,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <nav className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-emerald-600">
-            SuporteDelivery
-          </span>
+          <img
+            src="/logo.png"
+            alt="SuporteDelivery"
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -30,7 +32,7 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-gray-700 transition hover:text-emerald-600"
+                className="text-sm font-medium text-gray-700 transition hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -42,7 +44,7 @@ export default function Header() {
           href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden rounded-lg bg-emerald-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 md:inline-block"
+          className="hidden rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-primary-light md:inline-block"
         >
           Fale Conosco
         </a>
@@ -80,7 +82,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2 text-sm font-medium text-gray-700 hover:text-emerald-600"
+                  className="block py-2 text-sm font-medium text-gray-700 hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -91,7 +93,7 @@ export default function Header() {
             href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block rounded-lg bg-emerald-600 px-5 py-2 text-center text-sm font-semibold text-white"
+            className="mt-4 block rounded-lg bg-primary px-5 py-2 text-center text-sm font-semibold text-white"
           >
             Fale Conosco
           </a>

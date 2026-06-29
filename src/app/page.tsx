@@ -17,6 +17,7 @@ const services = [
       "Manutenção preventiva e corretiva de computadores, servidores e rede para sua empresa.",
     href: "/servicos/manutencao",
     icon: "🔧",
+    color: "bg-accent-blue",
   },
   {
     title: "Contratos de Suporte",
@@ -24,6 +25,7 @@ const services = [
       "Planos mensais com suporte remoto e presencial. Custo fixo e previsível para sua TI.",
     href: "/servicos/contratos",
     icon: "📋",
+    color: "bg-accent-green",
   },
   {
     title: "Virtualização Proxmox",
@@ -31,6 +33,7 @@ const services = [
       "Servidores virtuais com Proxmox. Reduza custos com infraestrutura open source.",
     href: "/servicos/proxmox",
     icon: "🖥️",
+    color: "bg-accent-yellow",
   },
   {
     title: "Firewall pfSense",
@@ -38,6 +41,7 @@ const services = [
       "Segurança de rede com pfSense. Proteção completa para sua empresa contra ameaças.",
     href: "/servicos/pfsense",
     icon: "🛡️",
+    color: "bg-accent-red",
   },
 ];
 
@@ -47,18 +51,21 @@ const niches = [
     description: "TI especializada para escritórios de advocacia.",
     href: "/nichos/advocacia",
     icon: "⚖️",
+    color: "text-accent-blue",
   },
   {
     title: "Contabilidade",
     description: "Soluções de TI para escritórios contábeis.",
     href: "/nichos/contabilidade",
     icon: "📊",
+    color: "text-accent-green",
   },
   {
     title: "Indústria",
     description: "TI e automação para o setor industrial.",
     href: "/nichos/industria",
     icon: "🏭",
+    color: "text-accent-red",
   },
 ];
 
@@ -67,16 +74,19 @@ const testimonials = [
     name: "Renan Braga",
     initials: "RB",
     text: "Excelente prestação de serviços! A empresa revolucionou nosso escritório e permitiu que otimizássemos nossos resultados com a tecnologia implantada.",
+    color: "bg-accent-blue",
   },
   {
     name: "Mario Amanajas",
     initials: "MA",
     text: "A muitos anos contamos aqui na Empresa com os Serviços da Suporte Delivery. Economizamos mais depois que optamos pelo Contrato com Garantia de Equipamentos.",
+    color: "bg-primary",
   },
   {
     name: "Vando Valentini",
     initials: "VV",
     text: "Eles cuidam das Câmeras de Segurança, colocaram um Servidor de Internet para juntar 2 links. Nossos Computadores estão sempre atualizados e funcionando bem.",
+    color: "bg-accent-green",
   },
 ];
 
@@ -84,14 +94,14 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-600 to-emerald-800 py-20 text-white">
+      <section className="bg-gradient-to-br from-primary via-primary-light to-secondary py-20 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold leading-tight md:text-5xl">
             Suporte de TI Empresarial
             <br />
-            <span className="text-emerald-200">em Curitiba</span>
+            <span className="text-accent-yellow">em Curitiba</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-emerald-100">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
             Contratos de suporte mensal, manutenção de computadores,
             virtualização e segurança da informação. Atendimento remoto e
             presencial para sua empresa.
@@ -101,13 +111,13 @@ export default function HomePage() {
               href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-white px-8 py-3 text-sm font-semibold text-emerald-700 shadow transition hover:bg-emerald-50"
+              className="rounded-lg bg-accent-yellow px-8 py-3 text-sm font-semibold text-primary shadow transition hover:bg-yellow-400"
             >
               Solicitar Orçamento
             </a>
             <a
               href="tel:+554137983434"
-              className="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-emerald-700"
+              className="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-primary"
             >
               📞 Ligue Agora
             </a>
@@ -118,7 +128,9 @@ export default function HomePage() {
       {/* Serviços */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold">Nossos Serviços</h2>
+          <h2 className="text-center text-3xl font-bold text-primary">
+            Nossos Serviços
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
             Soluções completas de TI para sua empresa, com foco em
             performance, segurança e redução de custos.
@@ -130,8 +142,10 @@ export default function HomePage() {
                 href={service.href}
                 className="group rounded-xl bg-white p-6 shadow transition hover:shadow-lg"
               >
-                <div className="text-4xl">{service.icon}</div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-emerald-600">
+                <div className={`flex h-14 w-14 items-center justify-center rounded-full ${service.color} text-2xl text-white`}>
+                  {service.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-primary">
                   {service.title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-600">
@@ -146,12 +160,12 @@ export default function HomePage() {
       {/* Diferenciais */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold">
+          <h2 className="text-center text-3xl font-bold text-primary">
             Por que a SuporteDelivery?
           </h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-3xl">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-blue text-3xl">
                 🚀
               </div>
               <h3 className="mt-4 text-lg font-semibold">Open Source</h3>
@@ -161,7 +175,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-3xl">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-yellow text-3xl">
                 💰
               </div>
               <h3 className="mt-4 text-lg font-semibold">Custo Fixo</h3>
@@ -171,7 +185,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-3xl">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-green text-3xl">
                 📍
               </div>
               <h3 className="mt-4 text-lg font-semibold">Cobertura Regional</h3>
@@ -187,7 +201,7 @@ export default function HomePage() {
       {/* Nichos */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold">
+          <h2 className="text-center text-3xl font-bold text-primary">
             Atendemos Seu Nicho
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
@@ -201,8 +215,8 @@ export default function HomePage() {
                 href={nicho.href}
                 className="group rounded-xl bg-white p-6 text-center shadow transition hover:shadow-lg"
               >
-                <div className="text-4xl">{nicho.icon}</div>
-                <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-emerald-600">
+                <div className={`text-4xl ${nicho.color}`}>{nicho.icon}</div>
+                <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-primary">
                   {nicho.title}
                 </h3>
                 <p className="mt-2 text-sm text-gray-600">{nicho.description}</p>
@@ -215,7 +229,7 @@ export default function HomePage() {
       {/* Depoimentos */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold">
+          <h2 className="text-center text-3xl font-bold text-primary">
             O que nossos Clientes dizem
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
@@ -228,7 +242,7 @@ export default function HomePage() {
                 className="rounded-xl bg-gray-50 p-6 shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-full ${t.color} text-sm font-bold text-white`}>
                     {t.initials}
                   </div>
                   <div>
@@ -243,7 +257,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/depoimentos"
-              className="text-sm font-semibold text-emerald-600 hover:underline"
+              className="text-sm font-semibold text-primary hover:underline"
             >
               Ver todos os depoimentos →
             </Link>
@@ -252,10 +266,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-emerald-600 py-16 text-white">
+      <section className="bg-gradient-to-r from-accent-red via-accent-yellow to-accent-green py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold">Pronto para otimizar sua TI?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-emerald-100">
+          <p className="mx-auto mt-4 max-w-xl text-white/90">
             Fale conosco e descubra como podemos ajudar sua empresa a economizar
             e ter mais eficiência tecnológica.
           </p>
@@ -264,13 +278,13 @@ export default function HomePage() {
               href="https://wa.me/554137983434?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento."
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-white px-8 py-3 text-sm font-semibold text-emerald-700 shadow transition hover:bg-emerald-50"
+              className="rounded-lg bg-white px-8 py-3 text-sm font-semibold text-primary shadow transition hover:bg-gray-100"
             >
               WhatsApp
             </a>
             <Link
               href="/contato"
-              className="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-emerald-700"
+              className="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-primary"
             >
               Formulário de Contato
             </Link>
